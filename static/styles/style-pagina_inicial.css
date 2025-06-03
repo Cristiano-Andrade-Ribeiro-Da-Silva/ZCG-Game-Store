@@ -66,7 +66,13 @@ a
     gap: 20px;
 }
 
-    .carousel-item img
+.main__games-carousel-item
+{
+    width: 90%;
+    height: 300px;
+}
+
+.carousel-item img
 {
     width: 800px;
     height: 300px;

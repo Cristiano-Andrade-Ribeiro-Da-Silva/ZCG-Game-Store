@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, session
-
+from model import control as ct
 
 
 app=Flask(__name__)
@@ -11,7 +11,12 @@ app.secret_key ="zcggamestore"
 
 @app.route("/")
 def pagina_inicial():
-    return render_template("Pagina_inicial.html")
+
+    produto = ct.pega_jogos()
+    jogos_em_destaque = ct.pega_jogos_destaque()
+    jogos_em_destaque2 = ct.pega_jogos_destaque2()
+
+    return render_template("Pagina_inicial.html", produto = produto, jogos_em_destaque = jogos_em_destaque, jogos_em_destaque2 = jogos_em_destaque2)
 
 @app.route("/login")
 def pagina_login():

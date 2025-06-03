@@ -38,6 +38,12 @@ CREATE TABLE tb_comentario (
     comentario TEXT NOT NULL
 );
 
+CREATE TABLE tb_hisorico(
+	cod_item_historico int auto_increment primary key,
+	nome_produto char(50) not null,
+    preco_porduto float
+);
+
 insert into tb_jogo(nome_jogo, preco, descricao_jogo) values("elden ring", 299.99, "um mundo tomado pelo mal e vc é o unico que pode parar isso Setornando o Elden Ring");
 insert into tb_jogo(nome_jogo, preco, descricao_jogo) values("dark souls", 299.99, "derrote chefes e se torne o dark souls");
 insert into tb_jogo(nome_jogo, preco, descricao_jogo) values("dark souls II", 299.99, "derrote chefes e se torne o dark souls II");
@@ -56,4 +62,14 @@ insert into foto_produtos(url) values("./static/img/mw3.jpg");
 insert into foto_produtos(url) values("./static/img/rogue.jpg");
 insert into foto_produtos(url) values("./static/img/bloodborne.jpg");
 
-select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto;
+insert into tb_categoria(categoria) values("RGP e AÇÃO");
+insert into tb_categoria(categoria) values("RGP e AÇÃO");
+insert into tb_categoria(categoria) values("RGP e AÇÃO");
+insert into tb_categoria(categoria) values("RGP e AÇÃO");
+insert into tb_categoria(categoria) values("AÇÃO e AVENTURA");
+insert into tb_categoria(categoria) values("FPS");
+insert into tb_categoria(categoria) values("AÇÃO e AVENTURA");
+insert into tb_categoria(categoria) values("RGP e AÇÃO");
+
+select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria;
+

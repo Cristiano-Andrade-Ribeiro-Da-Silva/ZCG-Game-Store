@@ -81,6 +81,13 @@ a
     border-radius: 10px;
 }
 
+/* Classes do carrocel do bootstrap */
+.carousel-control-prev,
+.carousel-control-next
+{
+    pointer-events: none;
+}
+
 .main__games
 {
     width: 90%;

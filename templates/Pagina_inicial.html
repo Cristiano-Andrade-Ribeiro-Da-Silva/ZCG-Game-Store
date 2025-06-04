@@ -63,6 +63,41 @@
                 </ul>
             </div>
 
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+
+        <div class="container-fluid">
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="bi bi-list"></i></button>
+
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item active" href="#"><i class="bi bi-house-door-fill"></i></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark"></i></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle"></i></a></li>
+                </ul>
+
+            </div>
+
+            <img src="" alt="">
+            <a class="navbar-brand">ZCG Game Store</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+
+            <a href="#"><i class="bi bi-cart-plus"></i></a>
+
+            <div class="btn-group dropstart">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="bi bi-person-circle"></i></button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">My Accont</a></li>
+                    <li><a class="dropdown-item" href="#">Login/Register</a></li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+            </div>
+
         </div>
 
 
@@ -82,6 +117,55 @@
                     <div class="carousel-inner">
                         {% for jogo_destaque2 in jogos_em_destaque2 %}
                         <div class="carousel-item active">
+
+    </nav>
+
+    <main>
+
+        <section class="main__games-carousel">
+
+            <h2>Jogos em Destaque</h2>
+
+            <div class="main__games-carousel-container">
+
+                <div id="carouselExampleRide" class="carousel slide main__games-carousel-item" data-bs-ride="carousel"
+                    data-bs-interval="3000">
+
+                    <div class="carousel-inner">
+                        {% for jogo_destaque2 in jogos_em_destaque2 %}
+                        <div class="carousel-item active">
+
+                            <!-- A img abaixo é para uma foto de jogo em destaque -->
+                            <img src="{{jogo_destaque2.url}}" class="d-block w-100" alt="">
+
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide">
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide">
+                    </button>
+
+                </div>
+
+                <div id="carouselExampleRide" class="carousel slide main__games-carousel-item" data-bs-ride="carousel"
+                    data-bs-interval="3000">
+
+                    <div class="carousel-inner">
+                        {% for jogo_destaque in jogos_em_destaque %}
+                        <div class="carousel-item active">
+                            <!-- A img abaixo é para uma foto de jogo em destaque -->
+                            <img src="{{jogo_destaque.url}}" class="d-block w-100" alt="">
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide">
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide">
 
                             <!-- A img abaixo é para uma foto de jogo em destaque -->
                             <img src="{{jogo_destaque2.url}}" class="d-block w-100" alt="">
@@ -141,6 +225,24 @@
             </div>
 
         </section>
+
+        <section class="main__games">
+
+            {% for jogo in produto %}
+
+            <div class="card container-img-jogos" style="width: 18rem;">
+
+                <!-- A img abaixo é para uma foto de jogo -->
+                <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="">
+
+                <div class="card-body container-sobre-jogo">
+
+                    <p class="card-text">{{jogo.descricao_jogo}}</p>
+                    <h4>{{jogo.nome_jogo}}</h4>
+                    <br>
+                    <h6>R$: {{jogo.preco}}</h6>
+                    <br>
+                    <h6>Categoria: {{jogo.categoria}}</h6>
 
         <section class="main__games">
 

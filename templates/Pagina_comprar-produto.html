@@ -64,57 +64,74 @@
 
 <main class="main">
 
-    <section class="main__produtos">
+    <section class="main__produto">
 
-        <nav class="main__produtos-container">
+        <img src="" alt="">
 
-            <ul>
+        <div class="main__produto-detalhes">
 
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-01</h2>
-                    <button>Excluir</button>
-                </li>
+            <form class="main__produto-detalhes-nome">
 
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-02</h2>
-                    <button>Excluir</button>
-                </li>
+                <p>Nome do  Produto</p>
 
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-03</h2>
-                    <button>Excluir</button>
-                </li>
+            </form>
 
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-04</h2>
-                    <button>Excluir</button>
-                </li>
 
-            </ul>
+            <form class="main__produto-detalhes-descricao">
 
-            <!-- Img do produto -->
-            <img src="" alt="">
+                <p>Descrição do Produto</p>
 
-        </nav>
+            </form>
+
+        </div>
+
+
+        <form class="main__produto-compra">
+
+            <button class="">Comprar</button>
+
+            <button>Termos de Compra</button>
+        
+        </form>
 
     </section>
 
 
-    <section class="main__container-termos">
+    <section class="main__comentario">
 
-        <span>Termos de Licença</span>
+        <div class="main__comentario-container">
+    
+            <form class="main__comentario-container-input">
+                
+                <label>Comentário</label>
+                <textarea name="mensagem"></textarea>
 
-        <div>
+            </form>
 
-            <strong><span>Valor Total: </span> R$ valor</strong>
+            <form  action="" class="main__comentario-container-button">
 
-            <button>Continuar para a compra</button>
+                <button>Publicar</button>
+                
+                <button>Limpar</button>
 
-            <button>Cancelar</button>
+            </form>
+
+        </div>
+
+
+        <div class="main__chat-container">
+
+            <form class="main__chat-container-usuario">
+
+                <span>nome do usuario</span>
+
+            </form>
+
+            <form class="main__container-chat-comentario">
+
+                <span>Comentario</span>
+
+            </form>
 
         </div>
 

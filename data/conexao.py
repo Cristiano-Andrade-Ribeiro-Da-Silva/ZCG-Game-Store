@@ -5,7 +5,7 @@ class Conexao:
         mydb = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="root",
+        password="Victor@!2020",
         database="game_store"
         )
         return mydb

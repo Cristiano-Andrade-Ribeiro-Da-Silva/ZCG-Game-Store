@@ -162,8 +162,24 @@ a
 }
 
 .container-sobre-jogo{
-    height: 275px;
+    height: 350px;
     width: 100%;
 
     text-align: center;
+}
+
+.container-sobre-jogo button
+{
+    width: 100px;
+    height: 50px;
+
+    margin-top: 20px;
+
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.container-sobre-jogo button > a
+{
+    color: black;
 }

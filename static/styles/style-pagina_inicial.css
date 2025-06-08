@@ -159,7 +159,6 @@ a
     padding: 16px;
 
     flex-wrap: wrap;
-
     border: 1px solid var(--preto);
     border-radius: 10px;
 }
@@ -262,4 +261,43 @@ a
 .footer__social a
 {
     font-size: 20px;
+}
+
+
+
+
+
+
+
+
+/* ageitando o tamanho das imagens do jogo no html (adrian)*/
+
+.img-jogo{
+    width: 100%;
+    height: 180px;
+
+    border-top: 15px;
+}
+
+.container-sobre-jogo{
+    height: 350px;
+    width: 100%;
+
+    text-align: center;
+}
+
+.container-sobre-jogo button
+{
+    width: 100px;
+    height: 50px;
+
+    margin-top: 20px;
+
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.container-sobre-jogo button > a
+{
+    color: black;
 }

@@ -118,7 +118,7 @@ a
     border: 1px solid var(--verde_claro);
 }
 
-.main__cadastro-login button:hover
+.main__form-cadastro button:hover
 {
     color: var(--preto);
     background-color: var(--verde_claro);

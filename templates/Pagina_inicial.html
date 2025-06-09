@@ -23,6 +23,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_inicial.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
 
 </head>
 
@@ -37,17 +38,17 @@
                     aria-expanded="false"><i class="bi bi-list"></i></button>
 
                 <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item active" href="#"><i class="bi bi-house-door-fill"></i></a></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark"></i></a></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle"></i></a></li>
+                    <li><a class="dropdown-item active" href="/"><i class="bi bi-house-door-fill"></i></a></li>
+                    <li><a class="dropdown-item" href="/categoria-jogos"><i class="bi bi-bookmark"></i></a></li>
+                    <li><a class="dropdown-item" href="/apresentacao"><i class="bi bi-question-circle"></i></a></li>
                 </ul>
 
             </div>
 
             <img src="" alt="">
-            <a class="navbar-brand">ZCG Game Store</a>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <a class="navbar-brand" href="/">ZCG Game Store</a>
+            <form class="d-flex" role="search" action="/buscar_jogos" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" />
                 <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
             </form>
 
@@ -57,9 +58,9 @@
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="bi bi-person-circle"></i></button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">My Accont</a></li>
-                    <li><a class="dropdown-item" href="#">Login/Register</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="/perfil-usuario">My Accont</a></li>
+                    <li><a class="dropdown-item" href="/cadastro">Login/Register</a></li>
+                    <li><a class="dropdown-item" href="/get/logout">Logout</a></li>
                 </ul>
             </div>
 
@@ -138,6 +139,9 @@
                     <h6>R$: {{jogo.preco}}</h6>
                     <br>
                     <h6>Categoria: {{jogo.categoria}}</h6>
+
+                    <!-- Aqui vai o link para ver o produto -->
+                    <button><a href="/comprar-produto/{{jogo.cod_jogo}}">Ver</a></button>
 
                 </div>
 

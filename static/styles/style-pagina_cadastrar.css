@@ -26,7 +26,6 @@ li
 /* Formatando todos 'a' */
 a
 {
-    font-size: 30px;
     color: white;
     text-decoration: none;
 }
@@ -81,7 +80,7 @@ a
 .main__form-cadastro
 {
     width: 400px;
-    height:300px;
+    height:400px;
 
     display: flex;
     flex-direction: column;
@@ -105,7 +104,10 @@ a
     border-radius: 10px;
 }
 
-
+.main__form-cadastro a
+{
+ all: revert;
+}
 
 .footer
 {

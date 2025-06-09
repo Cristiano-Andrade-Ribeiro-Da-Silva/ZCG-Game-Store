@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash
+from flask import Flask, render_template, request, redirect, session, flash, jsonify
 from model import control as ct
 from model import control_usuario
 
@@ -60,7 +60,15 @@ def pagina_cadas():
     else:
         flash('Algum campo incorreto! Por favor, preencha novamente.', 'error')
         return redirect("/cadastro")
+    
+@app.route("/buscar_jogos", methods=["GET"])
+def buscar_jogos():
+    # "q" se refere ao query, ou seja, a URL | o outro parâmetro é se o usuario acessar sem buscar nada, ou seja, retorna em uma string vazia
+    termo = request.args.get('q', '')
+    resultados = ct.busca_jogos_por_nome(termo)
 
+
+    return render_template('Pagina_busca.html', jogos=resultados, termo=termo)
 
 
 @app.route("/carrinho")
@@ -75,9 +83,14 @@ def pagina_apresentacao():
 def pagina_perfil_usuario():
     return render_template("Pagina_perfil-usuario.html")
 
+
+# CATEGORIA
 @app.route("/categoria-jogos")
 def pagina_categoria():
     return render_template("Pagina_categoria-jogos.html")
+
+
+
 
 @app.route("/comprar-produto")
 def pagina_comprar_produto():
@@ -93,5 +106,7 @@ def pagina_logout():
 if __name__ == "__main__":
     app.run(debug=True)
     # app.run(host="0.0.0.0", port=8080)
+
+
 
 

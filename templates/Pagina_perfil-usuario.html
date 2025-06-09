@@ -5,10 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZCG-GAME-STORE</title>
 
-    <!-- link css interno -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_perfil-usuario.css') }}">
+    <!-- links externo -->
+
+        <!-- Link CSS Bootstrap via CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+
+        <!-- Link CSS Bootstrap via CDN -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+        <!-- Link JS Bootstrap via CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" defer></script>
+
+
+    <!-- links interno -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_perfil_usuario.css') }}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
+
+
 </head>
+
 <body>
     
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+
+    <div class="container-fluid">
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></button>
+
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item active" href="/"><i class="bi bi-house-door-fill"></i></a></li>
+                <li><a class="dropdown-item" href="/categoria-jogos"><i class="bi bi-bookmark"></i></a></li>
+                <li><a class="dropdown-item" href="/apresentacao"><i class="bi bi-question-circle"></i></a></li>
+            </ul>
+            
+        </div>
+
+        <img src="" alt="">
+        <a class="navbar-brand" href="/">ZCG Game Store</a>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+
+        <a href="#"><i class="bi bi-cart-plus"></i></a>
+
+        <div class="btn-group dropstart">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/perfil-usuario">My Accont</a></li>
+                <li><a class="dropdown-item" href="/login">Login/Register</a></li>
+                <li><a class="dropdown-item" href="/get/logout">Logout</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</nav>
+
+<main class="main">
+
+    <section class="main__perfil">
+
+        <div class="main__perfil-container">
+
+            <figure>
+
+                <img src="../static/img/foto-usuario.jpg" alt="FOTO-PERFIL">
+
+            </figure>
+
+
+            <form>
+
+                <span>NOME DO USUARIO: {{session["nome_usuario"]}}</span>
+                
+                <span>EMAIL DO USUARIO: {{session["Usuario"]}}</span>
+                
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <section class="main__historico">
+
+        <span>Histórico de compras</span>
+
+        <nav class="main__historico-container">
+
+            <ul>
+
+                <li>
+                    <input type="checkbox">
+                    <h2>Produto-01</h2>
+                    <button>Excluir</button>
+                </li>
+
+                <li>
+                    <input type="checkbox">
+                    <h2>Produto-02</h2>
+                    <button>Excluir</button>
+                </li>
+
+                <li>
+                    <input type="checkbox">
+                    <h2>Produto-03</h2>
+                    <button>Excluir</button>
+                </li>
+
+                <li>
+                    <input type="checkbox">
+                    <h2>Produto-04</h2>
+                    <button>Excluir</button>
+                </li>
+
+            </ul>
+
+            <!-- Img do produto -->
+            <img src="" alt="">
+
+        </nav>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+        
+    <span>@ ZCG GAME STORE 2025. Muitos direitos Reservados</span>
+
+    <form class="footer__social">
+
+        <a href="https://www.facebook.com/?locale=pt_BR"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+        <a href="https://br.linkedin.com/"><i class="bi bi-linkedin"></i></a>
+        <a href="https://x.com/"><i class="bi bi-twitter-x"></i></a>
+
+    </form>
+
+</footer>
+
 </body>
 </html>

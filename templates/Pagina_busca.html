@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ZCG Game Store - Resultados da Busca</title>
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_busca.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
+</head>
+
+<body>
+    <h1>Resultados da busca para "{{ termo }}"</h1>
+
+    {% if jogos %}
+    <ul>
+        {% for jogo in jogos %}
+        <li>
+            <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="FOTO-JOGO">
+            <h3>{{ jogo.nome_jogo }}</h3>
+            <p>{{ jogo.descricao_jogo }}</p>
+            <p><strong>Preço:</strong> R$ {{ "%.2f"|format(jogo.preco) }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Nenhum jogo encontrado.</p>
+    {% endif %}
+
+    <a href="/">Voltar para a página inicial</a>
+</body>
+
+</html>

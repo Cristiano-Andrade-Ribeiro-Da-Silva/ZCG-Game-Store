@@ -91,10 +91,12 @@ def pagina_categoria():
 
 
 
+@app.route("/comprar-produto/<codigo>")
+def pagina_comprar_produto(codigo):
 
-@app.route("/comprar-produto")
-def pagina_comprar_produto():
-    return render_template("Pagina_comprar-produto.html")
+    produto_jogo = ct.comprar_produto(codigo)
+
+    return render_template("Pagina_comprar-produto.html", produto = produto_jogo)
 
 
 @app.route("/get/logout")

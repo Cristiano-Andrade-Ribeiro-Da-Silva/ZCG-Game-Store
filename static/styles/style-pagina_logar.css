@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+body
+{
+    background-color: var(--preto);
+    color: var(--branco);
+}
 
 /* Formatando todos os botões para um padrão */
 button
@@ -26,7 +31,7 @@ li
 /* Formatando todos 'a' */
 a
 {
-    color: white;
+    color: var(--branco);
     text-decoration: none;
 }
 
@@ -43,7 +48,8 @@ a
     align-items: center;
 
 
-    border: 1px solid black;
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
     border-radius: 10px;
 }
 
@@ -73,7 +79,7 @@ a
     text-align: center;
     align-items: center;
 
-    border: 1px solid black;
+    border: 1px solid var(--cinza_claro);
     border-radius: 10px;
 }
 
@@ -88,7 +94,7 @@ a
     align-items: center;
     gap: 20px;
 
-    border: 1px solid black;
+    border: 1px solid var(--cinza_claro);
     border-radius: 10px;
 }
 
@@ -100,10 +106,25 @@ a
 
     text-align: center;
 
-    border: 1px solid black;
+    border: 1px solid var(--cinza_claro);
     border-radius: 10px;
+
+    transition: 0.5s;
 }
 
+.main__form-login button
+{
+    color: var(--branco);
+    background-color: transparent;
+    border: 1px solid var(--verde_claro);
+}
+
+.main__form-login button:hover
+{
+    color: var(--preto);
+    background-color: var(--verde_claro);
+    border: 1px solid var(--branco);
+}
 .main__form-login a
 {
  all: revert;
@@ -122,14 +143,14 @@ a
     align-items: center;
 
     background-color: #212529;
-    border: 1px solid black;
+    border: 1px solid var(--cinza_claro);
     border-left: 0;
     border-right: 0;
 }
 
 .footer span    
 {
-    color: white;
+    color: var(--branco);
 }
 
 .footer__social

@@ -26,7 +26,7 @@ class Conexao:
     #conexão aiven adrian
     def conexao():
         mydb = mysql.connector.connect(
-            host="localhost",
+            host="adrian-zcg-game-store-adrian-zcg-game-store-21.c.aivencloud.com",
             port="25781",
             user="avnadmin",
             password="AVNS_jgx-3UO-5H_xZRimX4d",

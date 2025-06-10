@@ -107,7 +107,7 @@ def resgata_produto():
         conexao = CX.Conexao.conexao()
         cursor = conexao.cursor(dictionary=True)
 
-        sql = """select nome_jogo from tb_jogo 
+        sql = """select * from tb_jogo 
 
                 inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos 
                 inner join tb_categoria on tb_jogo.cod_categoria = tb_categoria.cod_categoria
@@ -117,6 +117,24 @@ def resgata_produto():
 
         infos = cursor.fetchall()
 
+        cursor.close()
+        conexao.close()
+
+        return infos
+
+def excluir_produtos(codigo):
+        valor = (codigo,)
+
+        conexao = CX.Conexao.conexao()
+        cursor = conexao.cursor()
+
+        sql = """DELETE FROM tb_carrinho WHERE cod_jogo = %s;"""
+
+        cursor.execute(sql,valor)
+
+        infos = cursor.fetchall()
+
+        conexao.commit()
         cursor.close()
         conexao.close()
 

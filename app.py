@@ -116,6 +116,12 @@ def pagina_comprar_produto(codigo):
 
     produto_jogo = SimpleNamespace(**produto_data)
 
+
+@app.route("/excluir/<codigo>")
+def excluir_produto(codigo):
+    ct.excluir_produtos(codigo)
+    return redirect("/carrinho")
+
     mensagens = Mensagem.mostra_mensagens(codigo)
     if mensagens is None:
         mensagens = []
@@ -142,7 +148,6 @@ def postar_comentario():
 
     return redirect(f"/comprar-produto/{cod_jogo}")
 
-
 @app.route("/get/logout")
 def pagina_logout():
     flash("Você saiu da sua conta com êxito")
@@ -152,6 +157,7 @@ def pagina_logout():
 if __name__ == "__main__":
     app.run(debug=True)
     # app.run(host="0.0.0.0", port=8080)
+    #oloko mano
 
 
 

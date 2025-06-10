@@ -40,7 +40,8 @@ CREATE TABLE foto_produtos (
 
 CREATE TABLE tb_comentario (
     cod_comentario INT AUTO_INCREMENT PRIMARY KEY,
-    comentario TEXT NOT NULL
+    comentario TEXT NOT NULL,
+    cod_jogo int
 );
 
 CREATE TABLE tb_hisorico(
@@ -59,8 +60,6 @@ insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Ass
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Bloodborne', 299.99, 'um caçador chega a Yharnam, enfrenta monstros e deuses para escapar de um pesadelo.', 1);
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Forza Horizon 5', 299.99, 'explore um mundo gigante participando de corrigas com super carros tunados até o maximo', 4);
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Need for speed', 299.99, 'participe de corridas ilegais nas ruas da cidade sendo seguido pela policia mais treinada do pais.', 4);
-insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('God of War', 299.99, 'entre em uma missão para deter o inicio da ragnarok derrotando thor deus do trovão', 1);
-
 
 insert into foto_produtos(url, cod_jogos) values('../static/img/eldenring.png', 1);
 insert into foto_produtos(url, cod_jogos) values('../static/img/dark souls.jpg', 2);
@@ -72,7 +71,6 @@ insert into foto_produtos(url, cod_jogos) values('../static/img/rogue.jpg', 7);
 insert into foto_produtos(url, cod_jogos) values('../static/img/bloodborne.jpg', 8);
 insert into foto_produtos(url, cod_jogos) values('../static/img/forza5.jpg', 9);
 insert into foto_produtos(url, cod_jogos) values('../static/img/need for speed.jpg', 10);
-insert into foto_produtos(url, cod_jogos) values('../static/img/god of war.jpg', 11);
 
 insert into tb_categoria(categoria) values('RGP e AÇÃO');
 insert into tb_categoria(categoria) values('FPS');
@@ -81,8 +79,9 @@ insert into tb_categoria(categoria) values('CORRIDAS');
 
 select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria;
 
-select nome_jogo from tb_jogo 
+select * from tb_jogo 
 
 inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos 
 inner join tb_categoria on tb_jogo.cod_categoria = tb_categoria.cod_categoria
-inner join tb_carrinho on tb_jogo.cod_jogo = tb_carrinho.cod_jogo;
+inner join tb_carrinho on tb_jogo.cod_jogo = tb_carrinho.cod_jogo
+inner join tb_comentario on tb_jogo.cod_jogo = tb_comentario.cod_jogo;

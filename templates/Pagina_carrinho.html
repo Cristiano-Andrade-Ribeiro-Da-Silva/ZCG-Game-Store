@@ -5,22 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZCG-GAME-STORE</title>
 
-    <!-- link css interno -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_carrinho.css') }}">
-</head>
-<body>
-    
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZCG-GAME-STORE</title>
-
     <!-- links externo -->
 
         <!-- Link CSS Bootstrap via CDN -->
@@ -40,6 +24,7 @@
         <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
 
 </head>
+
 <body>
     
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
@@ -86,30 +71,13 @@
         <nav class="main__produtos-container">
 
             <ul>
-
+                {% for pr2 in pega_produto %}
                 <li>
                     <input type="checkbox">
-                    <h2>Produto-01</h2>
+                    <h2>{{pr2.nome_jogo}}</h2>
                     <button>Excluir</button>
                 </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-02</h2>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-03</h2>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-04</h2>
-                    <button>Excluir</button>
-                </li>
+                {% endfor %}
 
             </ul>
 
@@ -121,17 +89,29 @@
     </section>
 
 
-    <section class="main__container-termos">
+    <section class="main__termos">
 
         <span>Termos de Licença</span>
 
-        <div>
+        <div class="main__termos-container">
 
             <strong><span>Valor Total: </span> R$ valor</strong>
 
-            <button class="main__container-termos-button-comprar">Continuar para a compra</button>
+            <div class="main__termos-container-button">
 
-            <button class="main__container-termos-button-cancelar">Cancelar</button>
+                <form action="" class="main__termos-container-button-comprar">
+
+                    <button>Continuar para a compra</button>
+
+                </form>
+                
+                <form action="" class="main__termos-container-button-cancelar">
+
+                    <button>Cancelar</button>
+
+                </form>
+
+            </div>
 
         </div>
 

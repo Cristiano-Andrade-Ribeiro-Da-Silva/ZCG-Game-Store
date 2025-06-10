@@ -141,7 +141,7 @@ def postar_comentario():
         flash("Comentário vazio ou jogo inválido!", "error")
 
     return redirect(f"/comprar-produto/{cod_jogo}")
-
+# oloko
 
 @app.route("/get/logout")
 def pagina_logout():

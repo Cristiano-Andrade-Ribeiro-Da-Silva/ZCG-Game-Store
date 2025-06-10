@@ -1,4 +1,3 @@
-/* Formatando Tudo */
 *
 {
     padding: 0;
@@ -152,6 +151,8 @@ a
     color: var(--preto);
     background-color: var(--verde_claro);
     border: 1px solid var(--branco);
+
+    scale: 1.1;
 }
 
 .main__produto-compra-termos
@@ -168,6 +169,8 @@ a
     color: var(--preto);
     background-color: var(--azul_claro);
     border: 1px solid var(--branco);
+    
+    scale: 1.1;
 }
 
 
@@ -266,6 +269,8 @@ a
     color: var(--preto);
     background-color: var(--verde_claro);
     border: 1px solid var(--branco);
+    
+    scale: 1.1;
 }
 
 .main__comentario-container-button-limpar
@@ -282,6 +287,8 @@ a
     color: var(--preto);
     background-color: var(--vermelho);
     border: 1px solid var(--branco);
+    
+    scale: 1.1;
 }
 
 .main__chat-container

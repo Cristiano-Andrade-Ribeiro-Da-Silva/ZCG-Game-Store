@@ -111,9 +111,9 @@
 
             </form>
 
-            <form  action="" class="main__comentario-container-button">
+            <form  action="/post/cadastra_comentario" class="main__comentario-container-button" method="POST">
 
-                <button>Publicar</button>
+                <button type="submit">Publicar</button>
                 
                 <button>Limpar</button>
 
@@ -121,22 +121,25 @@
 
         </div>
 
+        {%for mansagem in Mensagem%}
 
         <div class="main__chat-container">
 
             <form class="main__chat-container-usuario">
 
-                <span>nome do usuario</span>
+                <span name = "usuario">{{mensagem.usuario}}</span>
 
             </form>
 
             <form class="main__container-chat-comentario">
 
-                <span>Comentario</span>
+                <span name="comentario">{{mensagem.comentario}}</span>
 
             </form>
 
         </div>
+
+        {%  endfor %}
 
     </section>
 

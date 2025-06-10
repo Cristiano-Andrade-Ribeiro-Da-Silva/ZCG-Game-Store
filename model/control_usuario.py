@@ -70,5 +70,7 @@ class Usuario:
         
 
     def logoff():
-        session.clear()
+        if "Usuario" in session:
+
+                session.pop("usuario", None)
 

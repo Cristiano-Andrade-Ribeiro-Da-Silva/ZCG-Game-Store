@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect, session, flash, jsonify
+from flask import Flask, render_template, request, redirect, session, flash, jsonify, url_for
 from model import control as ct
 from model import control_usuario
+from model import control_comentario as cc
 
 
 app=Flask(__name__)
@@ -94,16 +95,39 @@ def pagina_categoria():
 @app.route("/comprar-produto/<codigo>")
 def pagina_comprar_produto(codigo):
 
-    produto_jogo = ct.comprar_produto(codigo)
+    if "Usuario" in session:
 
-    return render_template("Pagina_comprar-produto.html", produto = produto_jogo)
+        mensagem = cc.Mensagem.mostra_mensagens()
+        produto_jogo = ct.comprar_produto(codigo)
+        return render_template("Pagina_comprar-produto.html", produto = produto_jogo, Mensagem = mensagem)
+    else:
+        return redirect("/login")
 
+@app.route("/post/cadastra_comentario", methods = ["POST"])
+def pagina_comentario():
+
+    if "Usuario" in session:
+        Usuario = request.form.get("usuario")
+
+        comentario = request.form.get("comentario")
+
+    if Usuario and comentario:
+
+        cc.Mensagem.cadastrar_mensagem(Usuario, comentario)
+
+    else:
+        flash("DEU ERRO MENÓ")
+
+    return redirect("/comprar-produto/<codigo")
 
 @app.route("/get/logout")
 def pagina_logout():
     flash("Você saiu da sua conta com êxito")
     control_usuario.Usuario.logoff()
     return redirect("/")
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

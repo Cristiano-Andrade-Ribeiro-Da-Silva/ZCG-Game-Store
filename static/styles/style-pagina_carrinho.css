@@ -1,3 +1,6 @@
+/* importando fontes */
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Beba+Neue&family=Savate:ital,wght@0,200..900;1,200..900&display=swap');
+
 /* Formatando Tudo */
 *
 {
@@ -42,6 +45,8 @@ a
 
 .main
 {
+    font-family: "Arbutus", serif;
+
     width: 90%;
     height: 100vh;
 
@@ -83,6 +88,8 @@ a
 {
     width: 800px;
     height: 400px;
+
+    font-family: "Arbutus", serif;
 
     margin: 10px auto;
 
@@ -145,7 +152,7 @@ a
 
 .main__produtos-container img
 {
-    width: 540px;
+    width: 665px;
     height: 400px;
 
     margin: 10px auto;
@@ -274,4 +281,16 @@ a
 .footer__social a
 {
     font-size: 20px;
+}
+
+/* adrian esteve aq */
+
+.div-imagem-produto{
+    height: 500px;
+    width: 1000px;
+
+    text-align: center;
+
+    overflow: scroll;
+    overflow-x: hidden;
 }

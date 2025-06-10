@@ -90,14 +90,22 @@
                 <li>
                     <input type="checkbox">
                     <h2>{{pr2.nome_jogo}}</h2>
-                    <button>Excluir</button>
+                    <button><a href="/excluir/{{pr2.cod_jogo}}">Excluir</a></button>
                 </li>
                 {% endfor %}
 
             </ul>
 
             <!-- Img do produto -->
-            <img src="" alt="">
+            <div class="div-imagem-produto">
+                {% for pr2 in pega_produto %}
+                <p>Codigo Produto: {{loop.index}}</p>
+                <h2>{{pr2.nome_jogo}}</h2>
+                <img src="{{pr2.url}}"> <br>
+                <br>
+                {% endfor %}
+            </div>
+            
 
         </nav>
 
@@ -114,7 +122,7 @@
 
             <button class="main__container-termos-button-comprar">Continuar para a compra</button>
 
-            <button class="main__container-termos-button-cancelar">Cancelar</button>
+            <button class="main__container-termos-button-cancelar"><a href="">Cancelar</a></button>
 
         </div>
 

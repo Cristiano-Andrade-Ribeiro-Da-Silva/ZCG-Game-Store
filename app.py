@@ -109,7 +109,10 @@ def pagina_comprar_produto(codigo):
 
     return render_template("Pagina_comprar-produto.html", produto = produto_jogo)
 
-
+@app.route("/excluir/<codigo>")
+def excluir_produto(codigo):
+    ct.excluir_produtos(codigo)
+    return redirect("/carrinho")
 
 @app.route("/get/logout")
 def pagina_logout():

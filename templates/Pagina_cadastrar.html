@@ -25,6 +25,7 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_cadastrar.css') }}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
 
 </head>
 <body>
@@ -40,16 +41,16 @@
 
 
             <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item active" href="#"><i class="bi bi-house-door-fill"></i></a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark"></i></a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle"></i></a></li>
+                <li><a class="dropdown-item active" href="/"><i class="bi bi-house-door-fill"></i></a></li>
+                <li><a class="dropdown-item" href="/categoria-jogos"><i class="bi bi-bookmark"></i></a></li>
+                <li><a class="dropdown-item" href="/apresentacao"><i class="bi bi-question-circle"></i></a></li>
             </ul>
            
         </div>
 
 
         <img src="" alt="">
-        <a class="navbar-brand">ZCG Game Store</a>
+        <a class="navbar-brand" href="/">ZCG Game Store</a>
         <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
             <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
@@ -100,6 +101,8 @@
 
 
             <button type="submit" class="button-entrar">Cadastrar</button>
+
+            <a href="/login">Já tem uma conta? Clique aqui!</a>
 
 
         </form>

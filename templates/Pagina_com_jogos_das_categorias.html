@@ -20,12 +20,10 @@
     <!-- links interno -->
 
         <!-- CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_perfil_usuario.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_com_jogos_das_categorias.css') }}">
         <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
 
-
 </head>
-
 <body>
     
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
@@ -55,9 +53,9 @@
         <div class="btn-group dropstart">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/perfil-usuario">My Accont</a></li>
-                <li><a class="dropdown-item" href="/login">Login/Register</a></li>
-                <li><a class="dropdown-item" href="/get/logout">Logout</a></li>
+                <li><a class="dropdown-item" href="#">My Accont</a></li>
+                <li><a class="dropdown-item" href="#">Login/Register</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
             </ul>
         </div>
 
@@ -65,73 +63,7 @@
 
 </nav>
 
-<main class="main">
-
-    <section class="main__perfil">
-
-        <div class="main__perfil-container">
-
-            <figure>
-
-                <img src="../static/img/foto-usuario.jpg" alt="FOTO-PERFIL">
-
-            </figure>
-
-
-            <form>
-
-                <span>NOME DO USUARIO: {{session["nome_usuario"]}}</span>
-                
-                <span>EMAIL DO USUARIO: {{session["Usuario"]}}</span>
-                
-
-            </form>
-
-        </div>
-
-    </section>
-
-
-    <section class="main__historico">
-
-        <span>Histórico de compras</span>
-
-        <nav class="main__historico-container">
-
-            <ul>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-01</h2>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-02</h2>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-03</h2>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-04</h2>
-                    <button>Excluir</button>
-                </li>
-
-            </ul>
-
-            <!-- Img do produto -->
-            <img src="" alt="">
-
-        </nav>
-
-    </section>
+<main>
 
 </main>
 

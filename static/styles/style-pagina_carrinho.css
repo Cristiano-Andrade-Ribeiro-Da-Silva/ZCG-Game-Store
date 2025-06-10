@@ -1,0 +1,277 @@
+/* Formatando Tudo */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    color: var(--branco);
+    background-color: var(--preto);
+}
+
+/* Formatando todos os botões para um padrão */
+button
+{
+    width: 50px;
+    height: 40px;
+
+    cursor: pointer;
+}
+
+/* Tirando formatações */
+li
+{
+    list-style-type: none;
+    list-style: none;
+}
+
+/* Formatando todos 'a' */
+a
+{
+    color: var(--branco);
+    text-decoration: none;
+}
+
+.dropdown-menu
+{
+    text-align: center;
+}
+
+.main
+{
+    width: 90%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px auto;
+}
+
+.main__produtos
+{
+    width: 90%;
+    height: 600px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__produtos-container
+{
+    width: 90%;
+    height: 90%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__produtos-container ul
+{
+    width: 800px;
+    height: 400px;
+
+    margin: 10px auto;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px 0 0 10px;
+}
+
+.main__produtos-container li
+{
+    width: 600px;
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__produtos-container input,
+.main__produtos-container button
+{
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 5px;
+}
+
+.main__produtos-container button
+{
+    width: 80px;
+    height: 40px;
+    color: var(--branco);
+    background-color: transparent;
+    border: 1px solid var(--vermelho);
+
+    transition: 0.5s;
+}
+
+.main__produtos-container button:hover
+{
+    color: var(--preto);
+    background-color: var(--vermelho);
+    border: 1px solid var(--branco);
+
+    scale: 1.1;
+}
+
+.main__produtos-container img
+{
+    width: 540px;
+    height: 400px;
+
+    margin: 10px auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__container-termos
+{
+    width: 1440px;
+    height: 200px;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+
+.main__container-termos div
+{
+    width: 90%;
+    height: 100px;
+
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__container-termos-button-comprar,
+.main__container-termos-button-cancelar
+{
+    width: 200px;
+    height: 50px;
+
+    border-radius: 10px;
+}
+
+.main__container-termos-button-comprar
+{
+    color: var(--branco);
+    background-color: transparent;
+    border: 1px solid var(--verde_claro);
+
+    transition: 0.5s;
+}
+
+.main__container-termos-button-comprar:hover
+{
+    color: var(--preto);
+    background-color: var(--verde_claro);
+    border: 1px solid var(--branco);
+
+    scale: 1.1;
+}
+
+.main__container-termos-button-cancelar
+{
+    color: var(--branco);
+    background-color: transparent;
+    border: 1px solid var(--vermelho);
+
+    transition: 0.5s;
+}
+
+.main__container-termos-button-cancelar:hover
+{
+    color: var(--preto);
+    background-color: var(--vermelho);
+    border: 1px solid var(--branco);
+
+    scale: 1.1;
+}
+
+
+.footer
+{
+    width: 100%;
+    height: 50px;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #212529;
+    border: 1px solid var(--cinza_claro);
+    border-left: 0;
+    border-right: 0;
+}
+
+.footer span
+{
+    color: var(--branco);
+}
+
+.footer__social
+{
+    width: 200px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.footer__social a
+{
+    font-size: 20px;
+}

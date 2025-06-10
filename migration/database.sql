@@ -20,17 +20,20 @@ CREATE TABLE tb_jogo (
     cod_jogo INT AUTO_INCREMENT PRIMARY KEY,
     nome_jogo VARCHAR(50) NOT NULL,
     preco FLOAT NOT NULL,
-    descricao_jogo VARCHAR(255)
+    descricao_jogo VARCHAR(255),
+    cod_categoria int
 );
 
 CREATE TABLE tb_carrinho (
     cod_carrinho INT AUTO_INCREMENT PRIMARY KEY,
-    quantidade INT DEFAULT 1
+    codigo_produto int not null,
+    cod_usuario int
 );
 
 CREATE TABLE foto_produtos (
     cod_foto INT AUTO_INCREMENT PRIMARY KEY,
-    url TEXT NOT NULL
+    url TEXT NOT NULL,
+    cod_jogo int
 );
 
 CREATE TABLE tb_comentario (
@@ -63,12 +66,13 @@ insert into foto_produtos(url) values('../static/img/rogue.jpg');
 insert into foto_produtos(url) values('../static/img/bloodborne.jpg');
 
 insert into tb_categoria(categoria) values('RGP e AÇÃO');
-insert into tb_categoria(categoria) values('RGP e AÇÃO');
-insert into tb_categoria(categoria) values('RGP e AÇÃO');
-insert into tb_categoria(categoria) values('RGP e AÇÃO');
-insert into tb_categoria(categoria) values('AÇÃO e AVENTURA');
 insert into tb_categoria(categoria) values('FPS');
 insert into tb_categoria(categoria) values('AÇÃO e AVENTURA');
-insert into tb_categoria(categoria) values('RGP e AÇÃO');
 
-select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria;
+insert into tb_carrinho(codigo_produto) values(1);
+
+select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria inner join tb_carrinho ON tb_jogo.cod_jogo = tb_carrinho.cod_carrinho;
+
+select * from tb_carrinho;
+
+select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria inner join tb_carrinho ON tb_jogo.cod_jogo = tb_carrinho.cod_carrinho;

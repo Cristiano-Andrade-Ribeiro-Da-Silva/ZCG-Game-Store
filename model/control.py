@@ -89,3 +89,35 @@ def comprar_produto(codigo):
         conexao.close()
 
         return infos
+
+
+def carrinho_produto(codigo):
+
+        conexao = CX.Conexao.conexao()
+        cursor = conexao.cursor()
+
+        valor = (codigo,)
+
+        sql = "INSERT INTO tb_carrinho(codigo_produto) VALUES(%s);"
+
+        cursor.execute(sql, valor)
+        
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
+def resgata_produto():
+       
+        conexao = CX.Conexao.conexao()
+        cursor = conexao.cursor(dictionary=True)
+
+        sql = """select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria inner join tb_carrinho ON tb_jogo.cod_jogo = tb_carrinho.cod_carrinho WHERE cod_jogo = codigo_produto;"""
+
+        cursor.execute(sql)
+
+        infos = cursor.fetchall()
+
+        cursor.close()
+        conexao.close()
+
+        return infos

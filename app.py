@@ -71,9 +71,13 @@ def buscar_jogos():
     return render_template('Pagina_busca.html', jogos=resultados, termo=termo)
 
 
-@app.route("/carrinho")
-def pagina_carrinho():
-    return render_template("Pagina_carrinho.html")
+@app.route("/carrinho/<codigo>")
+def pagina_carrinho(codigo):
+
+    produto = ct.carrinho_produto(codigo)
+    pega_produto = ct.resgata_produto()
+
+    return render_template("Pagina_carrinho.html", produto = produto, pega_produto = pega_produto)
 
 @app.route("/apresentacao")
 def pagina_apresentacao():

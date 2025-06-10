@@ -166,7 +166,7 @@ a
     border-radius: 10px;
 }
 
-.main__container-termos
+.main__termos
 {
     width: 1440px;
     height: 200px;
@@ -184,7 +184,7 @@ a
 }
 
 
-.main__container-termos div
+.main__termos-container
 {
     width: 90%;
     height: 100px;
@@ -200,8 +200,19 @@ a
     border-radius: 10px;
 }
 
-.main__container-termos-button-comprar,
-.main__container-termos-button-cancelar
+.main__termos-container-button
+{
+    width: 600px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.main__termos-container-button-comprar button,
+.main__termos-container-button-cancelar button
 {
     width: 200px;
     height: 50px;
@@ -209,7 +220,7 @@ a
     border-radius: 10px;
 }
 
-.main__container-termos-button-comprar
+.main__termos-container-button-comprar button
 {
     color: var(--branco);
     background-color: transparent;
@@ -218,7 +229,7 @@ a
     transition: 0.5s;
 }
 
-.main__container-termos-button-comprar:hover
+.main__termos-container-button-comprar button:hover
 {
     color: var(--preto);
     background-color: var(--verde_claro);
@@ -227,7 +238,7 @@ a
     scale: 1.1;
 }
 
-.main__container-termos-button-cancelar
+.main__termos-container-button-cancelar button
 {
     color: var(--branco);
     background-color: transparent;
@@ -236,7 +247,7 @@ a
     transition: 0.5s;
 }
 
-.main__container-termos-button-cancelar:hover
+.main__termos-container-button-cancelar button:hover
 {
     color: var(--preto);
     background-color: var(--vermelho);

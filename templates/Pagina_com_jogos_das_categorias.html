@@ -20,7 +20,7 @@
     <!-- links interno -->
 
         <!-- CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_comprar_produtos.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_com_jogos_das_categorias.css') }}">
         <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
 
 </head>
@@ -63,85 +63,7 @@
 
 </nav>
 
-<main class="main">
-
-    <section class="main__produto">
-
-        <img src="{{produto.url}}">
-
-
-        <div class="main__produto-detalhes">
-
-            <form class="main__produto-detalhes-nome">
-
-                <h1>{{produto.nome_jogo}}</h1>
-
-            </form>
-
-
-            <form class="main__produto-detalhes-descricao">
-
-                <h2>Descrição do Produto</h2>
-                <p>{{produto.descricao_jogo}}</p>
-
-            </form>
-
-        </div>
-
-
-        <form class="main__produto-compra" action="/carrinho/{{produto.cod_jogo}}">
-
-            <button class="main__produto-compra-comprar">Comprar</button>
-
- continuação-da-pagina-de-compra-do-jogo
-
-            <button class="main__produto-compra-termos">Termos de Compra</button>
-        
- main
-        </form>
-
-    </section>
-
-
-    <section class="main__comentario">
-
-        <div class="main__comentario-container">
-    
-            <form class="main__comentario-container-input">
-                
-                <label>Comentário</label>
-                <textarea name="mensagem"></textarea>
-
-            </form>
-
-            <form  action="" class="main__comentario-container-button">
-
-                <button class="main__comentario-container-button-publicar">Publicar</button>
-                
-                <button class="main__comentario-container-button-limpar">Limpar</button>
-
-            </form>
-
-        </div>
-
-
-        <div class="main__chat-container">
-
-            <form class="main__chat-container-usuario">
-
-                <span>nome do usuario</span>
-
-            </form>
-
-            <form class="main__container-chat-comentario">
-
-                <span>Comentario</span>
-
-            </form>
-
-        </div>
-
-    </section>
+<main>
 
 </main>
 

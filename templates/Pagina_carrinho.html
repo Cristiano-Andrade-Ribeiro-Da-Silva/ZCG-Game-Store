@@ -86,30 +86,13 @@
         <nav class="main__produtos-container">
 
             <ul>
-
+                {% for pr2 in pega_produto %}
                 <li>
                     <input type="checkbox">
-                    <h2>Produto-01</h2>
+                    <h2>{{pr2.nome_jogo}}</h2>
                     <button>Excluir</button>
                 </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-02</h2>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-03</h2>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-04</h2>
-                    <button>Excluir</button>
-                </li>
+                {% endfor %}
 
             </ul>
 
@@ -129,9 +112,9 @@
 
             <strong><span>Valor Total: </span> R$ valor</strong>
 
-            <button>Continuar para a compra</button>
+            <button class="main__container-termos-button-comprar">Continuar para a compra</button>
 
-            <button>Cancelar</button>
+            <button class="main__container-termos-button-cancelar">Cancelar</button>
 
         </div>
 

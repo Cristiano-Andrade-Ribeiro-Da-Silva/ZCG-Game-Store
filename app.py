@@ -71,9 +71,20 @@ def buscar_jogos():
     return render_template('Pagina_busca.html', jogos=resultados, termo=termo)
 
 
+@app.route("/carrinho/<codigo>")
+def add_pagina_carrinho(codigo):
+
+    ct.carrinho_produto(codigo)
+
+    return redirect("/carrinho")
+
 @app.route("/carrinho")
-def pagina_carrinho():
-    return render_template("Pagina_carrinho.html")
+def exibir_carrinho():
+
+    pega_produto = ct.resgata_produto()
+
+    return render_template("Pagina_carrinho.html", pega_produto = pega_produto)
+
 
 @app.route("/apresentacao")
 def pagina_apresentacao():
@@ -97,6 +108,7 @@ def pagina_comprar_produto(codigo):
     produto_jogo = ct.comprar_produto(codigo)
 
     return render_template("Pagina_comprar-produto.html", produto = produto_jogo)
+
 
 
 @app.route("/get/logout")

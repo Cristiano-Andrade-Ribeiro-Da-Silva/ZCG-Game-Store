@@ -125,7 +125,7 @@ a
 }
 
 .main__produto-compra-comprar button,
-.main__produto-termos-comprar button
+.main__produto-compra-termos button
 {
     width: 200px;
     height: 100px;
@@ -155,7 +155,7 @@ a
     scale: 1.1;
 }
 
-.main__produto-termos-comprar button
+.main__produto-compra-termos button
 {
     color: var(--branco);
     background-color: transparent;
@@ -164,7 +164,7 @@ a
     transition: 0.5s;
 }
 
-.main__produto-termos-comprar button:hover
+.main__produto-compra-termos button:hover
 {
     color: var(--preto);
     background-color: var(--azul_claro);
@@ -230,6 +230,7 @@ a
     border: 1px solid var(--cinza_claro);
     border-radius: 10px;
 }
+
 
 .main__comentario-container-button
 {

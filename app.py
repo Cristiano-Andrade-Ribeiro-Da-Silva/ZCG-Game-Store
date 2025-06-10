@@ -70,7 +70,7 @@ def buscar_jogos():
 
     return render_template('Pagina_busca.html', jogos=resultados, termo=termo)
 
-
+#rota par o carrinho
 @app.route("/carrinho/<codigo>")
 def add_pagina_carrinho(codigo):
 

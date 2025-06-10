@@ -214,7 +214,7 @@ main
     text-align: center;
 }
 
-.container-sobre-jogo button
+.container-sobre-jogo a
 {
     width: 100px;
     height: 50px;
@@ -230,20 +230,11 @@ main
     border-radius: 10px;
 }
 
-.container-sobre-jogo button:hover
-{
-    background-color: var(--verde_claro);
-    border: 1px solid var(--branco);
-}
-
-.container-sobre-jogo button > a
-{
-    color: var(--branco);
-}
-
-.container-sobre-jogo button:hover > a
+.container-sobre-jogo a:hover
 {
     color: var(--preto);
+    background-color: var(--verde_claro);
+    border: 1px solid var(--branco);
 }
 
 .footer

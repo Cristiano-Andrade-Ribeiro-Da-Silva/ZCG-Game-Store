@@ -9,6 +9,8 @@
 /* Corpo geral */
 body 
 {
+    overflow-x: hidden;
+
     background-color: var(--preto);
     color: var(--branco);
 }

@@ -110,17 +110,12 @@ def pagina_comprar_produto(codigo):
     from types import SimpleNamespace
 
     produto_data = ct.comprar_produto(codigo)
+
     if not produto_data:
         flash("Produto não encontrado", "error")
         return redirect("/")
-
+    
     produto_jogo = SimpleNamespace(**produto_data)
-
-
-@app.route("/excluir/<codigo>")
-def excluir_produto(codigo):
-    ct.excluir_produtos(codigo)
-    return redirect("/carrinho")
 
     mensagens = Mensagem.mostra_mensagens(codigo)
     if mensagens is None:
@@ -128,6 +123,13 @@ def excluir_produto(codigo):
 
     return render_template("Pagina_comprar-produto.html", produto=produto_jogo, mensagens=mensagens)
 
+
+
+
+@app.route("/excluir/<codigo>")
+def excluir_produto(codigo):
+    ct.excluir_produtos(codigo)
+    return redirect("/carrinho")
 
 
 @app.route("/post/comentario", methods=["POST"])

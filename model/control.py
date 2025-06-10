@@ -7,7 +7,7 @@ def pega_jogos():
         conexao = CX.Conexao.conexao()
         cursor = conexao.cursor(dictionary = True)
 
-        sql = "select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria;"
+        sql = "select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos inner join tb_categoria ON tb_jogo.cod_categoria = tb_categoria.cod_categoria;"
 
         cursor.execute(sql, )
 
@@ -23,7 +23,7 @@ def pega_jogos_destaque():
         conexao = CX.Conexao.conexao()
         cursor = conexao.cursor(dictionary = True)
 
-        sql = """select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria WHERE nome_jogo = 'GTA VI' or nome_jogo = 'elden ring' or nome_jogo = 'Assassin s Creed Rogue';"""
+        sql = """select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos inner join tb_categoria ON tb_jogo.cod_categoria = tb_categoria.cod_categoria WHERE nome_jogo = 'GTA VI' or nome_jogo = 'elden ring' or nome_jogo = 'Assassin s Creed Rogue';"""
 
         cursor.execute(sql, )
 
@@ -39,7 +39,7 @@ def pega_jogos_destaque2():
         conexao = CX.Conexao.conexao()
         cursor = conexao.cursor(dictionary = True)
 
-        sql = """select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria WHERE nome_jogo = 'dark souls' or nome_jogo = 'dark souls II' or nome_jogo = 'dark souls III';"""
+        sql = """select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos inner join tb_categoria ON tb_jogo.cod_categoria = tb_categoria.cod_categoria WHERE nome_jogo = 'dark souls' or nome_jogo = 'dark souls II' or nome_jogo = 'dark souls III';"""
 
         cursor.execute(sql, )
 
@@ -56,11 +56,7 @@ def busca_jogos_por_nome(termo):
 
     # SQL com LIKE para buscar pelo termo em nome_jogo
     sql = """
-    SELECT * 
-    FROM tb_jogo 
-    INNER JOIN foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto 
-    INNER JOIN tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria
-    WHERE nome_jogo LIKE %s;
+    select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos inner join tb_categoria ON tb_jogo.cod_categoria = tb_categoria.cod_categoria LIKE %s;
     """
 
     cursor.execute(sql, (f"%{termo}%",))
@@ -79,11 +75,47 @@ def comprar_produto(codigo):
 
         valor = (codigo,)
 
-        sql = """select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_foto inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria WHERE cod_jogo = %s;"""
+        sql = """select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos inner join tb_categoria ON tb_jogo.cod_categoria = tb_categoria.cod_categoria WHERE cod_jogo = %s;"""
 
         cursor.execute(sql, valor)
 
         infos = cursor.fetchone()
+
+        cursor.close()
+        conexao.close()
+
+        return infos
+
+
+def carrinho_produto(codigo):
+
+        conexao = CX.Conexao.conexao()
+        cursor = conexao.cursor()
+
+        valor = (codigo, codigo)
+
+        sql = "INSERT INTO tb_carrinho(codigo_produto, cod_jogo) VALUES(%s, %s);"
+
+        cursor.execute(sql, valor)
+        
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
+def resgata_produto():
+       
+        conexao = CX.Conexao.conexao()
+        cursor = conexao.cursor(dictionary=True)
+
+        sql = """select nome_jogo from tb_jogo 
+
+                inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos 
+                inner join tb_categoria on tb_jogo.cod_categoria = tb_categoria.cod_categoria
+                inner join tb_carrinho on tb_jogo.cod_jogo = tb_carrinho.cod_jogo;"""
+
+        cursor.execute(sql)
+
+        infos = cursor.fetchall()
 
         cursor.close()
         conexao.close()

@@ -81,20 +81,23 @@
 
             <form class="main__produto-detalhes-descricao">
 
-                <p>Descrição do Produto</p>
-                <h2>{{produto.descricao_jogo}}</h2>
+                <h2>Descrição do Produto</h2>
+                <p>{{produto.descricao_jogo}}</p>
 
             </form>
 
         </div>
 
 
-        <form class="main__produto-compra">
+        <form class="main__produto-compra" action="/carrinho/{{produto.cod_jogo}}">
 
             <button class="main__produto-compra-comprar">Comprar</button>
 
+ continuação-da-pagina-de-compra-do-jogo
+
             <button class="main__produto-compra-termos">Termos de Compra</button>
         
+ main
         </form>
 
     </section>

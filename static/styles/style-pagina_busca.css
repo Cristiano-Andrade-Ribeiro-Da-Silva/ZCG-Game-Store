@@ -12,6 +12,17 @@ main
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+li
+{
+    list-style-type: none;
+}
+
+a
+{
+    text-decoration: none;
+    color: var(--branco);
+}
+
 .main__card
 {
     margin-bottom: 100px;

@@ -39,6 +39,7 @@ CREATE TABLE foto_produtos (
 );
 
 CREATE TABLE tb_comentario (
+    nome char(255),
     cod_comentario INT AUTO_INCREMENT PRIMARY KEY,
     comentario TEXT NOT NULL,
     cod_jogo int

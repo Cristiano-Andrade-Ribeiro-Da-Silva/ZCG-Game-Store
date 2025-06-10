@@ -21,7 +21,7 @@ class Mensagem:
         except Exception as e:
 
             print("Erro ao inserir no banco:", e)
-            
+
         finally:
 
             cursor.close()

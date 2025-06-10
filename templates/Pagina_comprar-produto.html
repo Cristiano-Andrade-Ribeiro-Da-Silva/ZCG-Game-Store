@@ -88,11 +88,11 @@
                     <input type="hidden" name="cod_jogo" value="{{ produto.cod_jogo }}">
                     <label for="mensagem">Comentário</label>
                     <textarea id="mensagem" name="mensagem" required></textarea>
+                    <div class="main__comentario-container-button">
+                        <button class="main__comentario-container-button-publicar" type="submit">Publicar</button>
+                    </div>
                 </form>
-
-                <form method="POST" action="/limpar/comentario" class="main__comentario-container-button-limpar">
-                    <button type="submit">Limpar</button>
-                </form>
+                
             </div>
 
             <div class="main__chat-container">

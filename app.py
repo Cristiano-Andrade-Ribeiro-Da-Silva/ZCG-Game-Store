@@ -150,6 +150,8 @@ def postar_comentario():
 
     return redirect(f"/comprar-produto/{cod_jogo}")
 
+    
+
 @app.route("/get/logout")
 def pagina_logout():
     flash("Você saiu da sua conta com êxito")

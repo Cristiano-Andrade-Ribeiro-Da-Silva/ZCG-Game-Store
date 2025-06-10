@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, flash, jsonify
 from model import control as ct
 from model import control_usuario
-
+from model.control_mensagens import Mensagem
 
 app=Flask(__name__)
 
@@ -83,20 +83,32 @@ def pagina_apresentacao():
 def pagina_perfil_usuario():
     return render_template("Pagina_perfil-usuario.html")
 
-
 # CATEGORIA
 @app.route("/categoria-jogos")
 def pagina_categoria():
     return render_template("Pagina_categoria-jogos.html")
 
-
-
 @app.route("/comprar-produto/<codigo>")
 def pagina_comprar_produto(codigo):
-
     produto_jogo = ct.comprar_produto(codigo)
+    mensagens = Mensagem.mostra_mensagens()
+    return render_template("Pagina_comprar-produto.html", produto=produto_jogo, mensagens=mensagens)
 
-    return render_template("Pagina_comprar-produto.html", produto = produto_jogo)
+
+@app.route("/post/comentario", methods=["POST"])
+def postar_comentario():
+    nome_usuario = session.get("usuario_email", "Anônimo")  
+    comentario = request.form.get("mensagem")
+    cod_jogo = request.form.get("cod_jogo")
+
+    if comentario:
+        Mensagem.cadastrar_mensagem(nome_usuario, comentario)
+        flash("Comentário publicado com sucesso!", "success")
+    else:
+        flash("Comentário vazio!", "error")
+
+    return redirect(f"/comprar-produto/{cod_jogo}")
+
 
 
 @app.route("/get/logout")

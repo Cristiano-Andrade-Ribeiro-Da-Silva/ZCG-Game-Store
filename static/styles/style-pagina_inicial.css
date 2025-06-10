@@ -233,6 +233,8 @@ a
 
 .container-sobre-jogo button > a
 {
+    font-size: 20px;
+
     color: var(--branco);
 }
 

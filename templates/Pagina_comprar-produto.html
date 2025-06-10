@@ -88,17 +88,21 @@
 
         </div>
 
+        <div class="main__produto-compra">
 
-        <form class="main__produto-compra" action="/carrinho/{{produto.cod_jogo}}">
+            <form class="main__produto-compra-comprar" action="/carrinho/{{produto.cod_jogo}}">
 
-            <button class="main__produto-compra-comprar">Comprar</button>
+                <button>Comprar</button>
+            
+            </form>
 
- continuação-da-pagina-de-compra-do-jogo
+            <form  class="main__produto-compra-termos">
 
-            <button class="main__produto-compra-termos">Termos de Compra</button>
-        
- main
-        </form>
+                <button>Termos de Compra</button>
+
+            </form>
+
+        </div>
 
     </section>
 
@@ -114,13 +118,21 @@
 
             </form>
 
-            <form  action="" class="main__comentario-container-button">
+            <div class="main__comentario-container-button">
 
-                <button class="main__comentario-container-button-publicar">Publicar</button>
-                
-                <button class="main__comentario-container-button-limpar">Limpar</button>
+                <form  action="" class="main__comentario-container-button-publicar">
 
-            </form>
+                    <button>Publicar</button>
+
+                </form>
+
+                <form action="" class="main__comentario-container-button-limpar">
+
+                    <button>Limpar</button>
+
+                </form>
+
+            </div>
 
         </div>
 

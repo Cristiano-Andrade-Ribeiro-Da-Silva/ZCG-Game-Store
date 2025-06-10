@@ -124,8 +124,8 @@ a
     align-items: center;
 }
 
-.main__produto-compra-comprar,
-.main__produto-compra-termos
+.main__produto-compra-comprar button,
+.main__produto-compra-termos button
 {
     width: 200px;
     height: 100px;
@@ -137,7 +137,7 @@ a
     border-radius: 10px;
 }
 
-.main__produto-compra-comprar
+.main__produto-compra-comprar button
 {
     color: var(--branco);
     background-color: transparent;
@@ -146,7 +146,7 @@ a
     transition: 0.5s;
 }
 
-.main__produto-compra-comprar:hover
+.main__produto-compra-comprar button:hover
 {
     color: var(--preto);
     background-color: var(--verde_claro);
@@ -155,7 +155,7 @@ a
     scale: 1.1;
 }
 
-.main__produto-compra-termos
+.main__produto-compra-termos button
 {
     color: var(--branco);
     background-color: transparent;
@@ -164,7 +164,7 @@ a
     transition: 0.5s;
 }
 
-.main__produto-compra-termos:hover
+.main__produto-compra-termos button:hover
 {
     color: var(--preto);
     background-color: var(--azul_claro);
@@ -231,6 +231,7 @@ a
     border-radius: 10px;
 }
 
+
 .main__comentario-container-button
 {
     width: 100%;
@@ -245,8 +246,8 @@ a
     gap: 50px;
 }
 
-.main__comentario-container-button-publicar,
-.main__comentario-container-button-limpar
+.main__comentario-container-button-publicar button,
+.main__comentario-container-button-limpar button
 {
     width: 200px;
     height: 60px;
@@ -255,7 +256,7 @@ a
     border-radius: 10px;
 }
 
-.main__comentario-container-button-publicar
+.main__comentario-container-button-publicar button
 {
     color: var(--branco);
     background-color: transparent;
@@ -264,7 +265,7 @@ a
     transition: 0.5s;
 }
 
-.main__comentario-container-button-publicar:hover
+.main__comentario-container-button-publicar button:hover
 {
     color: var(--preto);
     background-color: var(--verde_claro);
@@ -273,7 +274,7 @@ a
     scale: 1.1;
 }
 
-.main__comentario-container-button-limpar
+.main__comentario-container-button-limpar button
 {
     color: var(--branco);
     background-color: transparent;
@@ -282,7 +283,7 @@ a
     transition: 0.5s;
 }
 
-.main__comentario-container-button-limpar:hover
+.main__comentario-container-button-limpar button:hover
 {
     color: var(--preto);
     background-color: var(--vermelho);

@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, session, flash, jsonify
 from model import control as ct
 from model import control_usuario
+from model.control_mensagens import Mensagem
+from types import SimpleNamespace
+
 
 
 app=Flask(__name__)
@@ -104,12 +107,50 @@ def pagina_categoria():
 
 @app.route("/comprar-produto/<codigo>")
 def pagina_comprar_produto(codigo):
+    from types import SimpleNamespace
 
-    produto_jogo = ct.comprar_produto(codigo)
+    produto_data = ct.comprar_produto(codigo)
 
-    return render_template("Pagina_comprar-produto.html", produto = produto_jogo)
+    if not produto_data:
+        flash("Produto não encontrado", "error")
+        return redirect("/")
+    
+    produto_jogo = SimpleNamespace(**produto_data)
+
+    mensagens = Mensagem.mostra_mensagens(codigo)
+    if mensagens is None:
+        mensagens = []
+
+    return render_template("Pagina_comprar-produto.html", produto=produto_jogo, mensagens=mensagens)
 
 
+
+
+@app.route("/excluir/<codigo>")
+def excluir_produto(codigo):
+    ct.excluir_produtos(codigo)
+    return redirect("/carrinho")
+
+
+@app.route("/post/comentario", methods=["POST"])
+def postar_comentario():
+    nome_usuario = session.get("usuario_email", "Anônimo")  
+    comentario = request.form.get("mensagem")
+    cod_jogo = request.form.get("cod_jogo")
+
+    if comentario and cod_jogo:
+        try:
+            Mensagem.cadastrar_mensagem(nome_usuario, comentario, cod_jogo)  # Passa o cod_jogo
+            flash("Comentário publicado com sucesso!", "success")
+        except Exception as e:
+            print(f"[ERRO] Falha ao salvar comentário: {e}")
+            flash("Erro ao salvar o comentário.", "error")
+    else:
+        flash("Comentário vazio ou jogo inválido!", "error")
+
+    return redirect(f"/comprar-produto/{cod_jogo}")
+
+    
 
 @app.route("/get/logout")
 def pagina_logout():
@@ -120,6 +161,7 @@ def pagina_logout():
 if __name__ == "__main__":
     app.run(debug=True)
     # app.run(host="0.0.0.0", port=8080)
+    #oloko mano
 
 
 

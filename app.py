@@ -75,9 +75,9 @@ def pagina_apresentacao():
 def pagina_perfil_usuario():
     return render_template("Pagina_perfil-usuario.html")
 
-@app.route("/categoria")
+@app.route("/categoria-jogos")
 def pagina_categoria():
-    return render_template("Pagina_categoria.html")
+    return render_template("Pagina_categoria-jogos.html")
 
 @app.route("/comprar-produto")
 def pagina_comprar_produto():

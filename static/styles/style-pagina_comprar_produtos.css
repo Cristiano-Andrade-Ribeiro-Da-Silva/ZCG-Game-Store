@@ -126,7 +126,7 @@ a {
     border-radius: 10px;
 }
 
-.main__produto-compra-comprar {
+.main__produto-compra-comprar button {
     color: var(--branco);
     background-color: transparent;
     border: 1px solid var(--verde_claro);
@@ -134,7 +134,7 @@ a {
     transition: 0.5s;
 }
 
-.main__produto-compra-comprar:hover {
+.main__produto-compra-comprar button:hover {
     color: var(--preto);
     background-color: var(--verde_claro);
     border: 1px solid var(--branco);

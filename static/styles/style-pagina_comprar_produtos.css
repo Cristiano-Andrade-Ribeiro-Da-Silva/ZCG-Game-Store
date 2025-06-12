@@ -113,8 +113,9 @@ a {
     align-items: center;
 }
 
-.main__produto-compra-comprar,
-.main__produto-compra-termos {
+.main__produto-compra-comprar button,
+.main__produto-compra-termos button
+{
     width: 200px;
     height: 100px;
 
@@ -141,7 +142,8 @@ a {
     scale: 1.1;
 }
 
-.main__produto-compra-termos {
+.main__produto-compra-termos button
+{
     color: var(--branco);
     background-color: transparent;
     border: 1px solid var(--azul_claro);
@@ -149,7 +151,8 @@ a {
     transition: 0.5s;
 }
 
-.main__produto-compra-termos:hover {
+.main__produto-compra-termos button:hover
+{
     color: var(--preto);
     background-color: var(--azul_claro);
     border: 1px solid var(--branco);
@@ -224,8 +227,8 @@ a {
     gap: 50px;
 }
 
-.main__comentario-container-button-publicar,
-.main__comentario-container-button-limpar {
+.main__comentario-container-button-publicar
+{
     width: 200px;
     height: 60px;
 
@@ -233,7 +236,8 @@ a {
     border-radius: 10px;
 }
 
-.main__comentario-container-button-publicar {
+.main__comentario-container-button-publicar
+{
     color: var(--branco);
     background-color: transparent;
     border: 1px solid var(--verde_claro);
@@ -241,7 +245,8 @@ a {
     transition: 0.5s;
 }
 
-.main__comentario-container-button-publicar:hover {
+.main__comentario-container-button-publicar:hover
+{
     color: var(--preto);
     background-color: var(--verde_claro);
     border: 1px solid var(--branco);
@@ -249,23 +254,8 @@ a {
     scale: 1.1;
 }
 
-.main__comentario-container-button-limpar {
-    color: var(--branco);
-    background-color: transparent;
-    border: 1px solid var(--vermelho);
-
-    transition: 0.5s;
-}
-
-.main__comentario-container-button-limpar:hover {
-    color: var(--preto);
-    background-color: var(--vermelho);
-    border: 1px solid var(--branco);
-
-    scale: 1.1;
-}
-
-.main__chat-container {
+.main__chat-container
+{
     justify-content: start;
 
     overflow-y: scroll;

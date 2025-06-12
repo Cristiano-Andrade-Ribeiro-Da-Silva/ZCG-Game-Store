@@ -56,62 +56,104 @@
 
     <!-- Conteúdo Principal -->
     <main class="main">
+
         <section class="main__produto">
+            
             <img src="{{ produto.url }}" alt="{{ produto.nome_jogo }}">
 
             <div class="main__produto-detalhes">
+                
                 <div class="main__produto-detalhes-nome">
+                    
                     <h1>{{ produto.nome_jogo }}</h1>
+                    
                 </div>
 
                 <div class="main__produto-detalhes-descricao">
+                    
                     <h2>Descrição do Produto</h2>
+                    
                     <p>{{ produto.descricao_jogo }}</p>
-                    <h2>Preço:</h2>
+                    
+                    <h3>Preço:</h3>
+                    
                     <p class="text-success fw-bold fs-4">R$ {{ produto.preco }}</p>
+                    
                 </div>
+                
             </div>
 
             <div class="main__produto-compra">
+
                 <form class="main__produto-compra-comprar" action="/carrinho/{{ produto.cod_jogo }}">
+
                     <button type="submit">Comprar</button>
+
                 </form>
 
                 <form class="main__produto-compra-termos">
+
                     <button type="button">Termos de Compra</button>
+
                 </form>
+
             </div>
+
         </section>
 
         <!-- Seção de Comentários -->
         <section class="main__comentario">
+
             <div class="main__comentario-container">
+
                 <form class="main__comentario-container-input" method="POST" action="/post/comentario">
+
                     <input type="hidden" name="cod_jogo" value="{{ produto.cod_jogo }}">
+
                     <label for="mensagem">Comentário</label>
+
                     <textarea id="mensagem" name="mensagem" required></textarea>
+
                     <div class="main__comentario-container-button">
+
                         <button class="main__comentario-container-button-publicar" type="submit">Publicar</button>
+
                     </div>
+
+
                 </form>
                 
             </div>
 
             <div class="main__chat-container">
+
                 {% if mensagens %}
+
                     {% for m in mensagens %}
+
                         <div class="main__chat-container-usuario">
+
                             <span>{{ m.usuario }}</span>
+
                         </div>
+
                         <div class="main__container-chat-comentario">
+
                             <span>{{ m.comentario }}</span>
+
                         </div>
+
                     {% endfor %}
+
                 {% else %}
+
                     <p class="text-muted">Nenhum comentário ainda. Seja o primeiro!</p>
+
                 {% endif %}
             </div>
+
         </section>
+                  
     </main>
 
     <!-- Rodapé -->

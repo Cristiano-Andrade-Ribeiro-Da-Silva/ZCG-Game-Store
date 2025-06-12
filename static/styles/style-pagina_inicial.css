@@ -1,6 +1,5 @@
-/* Formatando Tudo */
-*
-{
+*{
+    font-family: "Savate", sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -138,7 +137,7 @@ main
     width: 800px;
     height: 300px;
 
-    border: 1px solid var(--preto);
+    border: 1px solid var(--roxo);
     border-radius: 10px;
 }
 
@@ -181,7 +180,7 @@ main
     color: var(--branco);
 
     background-color: var(--cinza_escuro);
-    border: 1px solid var(--cinza_claro);
+    border: 1px solid var(--roxo);
     border-radius: 12px;
 
     transition: 0.5s;

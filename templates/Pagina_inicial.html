@@ -174,7 +174,7 @@
 
                         </div>
                         {% endfor %}
-                    </div>
+                </div>
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide"
                         data-bs-slide="prev">
@@ -227,25 +227,6 @@
             </div>
 
         </section>
-
-        <section class="main__games">
-
-            {% for jogo in produto %}
-
-            <div class="card container-img-jogos" style="width: 18rem;">
-
-                <!-- A img abaixo é para uma foto de jogo -->
-                <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="">
-
-                <div class="card-body container-sobre-jogo">
-
-                    <p class="card-title">{{jogo.nome_jogo}}</p>
-                    <br>
-                    <p class="card-text">{{jogo.descricao_jogo}}</p>
-                    <br>
-                    <p>R$: {{jogo.preco}}</p>
-                    <br>
-                    <p>Categoria: {{jogo.categoria}}</p>
 
         <section class="main__games">
 

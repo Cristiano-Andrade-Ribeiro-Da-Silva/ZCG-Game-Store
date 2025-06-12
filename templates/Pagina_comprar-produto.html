@@ -3,167 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZCG-GAME-STORE</title>
+    <title>ZCG-GAME-STORE | {{ produto.nome_jogo }}</title>
 
-    <!-- links externo -->
+    <!-- Bootstrap e Ícones -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" defer></script>
 
-        <!-- Link CSS Bootstrap via CDN -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-
-        <!-- Link CSS Bootstrap via CDN -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
-        <!-- Link JS Bootstrap via CDN -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" defer></script>
-
-
-    <!-- links interno -->
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_comprar_produtos.css') }}">
-        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
-
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_comprar_produtos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-cores_das_paginas.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
+    
 </head>
 <body>
-    
-<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
 
-    <div class="container-fluid">
+    <!-- Navbar -->
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <i class="bi bi-list"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item active" href="/"><i class="bi bi-house-door-fill"></i> Início</a></li>
+                    <li><a class="dropdown-item" href="/categoria-jogos"><i class="bi bi-bookmark"></i> Categorias</a></li>
+                    <li><a class="dropdown-item" href="/apresentacao"><i class="bi bi-question-circle"></i> Sobre</a></li>
+                </ul>
+            </div>
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></button>
+            <a class="navbar-brand" href="/">ZCG Game Store</a>
 
-            <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item active" href="/"><i class="bi bi-house-door-fill"></i></a></li>
-                <li><a class="dropdown-item" href="/categoria-jogos"><i class="bi bi-bookmark"></i></a></li>
-                <li><a class="dropdown-item" href="/apresentacao"><i class="bi bi-question-circle"></i></a></li>
-            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Pesquisar">
+                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+
+            <a href="#"><i class="bi bi-cart-plus fs-4 text-white ms-3"></i></a>
+
+            <div class="btn-group dropstart">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="bi bi-person-circle"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Minha Conta</a></li>
+                    <li><a class="dropdown-item" href="#">Login/Register</a></li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="main">
+
+        <section class="main__produto">
             
-        </div>
+            <img src="{{ produto.url }}" alt="{{ produto.nome_jogo }}">
 
-        <img src="" alt="">
-        <a class="navbar-brand" href="/">ZCG Game Store</a>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-        </form>
-
-        <a href="#"><i class="bi bi-cart-plus"></i></a>
-
-        <div class="btn-group dropstart">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">My Accont</a></li>
-                <li><a class="dropdown-item" href="#">Login/Register</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
-            </ul>
-        </div>
-
-    </div>
-
-</nav>
-
-<main class="main">
-
-    <section class="main__produto">
-
-        <img src="{{produto.url}}">
-
-
-        <div class="main__produto-detalhes">
-
-            <form class="main__produto-detalhes-nome">
-
-                <h1>{{produto.nome_jogo}}</h1>
-
-            </form>
-
-
-            <form class="main__produto-detalhes-descricao">
-
-                <h2>Descrição do Produto</h2>
-                <p>{{produto.descricao_jogo}}</p>
-
-            </form>
-
-        </div>
-
-
-        <form class="main__produto-compra" action="/carrinho/{{produto.cod_jogo}}">
-
-            <button>Comprar</button>
-          
-        </form>
-
-        <form  class="main__produto-termos">
-
-            <button>Termos de Compra</button>
-
-        </form>
-
-    </section>
-
-
-    <section class="main__comentario">
-
-        <div class="main__comentario-container">
-    
-            <form class="main__comentario-container-input">
+            <div class="main__produto-detalhes">
                 
-                <label>Comentário</label>
-                <textarea name="mensagem"></textarea>
+                <div class="main__produto-detalhes-nome">
+                    
+                    <h1>{{ produto.nome_jogo }}</h1>
+                    
+                </div>
 
-            </form>
+                <div class="main__produto-detalhes-descricao">
+                    
+                    <h2>Descrição do Produto</h2>
+                    
+                    <p>{{ produto.descricao_jogo }}</p>
+                    
+                    <h3>Preço:</h3>
+                    
+                    <p class="text-success fw-bold fs-4">R$ {{ produto.preco }}</p>
+                    
+                </div>
+                
+            </div>
 
-            <form  action="" class="main__comentario-container-publicar">
+            <div class="main__produto-compra">
 
-                <button>Publicar</button>
+                <form class="main__produto-compra-comprar" action="/carrinho/{{ produto.cod_jogo }}">
 
-            </form>
+                    <button type="submit">Comprar</button>
 
-            <form action="" class="main__comentario-container-limpar">
+                </form>
 
-                <button>Limpar</button>
+                <form class="main__produto-compra-termos">
 
-            </form>
+                    <button type="button">Termos de Compra</button>
 
+                </form>
+
+            </div>
+
+        </section>
+
+        <!-- Seção de Comentários -->
+        <section class="main__comentario">
+
+            <div class="main__comentario-container">
+
+                <form class="main__comentario-container-input" method="POST" action="/post/comentario">
+
+                    <input type="hidden" name="cod_jogo" value="{{ produto.cod_jogo }}">
+
+                    <label for="mensagem">Comentário</label>
+
+                    <textarea id="mensagem" name="mensagem" required></textarea>
+
+                    <div class="main__comentario-container-button">
+
+                        <button class="main__comentario-container-button-publicar" type="submit">Publicar</button>
+
+                    </div>
+
+                </form>
+                
+            </div>
+
+            <div class="main__chat-container">
+
+                {% if mensagens %}
+
+                    {% for m in mensagens %}
+
+                        <div class="main__chat-container-usuario">
+
+                            <span>{{ m.usuario }}</span>
+
+                        </div>
+
+                        <div class="main__container-chat-comentario">
+
+                            <span>{{ m.comentario }}</span>
+
+                        </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p class="text-muted">Nenhum comentário ainda. Seja o primeiro!</p>
+
+                {% endif %}
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+    <span>@ ZCG GAME STORE 2025. Muitos direitos reservados</span>
+    <div class="footer__social">
+            <a href="https://www.facebook.com/?locale=pt_BR"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+            <a href="https://br.linkedin.com/"><i class="bi bi-linkedin"></i></a>
+            <a href="https://x.com/"><i class="bi bi-twitter-x"></i></a>
         </div>
-
-
-        <div class="main__chat-container">
-
-            <form class="main__chat-container-usuario">
-
-                <span>nome do usuario</span>
-
-            </form>
-
-            <form class="main__container-chat-comentario">
-
-                <span>Comentario</span>
-
-            </form>
-
-        </div>
-
-    </section>
-
-</main>
-
-<footer class="footer">
-        
-    <span>@ ZCG GAME STORE 2025. Muitos direitos Reservados</span>
-
-    <form class="footer__social">
-
-        <a href="https://www.facebook.com/?locale=pt_BR"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
-        <a href="https://br.linkedin.com/"><i class="bi bi-linkedin"></i></a>
-        <a href="https://x.com/"><i class="bi bi-twitter-x"></i></a>
-
-    </form>
-
-</footer>
+    </footer>
 
 </body>
 </html>

@@ -1,0 +1,263 @@
+/* Formatando Tudo */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo geral */
+body 
+{
+    background-color: var(--preto);
+    color: var(--branco);
+}
+
+/* Formatando todos os botões para um padrão */
+button
+{
+    width: 50px;
+    height: 40px;
+
+    cursor: pointer;
+}
+
+/* Tirando formatações */
+li
+{
+    list-style-type: none;
+    list-style: none;
+}
+
+/* Formatando todos 'a' */
+a
+{
+    color: var(--branco);
+    text-decoration: none;
+}
+
+.dropdown-menu
+{
+    text-align: center;
+}
+
+.main
+{
+    width: 90%;
+    height: 1000px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px auto;
+}
+
+.main__perfil
+{
+    width: 90%;
+    height: 300px;
+
+    margin: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__perfil-container
+{
+    width: 1500px;
+    height: 260px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__perfil-container form
+{
+    width: 80%;
+    height: 200px;
+
+    margin: auto 10px;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 40px;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__perfil-container figure
+{
+    width: 200px;
+    height: 200px;
+    
+    margin: auto 10px;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__perfil-container img
+{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 10px;
+}
+
+
+.main__historico
+{
+    width: 90%;
+    height: 800px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__historico-container
+{
+    width: 90%;
+    height: 90%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__historico-container ul
+{
+    width: 800px;
+    height: 400px;
+
+    margin: auto;
+
+    padding: 20px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px 0 0 10px;
+}
+
+.main__historico-container li
+{
+    width: 600px;
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__historico-container ul > li > input
+{
+    width: 40px;
+    height: 40px;
+
+    border-radius: 5px;
+}
+
+.main__historico-container ul > li > button
+{
+    width: 80px;
+    height: 40px;
+
+    color: var(--branco);
+    background-color: transparent;
+    border: 1px solid var(--verde_claro);
+    border-radius: 5px;
+}
+
+.main__historico-container ul > li > button:hover
+{
+    color: var(--preto);
+    background-color: var(--verde_claro);
+    border: 1px solid var(--branco);
+}
+
+
+.main__historico-container img
+{
+    width: 540px;
+    height: 400px;
+
+    margin: 10px auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.footer
+{
+    width: 100%;
+    height: 50px;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #212529;
+    border: 1px solid var(--cinza_claro);
+    border-left: 0;
+    border-right: 0;
+}
+
+.footer span
+{
+    color: var(--branco);
+}
+
+.footer__social
+{
+    width: 200px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.footer__social a
+{
+    font-size: 20px;
+}

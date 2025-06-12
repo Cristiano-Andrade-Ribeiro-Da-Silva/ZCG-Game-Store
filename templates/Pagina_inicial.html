@@ -24,6 +24,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_inicial.css') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
 
 </head>
 
@@ -125,7 +126,7 @@
 
         <section class="main__games-carousel">
 
-            <h2>Jogos em Destaque</h2>
+            <h1>Jogos em Destaque</h1>
 
             <div class="main__games-carousel-container">
 
@@ -238,12 +239,13 @@
 
                 <div class="card-body container-sobre-jogo">
 
+                    <p class="card-title">{{jogo.nome_jogo}}</p>
+                    <br>
                     <p class="card-text">{{jogo.descricao_jogo}}</p>
-                    <h4>{{jogo.nome_jogo}}</h4>
                     <br>
-                    <h6>R$: {{jogo.preco}}</h6>
+                    <p>R$: {{jogo.preco}}</p>
                     <br>
-                    <h6>Categoria: {{jogo.categoria}}</h6>
+                    <p>Categoria: {{jogo.categoria}}</p>
 
         <section class="main__games">
 
@@ -256,12 +258,13 @@
 
                 <div class="card-body container-sobre-jogo">
 
+                    <p class="card-title">{{jogo.nome_jogo}}</p>
+                    <br>
                     <p class="card-text">{{jogo.descricao_jogo}}</p>
-                    <h4>{{jogo.nome_jogo}}</h4>
                     <br>
-                    <h6>R$: {{jogo.preco}}</h6>
+                    <p>R$: {{jogo.preco}}</p>
                     <br>
-                    <h6>Categoria: {{jogo.categoria}}</h6>
+                    <p>Categoria: {{jogo.categoria}}</p>
 
                 </div>
 

@@ -95,7 +95,7 @@ a
     align-items: center;
     gap: 30px;
 
-    border: 1px solid var(--cinza_claro);
+    border: 1px solid var(--roxo);
     border-radius: 10px 0 0 10px;
 }
 
@@ -145,7 +145,7 @@ a
 
 .main__produtos-container img
 {
-    width: 540px;
+    width: 665px;
     height: 400px;
 
     margin: 10px auto;
@@ -189,7 +189,7 @@ a
     justify-content: space-around;
     align-items: center;
 
-    border: 1px solid var(--cinza_claro);
+    border: 1px solid var(--roxo);
     border-radius: 10px;
 }
 
@@ -285,4 +285,16 @@ a
 .footer__social a
 {
     font-size: 20px;
+}
+
+/* adrian esteve aq */
+
+.div-imagem-produto{
+    height: 500px;
+    width: 1000px;
+
+    text-align: center;
+
+    overflow: scroll;
+    overflow-x: hidden;
 }

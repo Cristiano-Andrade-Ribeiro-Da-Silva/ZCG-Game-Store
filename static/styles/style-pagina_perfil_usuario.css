@@ -12,7 +12,6 @@ body
     color: var(--branco);
 }
 
-
 /* Formatando todos os botões para um padrão */
 button
 {
@@ -153,7 +152,6 @@ a
     height: 400px;
 
     margin: auto;
-
     padding: 20px;
 
     overflow-y: scroll;
@@ -172,6 +170,9 @@ a
 {
     width: 600px;
     height: 60px;
+    min-height: 60px;
+
+    margin-top: 10px;
 
     display: flex;
     flex-direction: row;

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Beba+Neue&family=Savate:ital,wght@0,200..900;1,200..900&display=swap');
+
+*
+{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Todos os títulos que podem acabar tendo no site */
+/* Convenhamos */
+/* é Totalmente improvavel que irá até o 'h4' */
+h1, h2, h3, h4
+{
+    font-family: "Arbutus", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Titulo da loja */
+.navbar-brand
+{
+    font-family: "Savate", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}

@@ -22,7 +22,7 @@
     <!-- links interno -->
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_inicial.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_busca.css') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
 
@@ -46,13 +46,14 @@
 
             </div>
 
+            <img src="" alt="">
             <a class="navbar-brand" href="/">ZCG Game Store</a>
             <form class="d-flex" role="search" action="/buscar_jogos" method="GET">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" />
                 <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
             </form>
 
-            <a href="/carrinho"><i class="bi bi-cart-plus"></i></a>
+            <a href="#"><i class="bi bi-cart-plus"></i></a>
 
             <div class="btn-group dropstart">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
@@ -70,88 +71,26 @@
     </nav>
 
     <main>
-        
-        <section class="main__games-carousel">
-          
-            <h1>Jogos em Destaque</h1>
+            <h1>Resultados da busca para "{{ termo }}"</h1>
 
-            <div class="main__games-carousel-container">
+            {% if jogos %}
+            <ul class="main__card">
+                {% for jogo in jogos %}
+                <li class="main_card-container">
+                    <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="FOTO-JOGO">
+                    <h3>{{ jogo.nome_jogo }}</h3>
+                    <p>{{ jogo.descricao_jogo }}</p>
+                    <p><strong>Preço:</strong> R$ {{ "%.2f"|format(jogo.preco) }}</p>
 
-                <div id="carouselExampleRide" class="carousel slide main__games-carousel-item" data-bs-ride="carousel"
-                    data-bs-interval="3000">
+                    <button><a href="/comprar-produto/{{jogo.cod_jogo}}">Ver</a></button>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>Nenhum jogo encontrado.</p>
+            {% endif %}
 
-                    <div class="carousel-inner">
-                        {% for jogo_destaque2 in jogos_em_destaque2 %}
-                        <div class="carousel-item active">
-
-                            <!-- A img abaixo é para uma foto de jogo em destaque -->
-                            <img src="{{jogo_destaque2.url}}" class="d-block w-100" alt="">
-
-                        </div>
-                        {% endfor %}
-                    </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide">
-                    </button>
-
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide">
-
-                </div>
-
-                <div id="carouselExampleRide" class="carousel slide main__games-carousel-item" data-bs-ride="carousel"
-                    data-bs-interval="3000">
-
-                    <div class="carousel-inner">
-                        {% for jogo_destaque in jogos_em_destaque %}
-                        <div class="carousel-item active">
-                            <!-- A img abaixo é para uma foto de jogo em destaque -->
-                            <img src="{{jogo_destaque.url}}" class="d-block w-100" alt="">
-                        </div>
-                        {% endfor %}
-                    </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide">
-                    </button>
-
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide">
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="main__games">
-
-            {% for jogo in produto %}
-
-            <div class="card container-img-jogos" style="width: 18rem;">
-
-                <!-- A img abaixo é para uma foto de jogo -->
-                <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="">
-
-                <div class="card-body container-sobre-jogo">
- 
-                    <h2>{{jogo.nome_jogo}}</h2>
-                    <br>
-                    <p class="card-text">{{jogo.descricao_jogo}}</p>
-                    <br>
-                    <p>R$: {{jogo.preco}}</p>
-                    <br>
-                    <p>Categoria: {{jogo.categoria}}</p>
-
-                    <!-- Aqui vai o link para ver o produto -->
-                    <a href="/comprar-produto/{{jogo.cod_jogo}}">Ver</a>
-
-                </div>
-
-            </div>
-
-            {% endfor %}
-
-        </section>
-
+            <a href="/">Voltar para a página inicial</a>
     </main>
 
     <footer class="footer">

@@ -1,0 +1,164 @@
+/* Formatando Tudo */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo geral */
+body 
+{
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--preto);
+    color: var(--branco);
+}
+
+/* Formatando todos os botões para um padrão */
+button
+{
+    width: 50px;
+    height: 40px;
+
+    cursor: pointer;
+}
+
+/* Tirando formatações */
+li
+{
+    list-style-type: none;
+    list-style: none;
+}
+
+/* Formatando todos 'a' */
+a
+{
+    color: var(--branco);
+    text-decoration: none;
+}
+
+.main
+{
+    width: 100%;
+    height: 100vh;
+}
+
+.main__category
+{
+    width: 1400px;
+    height: 750px;
+
+    margin: 100px auto;
+    margin-bottom: 50px;
+
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__category-title
+{
+    width: 100%;
+    height: 60px;
+
+    padding-top: 10px;
+
+    text-align: center;
+
+    border: 1px solid var(--cinza_claro);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.main__category-container
+{
+    width: 90%;
+    height: 45%;
+
+    margin: 10px auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.main__category-container a
+{
+    width: 280px;
+    height: 280px;
+
+    padding: 120px;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+
+    border: 1px solid var(--roxo);
+    border-radius: 10px;
+
+    transition: 0.5s;
+}
+
+.main__category-container a:hover
+{
+    scale: 1.1;
+}
+
+.main__category-container a
+{
+    color: var(--branco);
+}
+
+
+.footer
+{
+    width: 100%;
+    height: 50px;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #212529;
+    border: 1px solid var(--cinza_claro);
+    border-left: 0;
+    border-right: 0;
+}
+
+.footer span
+{
+    color: var(--branco);
+}
+
+.footer__social
+{
+    width: 200px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.footer__social a
+{
+    font-size: 20px;
+}:root
+{
+    --preto: #0b0c0e;
+    --cinza_escuro: #1a1d21;
+    --cinza_claro: #343a40;
+    --branco: #ffffff;
+
+    --verde_claro: #4caf50;
+    --azul_claro: #05bdfa;
+    --vermelho: #ff0000;
+}

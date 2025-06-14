@@ -1,9 +1,15 @@
-/* Formatando Tudo */
 *
 {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+/* Corpo geral */
+body 
+{
+    background-color: var(--preto);
+    color: var(--branco);
 }
 
 /* Formatando todos os botões para um padrão */
@@ -25,7 +31,7 @@ li
 /* Formatando todos 'a' */
 a
 {
-    color: white;
+    color: var(--branco);
     text-decoration: none;
 }
 
@@ -58,8 +64,9 @@ a
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    border: 1px solid black;
+    
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
     border-radius: 10px;
 }
 
@@ -89,7 +96,7 @@ a
     align-items: start;
     gap: 40px;
 
-    border: 1px solid black;
+    border: 1px solid var(--roxo);
     border-radius: 10px;
 }
 
@@ -100,7 +107,7 @@ a
     
     margin: auto 10px;
 
-    border: 1px solid black;
+    border: 1px solid var(--cinza_claro);
     border-radius: 10px;
 }
 
@@ -123,7 +130,8 @@ a
     justify-content: center;
     align-items: center;
 
-    border: 1px solid black;
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
     border-radius: 10px;
 }
 
@@ -144,7 +152,6 @@ a
     height: 400px;
 
     margin: auto;
-
     padding: 20px;
 
     overflow-y: scroll;
@@ -155,7 +162,7 @@ a
     align-items: center;
     gap: 40px;
 
-    border: 1px solid black;
+    border: 1px solid var(--roxo);
     border-radius: 10px 0 0 10px;
 }
 
@@ -163,25 +170,45 @@ a
 {
     width: 600px;
     height: 60px;
+    min-height: 60px;
+
+    margin-top: 10px;
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 
-    border: 1px solid black;
+    border: 1px solid var(--cinza_claro);
     border-radius: 10px;
 }
 
-.main__historico-container ul > li > input,
-.main__historico-container ul > li > button
+.main__historico-container ul > li > input
 {
-    width: 60px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 
-    border: 1px solid black;
     border-radius: 5px;
 }
+
+.main__historico-container ul > li > button
+{
+    width: 80px;
+    height: 40px;
+
+    color: var(--branco);
+    background-color: transparent;
+    border: 1px solid var(--verde_claro);
+    border-radius: 5px;
+}
+
+.main__historico-container ul > li > button:hover
+{
+    color: var(--preto);
+    background-color: var(--verde_claro);
+    border: 1px solid var(--branco);
+}
+
 
 .main__historico-container img
 {
@@ -195,7 +222,7 @@ a
     justify-content: space-around;
     align-items: center;
 
-    border: 1px solid black;
+    border: 1px solid var(--roxo);
     border-radius: 10px;
 }
 
@@ -212,14 +239,14 @@ a
     align-items: center;
 
     background-color: #212529;
-    border: 1px solid black;
+    border: 1px solid var(--cinza_claro);
     border-left: 0;
     border-right: 0;
 }
 
 .footer span
 {
-    color: white;
+    color: var(--branco);
 }
 
 .footer__social

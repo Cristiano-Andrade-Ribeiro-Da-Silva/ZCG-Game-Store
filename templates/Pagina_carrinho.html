@@ -43,9 +43,9 @@
                     <li><a class="dropdown-item" href="/categoria-jogos"><i class="bi bi-bookmark"></i></a></li>
                     <li><a class="dropdown-item" href="/apresentacao"><i class="bi bi-question-circle"></i></a></li>
                 </ul>
-
+              
             </div>
-
+              
             <img src="" alt="">
             <a class="navbar-brand" href="/">ZCG Game Store</a>
             <form class="d-flex" role="search">
@@ -75,32 +75,34 @@
 
             <nav class="main__produtos-container">
 
-                <ul>
+                <ul class="main__produtos-nome">
                     {% for pr2 in pega_produto %}
+
                     <li>
                         <input type="checkbox">
-                        <h2>{{pr2.nome_jogo}}</h2>
+                        <p>{{pr2.nome_jogo}}</p>
                         <button><a href="/excluir/{{pr2.cod_jogo}}">Excluir</a></button>
                     </li>
-                    {% endfor %}
 
+                    {% endfor %}
                 </ul>
 
                 <!-- Img do produto -->
-                <div class="div-imagem-produto">
+                <ul class="main__produtos-imagem">
                     {% for pr2 in pega_produto %}
-                    <p>Codigo Produto: {{loop.index}}</p>
-                    <h2>{{pr2.nome_jogo}}</h2>
-                    <img src="{{pr2.url}}"> <br>
-                    <br>
-                    {% endfor %}
-                </div>
 
+                    <li>
+                        <p>Codigo Produto: {{loop.index}}</p>
+                        <p>{{pr2.nome_jogo}}</p>
+                        <img src="{{pr2.url}}">
+                    </li>
+
+                    {% endfor %}
+                </ul>
 
             </nav>
 
         </section>
-
 
         <section class="main__termos">
 
@@ -123,7 +125,7 @@
                         <button>Cancelar</button>
 
                     </form>
-
+                  
                 </div>
 
             </div>

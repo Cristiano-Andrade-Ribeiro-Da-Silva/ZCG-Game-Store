@@ -22,10 +22,10 @@
     <!-- links interno -->
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_carrinho.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_busca.css') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
-    
+
 </head>
 
 <body>
@@ -43,13 +43,13 @@
                     <li><a class="dropdown-item" href="/categoria-jogos"><i class="bi bi-bookmark"></i></a></li>
                     <li><a class="dropdown-item" href="/apresentacao"><i class="bi bi-question-circle"></i></a></li>
                 </ul>
-              
+
             </div>
-              
+
             <img src="" alt="">
             <a class="navbar-brand" href="/">ZCG Game Store</a>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <form class="d-flex" role="search" action="/buscar_jogos" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" />
                 <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
             </form>
 
@@ -59,79 +59,38 @@
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="bi bi-person-circle"></i></button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">My Accont</a></li>
-                    <li><a class="dropdown-item" href="#">Login/Register</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="/perfil-usuario">My Accont</a></li>
+                    <li><a class="dropdown-item" href="/cadastro">Login/Register</a></li>
+                    <li><a class="dropdown-item" href="/get/logout">Logout</a></li>
                 </ul>
             </div>
 
         </div>
 
+
     </nav>
 
-    <main class="main">
+    <main>
+            <h1>Resultados da busca para "{{ termo }}"</h1>
 
-        <section class="main__produtos">
+            {% if jogos %}
+            <ul class="main__card">
+                {% for jogo in jogos %}
+                <li class="main_card-container">
+                    <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="FOTO-JOGO">
+                    <h3>{{ jogo.nome_jogo }}</h3>
+                    <p>{{ jogo.descricao_jogo }}</p>
+                    <p><strong>Preço:</strong> R$ {{ "%.2f"|format(jogo.preco) }}</p>
 
-            <nav class="main__produtos-container">
+                    <button><a href="/comprar-produto/{{jogo.cod_jogo}}">Ver</a></button>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>Nenhum jogo encontrado.</p>
+            {% endif %}
 
-                <ul class="main__produtos-nome">
-                    {% for pr2 in pega_produto %}
-
-                    <li>
-                        <input type="checkbox">
-                        <p>{{pr2.nome_jogo}}</p>
-                        <button><a href="/excluir/{{pr2.cod_jogo}}">Excluir</a></button>
-                    </li>
-
-                    {% endfor %}
-                </ul>
-
-                <!-- Img do produto -->
-                <ul class="main__produtos-imagem">
-                    {% for pr2 in pega_produto %}
-
-                    <li>
-                        <p>Codigo Produto: {{loop.index}}</p>
-                        <p>{{pr2.nome_jogo}}</p>
-                        <img src="{{pr2.url}}">
-                    </li>
-
-                    {% endfor %}
-                </ul>
-
-            </nav>
-
-        </section>
-
-        <section class="main__termos">
-
-            <span>Termos de Licença</span>
-
-            <div class="main__termos-container">
-
-                <strong><span>Valor Total: </span> R$ valor</strong>
-
-                <div class="main__termos-container-button">
-                    
-                    <form action="" class="main__termos-container-button-comprar">
-
-                        <button>Continuar para a compra</button>
-
-                    </form>
-
-                    <form action="" class="main__termos-container-button-cancelar">
-
-                        <button>Cancelar</button>
-
-                    </form>
-                  
-                </div>
-
-            </div>
-
-        </section>
-
+            <a href="/">Voltar para a página inicial</a>
     </main>
 
     <footer class="footer">

@@ -1,0 +1,302 @@
+/* importando fontes */
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Beba+Neue&family=Savate:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* Formatando Tudo */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    color: var(--branco);
+    background-color: var(--preto);
+}
+
+/* Formatando todos os botões para um padrão */
+button
+{
+    width: 50px;
+    height: 40px;
+
+    cursor: pointer;
+}
+
+/* Tirando formatações */
+li
+{
+    list-style-type: none;
+    list-style: none;
+}
+
+/* Formatando todos 'a' */
+a
+{
+    color: var(--branco);
+    text-decoration: none;
+}
+
+.dropdown-menu
+{
+    text-align: center;
+}
+
+.main
+{
+    width: 90%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px auto;
+}
+
+.main__produtos
+{
+    width: 90%;
+    height: 600px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+.main__produtos-container
+{
+    width: 100%;
+    height: 90%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__produtos-nome,
+.main__produtos-imagem
+{
+    width: 800px;
+    height: 400px;
+  
+    margin: 20px;
+    padding: 10px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: 1px solid var(--roxo);
+    border-radius: 10px 0 0 10px;
+}
+
+.main__produtos-container li,
+.main__produtos-imagem li
+{
+    width: 600px;
+    height: 60px;
+    min-height: 60px;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid var(--branco);
+    border-radius: 10px;
+}
+
+.main__produtos-container input,
+.main__produtos-container button
+{
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid var(--cinza_claro);
+    border-radius: 5px;
+}
+
+.main__produtos-container button
+{
+    width: 80px;
+    height: 40px;
+    color: var(--branco);
+    background-color: transparent;
+    border: 1px solid var(--vermelho);
+
+    transition: 0.5s;
+}
+
+.main__produtos-container button:hover
+{
+    color: var(--preto);
+    background-color: var(--vermelho);
+    border: 1px solid var(--branco);
+
+    scale: 1.1;
+}
+
+
+.main__produtos-imagem li
+{
+    min-height: 400px;
+
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main__produtos-imagem li > img
+{
+    width: 550px;
+    height: 300px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid var(--branco);
+    border-radius: 10px;
+}
+
+.main__termos
+{
+    width: 1440px;
+    height: 200px;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
+    border-radius: 10px;
+}
+
+
+.main__termos-container
+{
+    width: 90%;
+    height: 100px;
+
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid var(--roxo);
+    border-radius: 10px;
+}
+
+.main__termos-container-button
+{
+    width: 600px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.main__termos-container-button-comprar button,
+.main__termos-container-button-cancelar button
+{
+    width: 200px;
+    height: 50px;
+
+    border-radius: 10px;
+}
+
+.main__termos-container-button-comprar button
+{
+    color: var(--branco);
+    background-color: transparent;
+    border: 1px solid var(--verde_claro);
+
+    transition: 0.5s;
+}
+
+.main__termos-container-button-comprar button:hover
+{
+    color: var(--preto);
+    background-color: var(--verde_claro);
+    border: 1px solid var(--branco);
+
+    scale: 1.1;
+}
+
+.main__termos-container-button-cancelar button
+{
+    color: var(--branco);
+    background-color: transparent;
+    border: 1px solid var(--vermelho);
+
+    transition: 0.5s;
+}
+
+.main__termos-container-button-cancelar button:hover
+{
+    color: var(--preto);
+    background-color: var(--vermelho);
+    border: 1px solid var(--branco);
+
+    scale: 1.1;
+}
+
+
+.footer
+{
+    width: 100%;
+    height: 50px;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #212529;
+    border: 1px solid var(--cinza_claro);
+    border-left: 0;
+    border-right: 0;
+}
+
+.footer span
+{
+    color: var(--branco);
+}
+
+.footer__social
+{
+    width: 200px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.footer__social a
+{
+    font-size: 20px;
+}

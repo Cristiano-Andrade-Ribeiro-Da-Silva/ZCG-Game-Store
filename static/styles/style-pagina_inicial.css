@@ -1,9 +1,16 @@
-/* Formatando Tudo */
-*
-{
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+/* Corpo geral */
+body 
+{
+    overflow-x: hidden;
+
+    background-color: var(--preto);
+    color: var(--branco);
 }
 
 
@@ -26,15 +33,56 @@ li
 /* Formatando todos 'a' */
 a
 {
-    color: white;
+    color: var(--branco);
     text-decoration: none;
 }
 
+/* Campo de busca */
+.navbar input
+{
+    background-color: var(--cinza_escuro);
+    color: var(--branco);
+    border: 1px solid var(--cinza_claro);
+}
+
+.navbar .btn-outline-success
+{
+    color: var(--branco);
+    border-color: var(--verde_claro);
+}
+
+.navbar .btn-outline-success:hover
+{
+    background-color: var(--verde_claro);
+    color: var(--branco);
+}
+
+/* Dropdown */
 .dropdown-menu
 {
     text-align: center;
+
+    background-color: var(--cinza_escuro);
 }
 
+.dropdown-menu a
+{
+    color: var(--branco);
+}
+
+.dropdown-menu a:hover
+{
+    background-color: var(--cinza_claro);
+}
+
+main
+{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Carrossel */
 .main__games-carousel
 {
     width: 1000px;
@@ -42,13 +90,15 @@ a
 
     margin: 20px auto;
 
+    padding: 20px;
+
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
     gap: 20px;
 
-    border: 1px solid black;
+    border: 1px solid var(--cinza_claro);
     border-radius: 10px;
 }
 
@@ -77,24 +127,128 @@ a
     width: 800px;
     height: 300px;
 
-    border: 1px solid black;
+    border: 1px solid var(--roxo);
     border-radius: 10px;
 }
 
+
+/* Classes do carrocel do bootstrap */
+.carousel-control-prev,
+.carousel-control-next
+{
+    pointer-events: none;
+}
+
+
 .main__games
 {
-    width: 90%;
-    height: 400px;
+    width: 100%;
+    height: 100%;
 
     margin: 20px auto;
 
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+
+    gap: 16px;
+    padding: 16px;
+
+    
+    border: 1px solid var(--preto);
+    border-radius: 10px;
+}
+
+/* Container dos cards */
+.jogos1
+{
+    width: 40%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.jogos2
+{
+    width: 40%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Cards de jogos */
+.card
+{
+    width: 300px;
+    height: 500px;
+
+    margin: 10px;
+
+    color: var(--branco);
+
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--roxo);
+    border-radius: 12px;
+
+    transition: 0.5s;
+}
+
+.card:hover
+{
+    scale: 1.1; 
+}
+
+/* ageitando o tamanho das imagens do jogo no html (adrian)*/
+
+.img-jogo
+{
+    width: 100%;
+    height: 30%;
+
+    border-radius: 12px 12px 0 0;
+    border-top: 15px;
+}
+
+.container-sobre-jogo
+{
+    width: 100%;
+    height: 70%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 
-    border: 1px solid black;
+    text-align: center;
+}
+
+.container-sobre-jogo a
+{
+    width: 100px;
+    height: 50px;
+
+    margin-top: 20px;
+ 
+    padding: 10px;
+
+    color: var(--branco);
+
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--verde_claro);
     border-radius: 10px;
+}
+
+.container-sobre-jogo a:hover
+{
+    color: var(--preto);
+    background-color: var(--verde_claro);
+    border: 1px solid var(--branco);
 }
 
 .footer
@@ -109,15 +263,15 @@ a
     justify-content: space-around;
     align-items: center;
 
-    background-color: #212529;
-    border: 1px solid black;
+    background-color: var(--cinza_claro);
+    border: 1px solid var(--preto);
     border-left: 0;
     border-right: 0;
 }
 
 .footer span
 {
-    color: white;
+    color: var(--branco);
 }
 
 .footer__social

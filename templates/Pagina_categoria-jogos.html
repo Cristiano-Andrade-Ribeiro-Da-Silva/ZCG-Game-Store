@@ -8,33 +8,35 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">ZCG Game Store</a>
-            <form class="d-flex" method="GET" action="{{ url_for('buscar_jogos') }}">
-                <input class="form-control me-2" type="search" name="q" placeholder="Buscar jogos" aria-label="Buscar">
-                <button class="btn btn-outline-light" type="submit">Buscar</button>
-            </form>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                {% if session.usuario_email %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/perfil-usuario">{{ session.usuario_email }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/get/logout">Sair</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/cadastro">Cadastro</a>
-                    </li>
-                {% endif %}
-                <li class="nav-item">
-                    <a class="nav-link" href="/carrinho">Carrinho</a>
-                </li>
+    <div class="container-fluid">
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></button>
+
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item active" href="/"><i class="bi bi-house-door-fill"></i></a></li>
+                <li><a class="dropdown-item" href="/categoria-jogos"><i class="bi bi-bookmark"></i></a></li>
+                <li><a class="dropdown-item" href="/apresentacao"><i class="bi bi-question-circle"></i></a></li>
+            </ul>
+            
+        </div>
+
+        <img src="" alt="">
+        <a class="navbar-brand" href="/">ZCG Game Store</a>
+        <form class="d-flex" role="search" action="/buscar_jogos" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+
+        <a href="/carrinho"><i class="bi bi-cart-plus"></i></a>
+
+        <div class="btn-group dropstart">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/perfil-usuario">My Accont</a></li>
+                <li><a class="dropdown-item" href="/login">Login/Register</a></li>
+                <li><a class="dropdown-item" href="/get/logout">Logout</a></li>
+
             </ul>
         </div>
     </nav>

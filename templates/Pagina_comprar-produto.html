@@ -53,7 +53,7 @@
             </div>
         </div>
     </nav>
-
+    
     <!-- Conteúdo Principal -->
     <main class="main">
 
@@ -83,21 +83,13 @@
                 
             </div>
 
-            <div class="main__produto-compra">
+            <form class="main__produto-compra" action="/carrinho/{{ produto.cod_jogo }}">
 
-                <form class="main__produto-compra-comprar" action="/carrinho/{{ produto.cod_jogo }}">
+                <button type="submit">Comprar</button>
 
-                    <button type="submit">Comprar</button>
+            </form>
 
-                </form>
-
-                <form class="main__produto-compra-termos">
-
-                    <button type="button">Termos de Compra</button>
-
-                </form>
-
-            </div>
+            
 
         </section>
 

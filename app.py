@@ -15,6 +15,7 @@ app=Flask(__name__)
 
 stripe.api_key = "sk_test_51RZxmcQVQ7xKDVyzobtUiCoBHsvMOJbxNAJAjhtVd5VzDVPQVZBHAmevSjvlZ7SLoAem43PV2ZR2GOO8UbA5ixKQ00c1x0Y7wS"
 
+Flask.secret_key = "zcgamestore"
 
 # ROTAS
 @app.route("/checkout")

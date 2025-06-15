@@ -34,21 +34,21 @@
 
             <a class="navbar-brand" href="/">ZCG Game Store</a>
 
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" action="/buscar_jogos" method="GET">
                 <input class="form-control me-2" type="search" placeholder="Pesquisar">
                 <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
             </form>
 
-            <a href="#"><i class="bi bi-cart-plus fs-4 text-white ms-3"></i></a>
+            <a href="/carrinho"><i class="bi bi-cart-plus fs-4 text-white ms-3"></i></a>
 
             <div class="btn-group dropstart">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
                     <i class="bi bi-person-circle"></i>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Minha Conta</a></li>
-                    <li><a class="dropdown-item" href="#">Login/Register</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="/perfil-usuario">Minha Conta</a></li>
+                    <li><a class="dropdown-item" href="/login">Login/Register</a></li>
+                    <li><a class="dropdown-item" href="/get/logout">Logout</a></li>
                 </ul>
             </div>
         </div>

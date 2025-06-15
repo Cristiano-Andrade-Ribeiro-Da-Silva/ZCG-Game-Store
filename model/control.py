@@ -51,36 +51,31 @@ def pega_jogos_destaque2():
         return infos
 
 def busca_jogos_por_nome(termo):
+    if not termo or len(termo.strip()) < 2:
+        return []  # Evita busca com 0 ou 1 caractere
+
     conexao = CX.Conexao.conexao()
     cursor = conexao.cursor(dictionary=True)
 
-    # SQL com LIKE para buscar pelo termo em nome_jogo
     sql = """
         SELECT 
-        tb_jogo.cod_jogo,
-        tb_jogo.nome_jogo,
-        tb_jogo.preco,
-        tb_jogo.descricao_jogo,
-        tb_categoria.categoria,
-        foto_produtos.url
+            tb_jogo.cod_jogo,
+            tb_jogo.nome_jogo,
+            tb_jogo.preco,
+            tb_jogo.descricao_jogo,
+            tb_categoria.categoria,
+            foto_produtos.url
         FROM 
-        tb_jogo
+            tb_jogo
         INNER JOIN 
-        foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos
+            foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos
         INNER JOIN 
-        tb_categoria ON tb_jogo.cod_categoria = tb_categoria.cod_categoria
+            tb_categoria ON tb_jogo.cod_categoria = tb_categoria.cod_categoria
         WHERE 
-        tb_categoria.categoria = %s;
-
+            tb_jogo.nome_jogo LIKE %s;
     """
-
     cursor.execute(sql, (f"%{termo}%",))
-    resultados = cursor.fetchall()
-
-    cursor.close()
-    conexao.close()
-
-    return resultados
+    return cursor.fetchall()
 
 
 def comprar_produto(codigo):

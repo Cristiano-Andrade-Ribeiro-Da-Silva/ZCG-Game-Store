@@ -79,9 +79,9 @@
                     {% for pr2 in pega_produto %}
 
                     <li>
-                        <input type="checkbox">
+                        <a class="main__produtos-nome-button-compraIn">Compra Individual</a>
                         <p>{{pr2.nome_jogo}}</p>
-                        <button><a href="/excluir/{{pr2.cod_jogo}}">Excluir</a></button>
+                        <a href="/excluir/{{pr2.cod_jogo}}" class="main__produtos-nome-button-exclui">Excluir</a>
                     </li>
 
                     {% endfor %}
@@ -122,7 +122,7 @@
 
                     <form action="" class="main__termos-container-button-cancelar">
 
-                        <button>Cancelar</button>
+                        <button>Limpar Carrinho</button>
 
                     </form>
                   

@@ -34,6 +34,44 @@ a
     text-decoration: none;
 }
 
+/* Campo de busca */
+.navbar input
+{
+    background-color: var(--cinza_escuro);
+    color: var(--branco);
+    border: 1px solid var(--cinza_claro);
+}
+
+.navbar .btn-outline-success
+{
+    color: var(--branco);
+    border-color: var(--verde_claro);
+}
+
+.navbar .btn-outline-success:hover
+{
+    background-color: var(--verde_claro);
+    color: var(--branco);
+}
+
+/* Dropdown */
+.dropdown-menu
+{
+    text-align: center;
+
+    background-color: var(--cinza_escuro);
+}
+
+.dropdown-menu a
+{
+    color: var(--branco);
+}
+
+.dropdown-menu a:hover
+{
+    background-color: var(--cinza_claro);
+}
+
 
 .main
 {

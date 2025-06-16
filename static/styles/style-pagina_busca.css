@@ -30,15 +30,44 @@ a
     color: var(--branco);
 }
 
-li
+
+/* Campo de busca */
+.navbar input
 {
-    list-style-type: none;
+background-color: var(--cinza_escuro);
+color: var(--branco);
+border: 1px solid var(--cinza_claro);
 }
 
-a
+.navbar .btn-outline-success
 {
-    text-decoration: none;
-    color: var(--branco);
+color: var(--branco);
+border-color: var(--verde_claro);
+}
+
+.navbar .btn-outline-success:hover
+{
+background-color: var(--verde_claro);
+color: var(--branco);
+}
+
+/* Dropdown */
+.dropdown-menu
+{
+text-align: center;
+
+background-color: var(--cinza_escuro);
+}
+
+.dropdown-menu a
+{
+color: var(--branco);
+}
+
+.dropdown-menu a:hover
+{
+background-color: var(--cinza_claro);
+
 }
 
 .main__card
@@ -91,7 +120,7 @@ a
     height: 50px;
 
     margin-top: 20px;
- 
+    
     padding: 10px;
 
     color: var(--branco);

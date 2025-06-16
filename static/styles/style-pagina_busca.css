@@ -30,6 +30,7 @@ a
     color: var(--branco);
 }
 
+
 /* Campo de busca */
 .navbar input
 {
@@ -66,6 +67,7 @@ color: var(--branco);
 .dropdown-menu a:hover
 {
 background-color: var(--cinza_claro);
+
 }
 
 .main__card

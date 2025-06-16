@@ -1,6 +1,4 @@
-/* Formatando Tudo */
-*
-{
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -9,9 +7,12 @@
 /* Corpo geral */
 body 
 {
+    overflow-x: hidden;
+
     background-color: var(--preto);
     color: var(--branco);
 }
+
 
 /* Formatando todos os botões para um padrão */
 button
@@ -36,75 +37,178 @@ a
     text-decoration: none;
 }
 
-.main__category
+/* Campo de busca */
+.navbar input
 {
-    width: 1400px;
-    height: 750px;
-
-    margin: 100px auto;
-    margin-bottom: 50px;
-
     background-color: var(--cinza_escuro);
+    color: var(--branco);
     border: 1px solid var(--cinza_claro);
-    border-radius: 10px;
 }
 
-.main__category-title
+.navbar .btn-outline-success
 {
-    width: 100%;
-    height: 60px;
+    color: var(--branco);
+    border-color: var(--verde_claro);
+}
 
-    padding-top: 10px;
+.navbar .btn-outline-success:hover
+{
+    background-color: var(--verde_claro);
+    color: var(--branco);
+}
 
+/* Dropdown */
+.dropdown-menu
+{
     text-align: center;
 
-    border: 1px solid var(--cinza_claro);
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
+    background-color: var(--cinza_escuro);
 }
 
-.main__category-container
+.dropdown-menu a
 {
-    width: 90%;
-    height: 45%;
+    color: var(--branco);
+}
 
-    margin: 10px auto;
+.dropdown-menu a:hover
+{
+    background-color: var(--cinza_claro);
+}
+
+main
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.col-auto a
+{
+    font-size: 16px;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid var(--azul_claro);
+    border-radius: 10px;
+    transition: 0.5s
+}
+
+.col-auto a:hover
+{
+    font-size: 20px;
+
+    color: var(--preto);
+    background-color: var(--azul_claro);
+    border: 1px solid var(--branco);
+}
+
+.main__games
+{
+    width: 100%;
+    height: 100%;
+
+    margin: 20px auto;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    gap: 20px;
+
+    gap: 16px;
+    padding: 16px;
+
+    
+    border: 1px solid var(--preto);
+    border-radius: 10px;
 }
 
-.main__category-container button
+/* Cards de jogos */
+.card
 {
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 500px;
 
-    padding: 120px;
+    padding: 0;
 
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    gap: 20px;
+    margin: 10px;
 
-    border: 1px solid var(--cinza_claro);
-    border-radius: 10px;
+    color: var(--branco);
+
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--roxo);
+    border-radius: 12px;
 
     transition: 0.5s;
 }
 
-.main__category-container button:hover
+.card:hover
 {
-    width: 300px;
-    height: 300px;
+    scale: 1.1; 
 }
 
-.main__category-container a
+.card img
 {
-    color: var(--cinza_claro);
+    width: 100%;
+    height: 30%;
+
+    border-radius: 12px 12px 0 0;
+    border-top: 15px;
+}
+
+.container-sobre-jogo
+{
+    width: 100%;
+    height: 70%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.container-sobre-jogo a
+{
+    width: 100px;
+    height: 50px;
+
+    margin-top: 20px;
+ 
+    padding: 10px;
+
+    color: var(--branco);
+
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--verde_claro);
+    border-radius: 10px;
+}
+
+.container-sobre-jogo a:hover
+{
+    color: var(--preto);
+    background-color: var(--verde_claro);
+    border: 1px solid var(--branco);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.nome-jogo {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.descricao-jogo {
+    flex-grow: 1;
+}
+
+.preco-jogo {
+    font-size: 1rem;
+}
+
+.botao-comprar {
+    width: 100%;
 }
 
 
@@ -120,8 +224,8 @@ a
     justify-content: space-around;
     align-items: center;
 
-    background-color: #212529;
-    border: 1px solid var(--cinza_claro);
+    background-color: var(--cinza_claro);
+    border: 1px solid var(--preto);
     border-left: 0;
     border-right: 0;
 }

@@ -22,6 +22,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_perfil_usuario.css') }}">
         <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
 
 
 </head>
@@ -45,12 +46,12 @@
 
         <img src="" alt="">
         <a class="navbar-brand" href="/">ZCG Game Store</a>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <form class="d-flex" role="search" action="/buscar_jogos" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" />
             <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
 
-        <a href="#"><i class="bi bi-cart-plus"></i></a>
+        <a href="/carrinho"><i class="bi bi-cart-plus"></i></a>
 
         <div class="btn-group dropstart">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
@@ -102,25 +103,25 @@
 
                 <li>
                     <input type="checkbox">
-                    <h2>Produto-01</h2>
+                    <p>Produto-01</p>
                     <button>Excluir</button>
                 </li>
 
                 <li>
                     <input type="checkbox">
-                    <h2>Produto-02</h2>
+                    <p>Produto-02</p>
                     <button>Excluir</button>
                 </li>
 
                 <li>
                     <input type="checkbox">
-                    <h2>Produto-03</h2>
+                    <p>Produto-03</p>
                     <button>Excluir</button>
                 </li>
 
                 <li>
                     <input type="checkbox">
-                    <h2>Produto-04</h2>
+                    <p>Produto-04</p>
                     <button>Excluir</button>
                 </li>
 

@@ -70,7 +70,7 @@ a
 
 .main__produtos-container
 {
-    width: 90%;
+    width: 100%;
     height: 90%;
 
     display: flex;
@@ -79,37 +79,41 @@ a
     align-items: center;
 }
 
-.main__produtos-container ul
+.main__produtos-nome,
+.main__produtos-imagem
 {
     width: 800px;
     height: 400px;
-
-    margin: 10px auto;
+  
+    margin: 20px;
+    padding: 10px;
 
     overflow-y: scroll;
     overflow-x: hidden;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 30px;
 
-    border: 1px solid var(--cinza_claro);
+    border: 1px solid var(--roxo);
     border-radius: 10px 0 0 10px;
 }
 
-.main__produtos-container li
+.main__produtos-container li,
+.main__produtos-imagem li
 {
     width: 600px;
     height: 60px;
+    min-height: 60px;
+
+    margin-top: 20px;
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 
-    border: 1px solid var(--cinza_claro);
+    border: 1px solid var(--branco);
     border-radius: 10px;
 }
 
@@ -143,23 +147,30 @@ a
     scale: 1.1;
 }
 
-.main__produtos-container img
-{
-    width: 540px;
-    height: 400px;
 
-    margin: 10px auto;
+.main__produtos-imagem li
+{
+    min-height: 400px;
+
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main__produtos-imagem li > img
+{
+    width: 550px;
+    height: 300px;
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 
-    border: 1px solid var(--cinza_claro);
+    border: 1px solid var(--branco);
     border-radius: 10px;
 }
 
-.main__container-termos
+.main__termos
 {
     width: 1440px;
     height: 200px;
@@ -177,7 +188,7 @@ a
 }
 
 
-.main__container-termos div
+.main__termos-container
 {
     width: 90%;
     height: 100px;
@@ -189,12 +200,23 @@ a
     justify-content: space-around;
     align-items: center;
 
-    border: 1px solid var(--cinza_claro);
+    border: 1px solid var(--roxo);
     border-radius: 10px;
 }
 
-.main__container-termos-button-comprar,
-.main__container-termos-button-cancelar
+.main__termos-container-button
+{
+    width: 600px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.main__termos-container-button-comprar button,
+.main__termos-container-button-cancelar button
 {
     width: 200px;
     height: 50px;
@@ -202,7 +224,7 @@ a
     border-radius: 10px;
 }
 
-.main__container-termos-button-comprar
+.main__termos-container-button-comprar button
 {
     color: var(--branco);
     background-color: transparent;
@@ -211,7 +233,7 @@ a
     transition: 0.5s;
 }
 
-.main__container-termos-button-comprar:hover
+.main__termos-container-button-comprar button:hover
 {
     color: var(--preto);
     background-color: var(--verde_claro);
@@ -220,7 +242,7 @@ a
     scale: 1.1;
 }
 
-.main__container-termos-button-cancelar
+.main__termos-container-button-cancelar button
 {
     color: var(--branco);
     background-color: transparent;
@@ -229,7 +251,7 @@ a
     transition: 0.5s;
 }
 
-.main__container-termos-button-cancelar:hover
+.main__termos-container-button-cancelar button:hover
 {
     color: var(--preto);
     background-color: var(--vermelho);

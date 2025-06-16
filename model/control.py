@@ -123,14 +123,25 @@ def carrinho_produto(cod_jogo, cod_usuario):
     conexao = CX.Conexao.conexao()
     cursor = conexao.cursor()
 
-    sql = """
+    sql_insert = """
         INSERT INTO tb_carrinho(codigo_produto, cod_jogo, cod_usuario) 
         VALUES (%s, %s, %s);
     """
 
+    sql_delete = """DELETE FROM tb_carrinho
+        WHERE cod_carrinho IN (
+        SELECT cod_carrinho FROM (
+                SELECT MAX(cod_carrinho) AS cod_carrinho
+                FROM tb_carrinho
+                GROUP BY codigo_produto
+                HAVING COUNT(*) > 1
+        ) AS temp
+        );"""
+
     valores = (cod_jogo, cod_jogo, cod_usuario)
 
-    cursor.execute(sql, valores)
+    cursor.execute(sql_insert, valores)
+    cursor.execute(sql_delete)
     conexao.commit()
 
     cursor.close()

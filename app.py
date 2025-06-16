@@ -275,8 +275,6 @@ def pagina_perfil_usuario():
 
     return render_template("Pagina_perfil-usuario.html", historico=historico)
 
-
-
 # === EXECUÇÃO DO APP ===
 
 if __name__ == "__main__":

@@ -17,8 +17,8 @@
         /* Carrossel */
         .main__games-carousel
         {
-            width: 650px;
-            height: 800px;
+            width: 500px;
+            height: 450px;
         }
 
         .main__games-carousel-container
@@ -32,6 +32,11 @@
         .main__games-carousel-item
         {
             width: 400px;
+        }
+
+        .cell
+        {
+            display: none;
         }
 
         /* Container dos cards */
@@ -53,3 +58,49 @@
         }
     
 }
+
+/* Celular */
+@media (max-width: 630px)
+{
+    /* Pagina Inicial */
+
+        /* Header */
+            .navbar-brand
+            {
+                display: none;
+            }
+
+            .d-flex input
+            {
+                width: 150px;
+            }
+
+        /* Carrossel */
+            .main__games-carousel
+            {
+                width: 350px;
+                height: 450px;
+
+                text-align: center;
+            }
+
+            .main__games-carousel-container
+            {
+                width: 90%;
+                height: 640px;
+
+                flex-direction: column;
+            }
+
+            .main__games-carousel-item
+            {
+                width: 300px;
+            }
+
+        /* Jogos Padrão */
+
+            .main__games
+            {
+                flex-direction: column;
+            }
+    }

@@ -104,7 +104,17 @@ def carrinho_produto(codigo):
 
         valor = (codigo, codigo)
 
-        sql = "INSERT INTO tb_carrinho(codigo_produto, cod_jogo) VALUES(%s, %s);"
+        sql = """INSERT INTO tb_carrinho(codigo_produto, cod_jogo) VALUES(%s, %s);
+        
+                        DELETE FROM tb_carrinho
+                WHERE cod_carrinho IN (
+                SELECT cod_carrinho FROM (
+                        SELECT MAX(cod_carrinho) AS cod_carrinho
+                        FROM tb_carrinho
+                        GROUP BY codigo_produto
+                        HAVING COUNT(*) > 1
+                ) AS temp
+                );"""
 
         cursor.execute(sql, valor)
         

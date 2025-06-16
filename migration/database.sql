@@ -11,8 +11,6 @@ CREATE TABLE tb_usuario (
     num_telefone VARCHAR(12)
 );
 
-INSERT INTO tb_usuario(nome, email, senha, num_telefone) VALUES('a', 'oloko', '123', '123456789');
-
 CREATE TABLE tb_categoria (
     cod_categoria INT AUTO_INCREMENT PRIMARY KEY,
     categoria VARCHAR(30)
@@ -71,7 +69,7 @@ insert into foto_produtos(url, cod_jogos) values('../static/img/mw3.jpg', 6);
 insert into foto_produtos(url, cod_jogos) values('../static/img/rogue.jpg', 7);
 insert into foto_produtos(url, cod_jogos) values('../static/img/bloodborne.jpg', 8);
 insert into foto_produtos(url, cod_jogos) values('../static/img/forza5.jpg', 9);
-insert into foto_produtos(url, cod_jogos) values('../static/img/need for speed.jpg', 10);
+insert into foto_produtos(url, cod_jogos) values('../static/img/need_for_speed.jpg', 10);
 
 insert into tb_categoria(categoria) values('RGP e AÇÃO');
 insert into tb_categoria(categoria) values('FPS');
@@ -86,3 +84,14 @@ inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos
 inner join tb_categoria on tb_jogo.cod_categoria = tb_categoria.cod_categoria
 inner join tb_carrinho on tb_jogo.cod_jogo = tb_carrinho.cod_jogo
 inner join tb_comentario on tb_jogo.cod_jogo = tb_comentario.cod_jogo;
+
+/* este comando não permite que o usuario adicione mais de 1 mesmo produto no carrinho
+DELETE FROM tb_carrinho
+WHERE cod_carrinho IN (
+    SELECT cod_carrinho FROM (
+        SELECT MAX(cod_carrinho) AS cod_carrinho
+        FROM tb_carrinho
+        GROUP BY codigo_produto
+        HAVING COUNT(*) > 1
+    ) AS temp
+);*/

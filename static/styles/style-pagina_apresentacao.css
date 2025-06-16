@@ -34,6 +34,24 @@ a
     text-decoration: none;
 }
 
+/* Dropdown */
+.dropdown-menu
+{
+    text-align: center;
+
+    background-color: var(--cinza_escuro);
+}
+
+.dropdown-menu a
+{
+    color: var(--branco);
+}
+
+.dropdown-menu a:hover
+{
+    background-color: var(--cinza_claro);
+}
+
 .main
 {
     width: 100%;

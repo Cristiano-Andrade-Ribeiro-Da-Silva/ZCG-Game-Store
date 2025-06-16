@@ -175,42 +175,44 @@ def excluir_produtos(codigo):
     cursor.close()
     conexao.close()
 
-def compra_individual(codigo):
+def compra_individual(codigo, cod_usuario):
+    conexao = CX.Conexao.conexao()
+    cursor = conexao.cursor()
 
-        valor = (codigo,codigo)
+    sql = """
+        INSERT INTO tb_historico (nome_produto, preco_porduto, cod_usuario)
+        SELECT nome_jogo, preco, %s
+        FROM tb_jogo
+        WHERE cod_jogo = %s;
 
-        conexao = CX.Conexao.conexao()
-        cursor = conexao.cursor()
+        DELETE FROM tb_carrinho WHERE cod_jogo = %s AND cod_usuario = %s;
+    """
+    valores = (cod_usuario, codigo, codigo, cod_usuario)
 
-        sql = """INSERT INTO tb_historico (nome_produto, preco_porduto)
-                SELECT nome_jogo, preco
-                FROM tb_jogo
-                WHERE cod_jogo = %s;
-                
-                DELETE FROM tb_carrinho WHERE cod_jogo = %s"""
+    cursor.execute(sql, valores)
+    conexao.commit()
 
-        cursor.execute(sql,valor)
-
-        conexao.commit()
-        cursor.close()
-        conexao.close()
+    cursor.close()
+    conexao.close()
 
 
-def resgata_historico():
-       
-        conexao = CX.Conexao.conexao()
-        cursor = conexao.cursor(dictionary=True)
+def resgata_historico(cod_usuario):
+    conexao = CX.Conexao.conexao()
+    cursor = conexao.cursor(dictionary=True)
 
-        sql = """select * from tb_historico"""
+    sql = """
+        SELECT nome_produto, preco_porduto, data_compra
+        FROM tb_historico
+        WHERE cod_usuario = %s
+        ORDER BY data_compra DESC;
+    """
+    cursor.execute(sql, (cod_usuario,))
+    infos = cursor.fetchall()
 
-        cursor.execute(sql)
+    cursor.close()
+    conexao.close()
 
-        infos = cursor.fetchall()
-
-        cursor.close()
-        conexao.close()
-
-        return infos
+    return infos
 
 def comprar_tudo():
 

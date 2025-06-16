@@ -1,7 +1,7 @@
 /* Notbook */
 @media (max-width: 1300px)
 {
-    /* Inicial */
+    /* Pagina Inicial */
 
         /* Container dos Cards */
             .main__games-jogos
@@ -10,6 +10,57 @@
 
                     flex-direction: column;
                 }
+
+    /* Pagina Comprar Produto */
+
+        /* Main */
+
+            .main__produto
+            {
+                flex-direction: column;
+            }
+
+            .main__produto-detalhes
+            {
+                width: 600px;
+
+                margin: 0;
+            }
+
+            .main__produto-detalhes-nome,
+            .main__produto-detalhes-descricao
+            {
+                width: 550px;
+            }
+
+            .main__produto-compra
+            {
+                width: 100%;
+                height: 200px;
+
+                border-bottom: 1px solid var(--branco);
+            }
+
+            .main__comentario
+            {
+                height: 750px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .main__comentario-container,
+            .main__chat-container
+            {
+                width: 400px;
+                height: 400px;
+            }
+
+            .main__comentario-container
+            {
+                height: 300px;
+            }
+
+
 }
 
 /* Tablet */
@@ -128,6 +179,60 @@
             .main__form-cadastro
             {
                 width: 350px;
+            }
+
+    /* Pagina Comprar Produto */
+
+        /* Main */
+
+            .main__produto
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main__produto img
+            {
+                width: 350px;
+            }
+
+            .main__produto-detalhes
+            {
+                width: 370px;
+            }
+
+            .main__produto-detalhes-nome,
+            .main__produto-detalhes-descricao
+            {
+                width: 350px;
+            }
+
+            .main__produto-compra
+            {
+                width: 100%;
+                height: 200px;
+
+                border-bottom: 1px solid var(--branco);
+            }
+
+            .main__comentario
+            {
+                height: 750px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .main__comentario-container,
+            .main__chat-container
+            {
+                width: 400px;
+                height: 400px;
+            }
+
+            .main__comentario-container
+            {
+                height: 300px;
             }
 
 }

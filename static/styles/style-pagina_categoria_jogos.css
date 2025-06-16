@@ -115,6 +115,28 @@ a
     color: var(--branco);
 }
 
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.nome-jogo {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.descricao-jogo {
+    flex-grow: 1;
+}
+
+.preco-jogo {
+    font-size: 1rem;
+}
+
+.botao-comprar {
+    width: 100%;
+}
+
 
 .footer
 {

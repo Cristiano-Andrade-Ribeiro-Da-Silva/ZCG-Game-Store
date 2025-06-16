@@ -275,9 +275,16 @@ def comprar_individual(codigo):
     return redirect("/carrinho")
 
 
+@app.route("/comprar/tudo")
+def comprar_tudo():
+    
+    ct.comprar_tudo()
+
+    return redirect("/carrinho")
+
+
 # === EXECUÇÃO DO APP ===
 
 if __name__ == "__main__":
     app.run(debug=True)
     # app.run(host="0.0.0.0", port=8080)
-    # oloko mano

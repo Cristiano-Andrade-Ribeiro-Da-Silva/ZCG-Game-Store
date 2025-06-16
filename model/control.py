@@ -221,6 +221,7 @@ def comprar_tudo():
                 SELECT j.nome_jogo, j.preco, c.cod_usuario
                 FROM tb_carrinho c
                 INNER JOIN tb_jogo j ON c.cod_jogo = j.cod_jogo;"""
+        
         sql_delete = """DELETE FROM tb_carrinho"""
 
         cursor.execute(sql)

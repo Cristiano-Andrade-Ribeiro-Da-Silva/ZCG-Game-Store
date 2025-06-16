@@ -175,3 +175,39 @@ def excluir_produtos(codigo):
     cursor.close()
     conexao.close()
 
+def compra_individual(codigo):
+
+        valor = (codigo,codigo)
+
+        conexao = CX.Conexao.conexao()
+        cursor = conexao.cursor()
+
+        sql = """INSERT INTO tb_historico (nome_produto, preco_porduto)
+                SELECT nome_jogo, preco
+                FROM tb_jogo
+                WHERE cod_jogo = %s;
+                
+                DELETE FROM tb_carrinho WHERE cod_jogo = %s"""
+
+        cursor.execute(sql,valor)
+
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
+
+def resgata_historico():
+       
+        conexao = CX.Conexao.conexao()
+        cursor = conexao.cursor(dictionary=True)
+
+        sql = """select * from tb_historico"""
+
+        cursor.execute(sql)
+
+        infos = cursor.fetchall()
+
+        cursor.close()
+        conexao.close()
+
+        return infos

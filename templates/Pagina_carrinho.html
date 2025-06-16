@@ -75,7 +75,7 @@
                 <ul class="main__produtos-nome">
                     {% for item in carrinho %}
                     <li>
-                        <input type="checkbox">
+                        <a href="/comprar/individual/{{item.cod_jogo}}" class="main__produtos-nome-button-compraIn">Compra Individual</a>
                         <p>{{ item.nome_jogo }}</p>
                         <button><a href="/excluir/{{ item.cod_jogo }}">Excluir</a></button>
                     </li>

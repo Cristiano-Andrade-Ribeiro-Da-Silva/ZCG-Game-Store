@@ -15,7 +15,8 @@ body
 main
 {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     color: var(--branco);
 }
 
@@ -34,48 +35,49 @@ a
 /* Campo de busca */
 .navbar input
 {
-background-color: var(--cinza_escuro);
-color: var(--branco);
-border: 1px solid var(--cinza_claro);
+    color: var(--branco);
+    background-color: var(--cinza_escuro);
+    border: 1px solid var(--cinza_claro);
 }
 
 .navbar .btn-outline-success
 {
-color: var(--branco);
-border-color: var(--verde_claro);
+    color: var(--branco);
+    border-color: var(--verde_claro);
 }
 
 .navbar .btn-outline-success:hover
 {
-background-color: var(--verde_claro);
-color: var(--branco);
+    background-color: var(--verde_claro);
+    color: var(--branco);
 }
 
 /* Dropdown */
 .dropdown-menu
 {
-text-align: center;
+    text-align: center;
 
-background-color: var(--cinza_escuro);
+    background-color: var(--cinza_escuro);
 }
 
 .dropdown-menu a
 {
-color: var(--branco);
+    color: var(--branco);
 }
 
 .dropdown-menu a:hover
 {
-background-color: var(--cinza_claro);
-
+    background-color: var(--cinza_claro);  
 }
 
 .main__card
 {
     margin-bottom: 100px;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 

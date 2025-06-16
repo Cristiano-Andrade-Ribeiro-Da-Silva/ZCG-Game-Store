@@ -52,7 +52,7 @@ class Usuario:
         conexao = CX.Conexao.conexao()
         cursor = conexao.cursor(dictionary = True)
 
-        sql  = """SELECT email, nome FROM tb_usuario WHERE  email = %s and binary senha = %s"""
+        sql  = """SELECT email, nome, cod_usuario FROM tb_usuario WHERE  email = %s and binary senha = %s"""
 
         valores = (email, senha_criptografada)
         cursor.execute(sql, valores)
@@ -64,6 +64,7 @@ class Usuario:
         if resultado:
             session['Usuario'] = resultado['email']
             session['nome_usuario'] = resultado['nome']
+            session['cod_usuario'] = resultado['cod_usuario']
             return True
         else:
             return False

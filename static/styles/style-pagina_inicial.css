@@ -150,6 +150,8 @@ main
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    text-align: center;
 
     gap: 16px;
     padding: 16px;
@@ -162,7 +164,7 @@ main
 /* Container dos cards */
 .main__games-jogos
 {
-    width: 1000px;
+    width: 650px;
     height: 100%;
 
     display: flex;

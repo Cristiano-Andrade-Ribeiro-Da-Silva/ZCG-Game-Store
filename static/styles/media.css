@@ -1,0 +1,43 @@
+@media (max-width: 1000px) 
+{
+    /* Pagina Inicial */
+
+        /* Carrossel */
+        .main__games-carousel
+        {
+            width: 650px;
+            height: 800px;
+        }
+
+        .main__games-carousel-container
+        {
+            width: 90%;
+            height: 640px;
+
+            flex-direction: column;
+        }
+
+        .main__games-carousel-item
+        {
+            width: 400px;
+        }
+
+        /* Container dos cards */
+        .main__games-jogos
+        {
+            width: 400px;
+
+            flex-direction: column;
+        }
+
+        .main__games-jogos-01
+        {
+            width: 90%;
+        }
+
+        .main__games-jogos-02
+        {
+            width: 90%;
+        }
+    
+}

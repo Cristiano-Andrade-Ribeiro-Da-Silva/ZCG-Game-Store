@@ -1,8 +1,6 @@
 CREATE DATABASE game_store;
 USE game_store;
 
-/* removi as chaves estrangeiras por que não estava funcionadno o inner join */
-
 CREATE TABLE tb_usuario (
     cod_usuario INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
@@ -53,16 +51,16 @@ CREATE TABLE tb_historico(
     cod_usuario int
 );
 
-insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('elden ring', 299.99, 'um mundo tomado pelo mal e vc é o unico que pode parar isso Setornando o Elden Ring', 1);
-insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('dark souls', 299.99, 'derrote chefes e se torne o dark souls', 1);
-insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('dark souls II', 299.99, 'derrote chefes e se torne o dark souls II', 1);
-insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('dark souls III', 299.99, 'derrote chefes e se torne o dark souls III', 1);
+insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Elden Ring', 299.99, 'um mundo tomado pelo mal e vc é o unico que pode parar isso se tornando o Elden Ring', 1);
+insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Dark Souls', 299.99, 'derrote chefes e se torne o dark souls', 1);
+insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Dark Souls II', 299.99, 'derrote chefes e se torne o dark souls II', 1);
+insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Dark Souls III', 299.99, 'derrote chefes e se torne o dark souls III', 1);
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('GTA VI', 299.99, 'explore se divirta e faça o que bem entender', 3);
-insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Call of Duty MW III', 299.99, 'defenda todos de criminosos terroristas', 2);
+insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Call of Duty MW III', 299.99, 'defenda todos de criminosos e terroristas', 2);
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Assassin s Creed Rogue', 299.99, 'lute para proteger continentes sendo um assassino de uma irmandade que não vê o desastre que causa', 3);
-insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Bloodborne', 299.99, 'um caçador chega a Yharnam, enfrenta monstros e deuses para escapar de um pesadelo.', 1);
+insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Bloodborne', 299.99, 'um caçador chega a Yharnam, enfrenta monstros e deuses para escapar de um pesadelo', 1);
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Forza Horizon 5', 299.99, 'explore um mundo gigante participando de corrigas com super carros tunados até o maximo', 4);
-insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Need for speed', 299.99, 'participe de corridas ilegais nas ruas da cidade sendo seguido pela policia mais treinada do pais.', 4);
+insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Need for speed', 299.99, 'participe de corridas ilegais nas ruas da cidade sendo seguido pela policia mais treinada do pais', 4);
 
 insert into foto_produtos(url, cod_jogos) values('../static/img/eldenring.png', 1);
 insert into foto_produtos(url, cod_jogos) values('../static/img/dark souls.jpg', 2);
@@ -106,6 +104,3 @@ SELECT nome_jogo, preco
 FROM tb_jogo
 WHERE cod_jogo = 5;
 */
-
-
-select * from tb_historico;

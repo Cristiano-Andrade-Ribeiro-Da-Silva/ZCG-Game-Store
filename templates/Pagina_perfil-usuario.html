@@ -100,30 +100,13 @@
         <nav class="main__historico-container">
 
             <ul>
-
+                {% for historico in historico %}
                 <li>
                     <input type="checkbox">
-                    <p>Produto-01</p>
+                    <p>{{historico.nome_produto}}</p>
                     <button>Excluir</button>
                 </li>
-
-                <li>
-                    <input type="checkbox">
-                    <p>Produto-02</p>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <p>Produto-03</p>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <p>Produto-04</p>
-                    <button>Excluir</button>
-                </li>
+                {% endfor %}
 
             </ul>
 

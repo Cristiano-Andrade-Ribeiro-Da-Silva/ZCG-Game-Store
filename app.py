@@ -249,7 +249,30 @@ def pagina_apresentacao():
 
 @app.route("/perfil-usuario")
 def pagina_perfil_usuario():
-    return render_template("Pagina_perfil-usuario.html")
+    
+    historico = session.get("historico", [])
+    return render_template("Pagina_perfil-usuario.html", historico=historico)
+
+#compra individua
+
+@app.route("/comprar/individual/<codigo>")
+def comprar_individual(codigo):
+    produto = ct.compra_individual(codigo)
+
+    if not produto:
+        flash("Produto não encontrado.")
+        return redirect("/")
+
+    # Pega histórico da sessão ou cria novo
+    historico = session.get("historico", [])
+
+    # Adiciona o produto
+    historico.append(produto)
+
+    # Atualiza a sessão
+    session["historico"] = historico
+
+    return redirect("/carrinho")
 
 
 # === EXECUÇÃO DO APP ===

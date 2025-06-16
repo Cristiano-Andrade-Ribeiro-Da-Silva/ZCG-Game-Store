@@ -1,61 +1,74 @@
-/* Tablet */
+/* Notbook */
 @media (max-width: 1300px)
 {
-    .main__games-jogos
-        {
-            width: 400px;
+    /* Inicial */
 
-            flex-direction: column;
-        }
+        /* Container dos Cards */
+            .main__games-jogos
+                {
+                    width: 400px;
+
+                    flex-direction: column;
+                }
 }
 
-/* Notbook */
+/* Tablet */
 @media (max-width: 1000px) 
 {
     /* Pagina Inicial */
 
         /* Carrossel */
-        .main__games-carousel
-        {
-            width: 500px;
-            height: 450px;
-        }
+            .main__games-carousel
+            {
+                width: 500px;
+                height: 450px;
+            }
 
-        .main__games-carousel-container
-        {
-            width: 90%;
-            height: 640px;
+            .main__games-carousel-container
+            {
+                width: 90%;
+                height: 640px;
 
-            flex-direction: column;
-        }
+                flex-direction: column;
+            }
 
-        .main__games-carousel-item
-        {
-            width: 400px;
-        }
+            .main__games-carousel-item
+            {
+                width: 400px;
+            }
 
-        .cell
-        {
-            display: none;
-        }
+            .cell
+            {
+                display: none;
+            }
 
         /* Container dos cards */
-        .main__games-jogos
-        {
-            width: 400px;
+            .main__games-jogos
+            {
+                width: 400px;
 
-            flex-direction: column;
-        }
+                flex-direction: column;
+            }
 
-        .main__games-jogos-01
-        {
-            width: 90%;
-        }
+            .main__games-jogos-01
+            {
+                width: 90%;
+            }
 
-        .main__games-jogos-02
-        {
-            width: 90%;
-        }
+            .main__games-jogos-02
+            {
+                width: 90%;
+        
+            }
+
+    /* Busca */
+
+        /* Main */
+            .main__card
+            {
+                display: flex;
+                flex-direction: column;
+            }
     
 }
 
@@ -103,4 +116,4 @@
             {
                 flex-direction: column;
             }
-    }
+}

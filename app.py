@@ -139,7 +139,10 @@ def pagina_apresentacao():
 
 @app.route("/perfil-usuario")
 def pagina_perfil_usuario():
-    return render_template("Pagina_perfil-usuario.html")
+
+    pega_historico = ct.resgata_historico()
+
+    return render_template("Pagina_perfil-usuario.html", historico = pega_historico)
 
 @app.route("/comprar-produto/<codigo>")
 def pagina_comprar_produto(codigo):
@@ -197,13 +200,20 @@ def postar_comentario():
 
     return redirect(f"/comprar-produto/{cod_jogo}")
 
-    
-
 @app.route("/get/logout")
 def pagina_logout():
     flash("Você saiu da sua conta com êxito")
     control_usuario.Usuario.logoff()
     return redirect("/")
+
+#compra individua
+
+@app.route("/comprar/individual/<codigo>")
+def comprar_individual(codigo):
+
+    ct.compra_individual(codigo)
+
+    return redirect("/carrinho")
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -79,7 +79,7 @@
                     {% for pr2 in pega_produto %}
 
                     <li>
-                        <a class="main__produtos-nome-button-compraIn">Compra Individual</a>
+                        <a href="/comprar/individual/{{pr2.cod_jogo}}" class="main__produtos-nome-button-compraIn">Compra Individual</a>
                         <p>{{pr2.nome_jogo}}</p>
                         <a href="/excluir/{{pr2.cod_jogo}}" class="main__produtos-nome-button-exclui">Excluir</a>
                     </li>

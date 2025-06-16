@@ -16,7 +16,6 @@
         <!-- Link JS Bootstrap via CDN -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" defer></script>
 
-
     <!-- links interno -->
 
         <!-- CSS -->
@@ -100,30 +99,13 @@
         <nav class="main__historico-container">
 
             <ul>
-
+                {% for historico in historico %}
                 <li>
                     <input type="checkbox">
-                    <p>Produto-01</p>
+                    <p>{{historico.nome_produto}}</p>
                     <button>Excluir</button>
                 </li>
-
-                <li>
-                    <input type="checkbox">
-                    <p>Produto-02</p>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <p>Produto-03</p>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <p>Produto-04</p>
-                    <button>Excluir</button>
-                </li>
+                {% endfor %}
 
             </ul>
 

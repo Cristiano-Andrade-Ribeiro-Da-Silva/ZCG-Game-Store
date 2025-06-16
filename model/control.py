@@ -211,3 +211,21 @@ def resgata_historico():
         conexao.close()
 
         return infos
+
+def comprar_tudo():
+
+        conexao = CX.Conexao.conexao()
+        cursor = conexao.cursor()
+
+        sql = """INSERT INTO tb_historico (nome_produto, preco_porduto, cod_usuario)
+                SELECT j.nome_jogo, j.preco, c.cod_usuario
+                FROM tb_carrinho c
+                INNER JOIN tb_jogo j ON c.cod_jogo = j.cod_jogo;"""
+        sql_delete = """DELETE FROM tb_carrinho"""
+
+        cursor.execute(sql)
+        cursor.execute(sql_delete)
+
+        conexao.commit()
+        cursor.close()
+        conexao.close()

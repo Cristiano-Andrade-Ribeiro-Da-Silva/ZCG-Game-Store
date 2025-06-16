@@ -1,3 +1,15 @@
+/* Tablet */
+@media (max-width: 1300px)
+{
+    .main__games-jogos
+        {
+            width: 400px;
+
+            flex-direction: column;
+        }
+}
+
+/* Notbook */
 @media (max-width: 1000px) 
 {
     /* Pagina Inicial */

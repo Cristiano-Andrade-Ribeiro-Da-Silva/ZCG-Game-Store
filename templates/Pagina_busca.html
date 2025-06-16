@@ -18,14 +18,15 @@
     <!-- Link JS Bootstrap via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" defer></script>
 
+
     <!-- links interno -->
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_carrinho.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_busca.css') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/media.css')}}">
-    
+
 </head>
 
 <body>
@@ -43,9 +44,9 @@
                     <li><a class="dropdown-item" href="/categoria-jogos"><i class="bi bi-bookmark"></i></a></li>
                     <li><a class="dropdown-item" href="/apresentacao"><i class="bi bi-question-circle"></i></a></li>
                 </ul>
-              
+
             </div>
-              
+
             <img src="" alt="">
             <a class="navbar-brand" href="/">ZCG Game Store</a>
             <form class="d-flex" role="search" action="/buscar_jogos" method="GET">
@@ -59,7 +60,7 @@
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="bi bi-person-circle"></i></button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/perfil-usuario">My Account</a></li>
+                    <li><a class="dropdown-item" href="/perfil-usuario">My Accont</a></li>
                     <li><a class="dropdown-item" href="/login">Login/Register</a></li>
                     <li><a class="dropdown-item" href="/get/logout">Logout</a></li>
                 </ul>
@@ -67,63 +68,29 @@
 
         </div>
 
+
     </nav>
 
-    <main class="main">
+    <main>
+            <h1>Resultados da busca para "{{ termo }}"</h1>
 
-        <section class="main__produtos">
-            <nav class="main__produtos-container">
-                <ul class="main__produtos-nome">
-                    {% for item in carrinho %}
-                    <li>
-                        <a href="/comprar/individual/{{item.cod_jogo}}" class="main__produtos-nome-button-compraIn">Compra Individual</a>
-                        <p>{{ item.nome_jogo }}</p>
-                        <a href="/excluir/{{ item.cod_jogo }}" class="main__produtos-nome-button-exclui">Excluir</a>
-                    </li>
-                    {% endfor %}
-                </ul>
+            {% if jogos %}
+            <ul class="main__card">
+                {% for jogo in jogos %}
+                <li class="main_card-container">
+                    <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="FOTO-JOGO">
+                    <h3>{{ jogo.nome_jogo }}</h3>
+                    <p><strong>Preço:</strong> R$ {{ "%.2f"|format(jogo.preco) }}</p>
 
-                <ul class="main__produtos-imagem">
-                    {% for item in carrinho %}
-                    <li>
-                        <p>Código Produto: {{ item.cod_jogo }}</p>
-                        <p>{{ item.nome_jogo }}</p>
-                        <img src="{{ item.url }}" alt="{{ item.nome_jogo }}">
-                    </li>
-                    {% endfor %}
-                </ul>
-            </nav>
-        </section>
+                    <button><a href="/comprar-produto/{{jogo.cod_jogo}}">Ver</a></button>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>Nenhum jogo encontrado.</p>
+            {% endif %}
 
-
-        <section class="main__termos">
-
-            <span>Termos de Licença</span>
-
-            <div class="main__termos-container">
-
-                <strong><span>Valor Total: </span> R$ {{ total }}</strong>
-
-                <div class="main__termos-container-button">
-                    
-                    <form action="/comprar/tudo" class="main__termos-container-button-comprar">
-
-                        <button>Continuar para a compra</button>
-
-                    </form>
-
-                    <form action="" class="main__termos-container-button-cancelar">
-
-                        <button>Cancelar</button>
-
-                    </form>
-                  
-                </div>
-
-            </div>
-
-        </section>
-
+            <a href="/">Voltar para a página inicial</a>
     </main>
 
     <footer class="footer">

@@ -21,6 +21,9 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_perfil_usuario.css') }}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
+
 
 </head>
 
@@ -34,28 +37,28 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></button>
 
             <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item active" href="#"><i class="bi bi-house-door-fill"></i></a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark"></i></a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle"></i></a></li>
+                <li><a class="dropdown-item active" href="/"><i class="bi bi-house-door-fill"></i></a></li>
+                <li><a class="dropdown-item" href="/categoria-jogos"><i class="bi bi-bookmark"></i></a></li>
+                <li><a class="dropdown-item" href="/apresentacao"><i class="bi bi-question-circle"></i></a></li>
             </ul>
             
         </div>
 
         <img src="" alt="">
-        <a class="navbar-brand">ZCG Game Store</a>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <a class="navbar-brand" href="/">ZCG Game Store</a>
+        <form class="d-flex" role="search" action="/buscar_jogos" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" />
             <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
 
-        <a href="#"><i class="bi bi-cart-plus"></i></a>
+        <a href="/carrinho"><i class="bi bi-cart-plus"></i></a>
 
         <div class="btn-group dropstart">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">My Accont</a></li>
-                <li><a class="dropdown-item" href="#">Login/Register</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="/perfil-usuario">My Accont</a></li>
+                <li><a class="dropdown-item" href="/login">Login/Register</a></li>
+                <li><a class="dropdown-item" href="/get/logout">Logout</a></li>
             </ul>
         </div>
 
@@ -71,18 +74,17 @@
 
             <figure>
 
-                <img src="" alt="">
+                <img src="../static/img/foto-usuario.jpg" alt="FOTO-PERFIL">
 
             </figure>
 
 
             <form>
 
-                <span>NOME DO USUARIO</span>
+                <span>NOME DO USUARIO: {{session["nome_usuario"]}}</span>
                 
-                <span>EMAIL DO USUARIO</span>
+                <span>EMAIL DO USUARIO: {{session["Usuario"]}}</span>
                 
-                <span>SENHA DO USUARIO</span>
 
             </form>
 
@@ -98,30 +100,13 @@
         <nav class="main__historico-container">
 
             <ul>
-
+                {% for historico in historico %}
                 <li>
                     <input type="checkbox">
-                    <h2>Produto-01</h2>
+                    <p>{{historico.nome_produto}}</p>
                     <button>Excluir</button>
                 </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-02</h2>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-03</h2>
-                    <button>Excluir</button>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <h2>Produto-04</h2>
-                    <button>Excluir</button>
-                </li>
+                {% endfor %}
 
             </ul>
 

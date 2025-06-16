@@ -79,7 +79,6 @@
                 <li class="main_card-container">
                     <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="FOTO-JOGO">
                     <h3>{{ jogo.nome_jogo }}</h3>
-                    <p>{{ jogo.descricao_jogo }}</p>
                     <p><strong>Preço:</strong> R$ {{ "%.2f"|format(jogo.preco) }}</p>
 
                     <button><a href="/comprar-produto/{{jogo.cod_jogo}}">Ver</a></button>

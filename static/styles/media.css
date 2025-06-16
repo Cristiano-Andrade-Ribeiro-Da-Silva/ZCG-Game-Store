@@ -111,9 +111,23 @@
             }
 
         /* Jogos Padrão */
-
             .main__games
             {
                 flex-direction: column;
             }
+
+    /* Pagina logar e Pagina de Cadastro  */
+
+        /* Main */
+            .main__cadastro-login
+            {
+                width: 400px;
+            }
+
+            .main__form-login,
+            .main__form-cadastro
+            {
+                width: 350px;
+            }
+
 }

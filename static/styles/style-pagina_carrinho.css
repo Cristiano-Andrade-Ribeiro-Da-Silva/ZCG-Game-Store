@@ -150,20 +150,40 @@ a
     border-radius: 10px;
 }
 
-.main__produtos-container input,
-.main__produtos-container button
+.main__produtos-nome-button-compraIn,
+.main__produtos-nome-button-exclui
 {
-    width: 40px;
+    width: 80px;
     height: 40px;
+
+    text-align: center;
+    padding-top: 5px;
 
     border: 1px solid var(--cinza_claro);
     border-radius: 5px;
 }
 
-.main__produtos-container button
+.main__produtos-nome-button-compraIn
 {
-    width: 80px;
-    height: 40px;
+    width: 140px;
+    color: var(--branco);
+    background-color: transparent;
+    border: 1px solid var(--verde_claro);
+
+    transition: 0.5s;
+}
+
+.main__produtos-nome-button-compraIn:hover
+{
+    color: var(--preto);
+    background-color: var(--verde_claro);
+    border: 1px solid var(--branco);
+
+    scale: 1.1;
+}
+
+.main__produtos-nome-button-exclui
+{
     color: var(--branco);
     background-color: transparent;
     border: 1px solid var(--vermelho);
@@ -171,7 +191,7 @@ a
     transition: 0.5s;
 }
 
-.main__produtos-container button:hover
+.main__produtos-nome-button-exclui:hover
 {
     color: var(--preto);
     background-color: var(--vermelho);

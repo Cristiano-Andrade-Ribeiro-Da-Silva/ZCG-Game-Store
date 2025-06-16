@@ -11,6 +11,8 @@ CREATE TABLE tb_usuario (
     num_telefone VARCHAR(12)
 );
 
+INSERT INTO tb_usuario(nome, email, senha, num_telefone) VALUES('a', 'oloko', '123', '123456789');
+
 CREATE TABLE tb_categoria (
     cod_categoria INT AUTO_INCREMENT PRIMARY KEY,
     categoria VARCHAR(30)
@@ -27,7 +29,8 @@ CREATE TABLE tb_jogo (
 CREATE TABLE tb_carrinho (
     cod_carrinho INT AUTO_INCREMENT PRIMARY KEY,
     codigo_produto int not null,
-    cod_jogo int
+    cod_jogo int,
+    cod_usuario int
 );
 
 CREATE TABLE foto_produtos (
@@ -43,10 +46,11 @@ CREATE TABLE tb_comentario (
     cod_jogo int
 );
 
-CREATE TABLE tb_hisorico(
+CREATE TABLE tb_historico(
 	cod_item_historico int auto_increment primary key,
 	nome_produto char(50) not null,
-    preco_porduto float
+    preco_porduto float,
+    cod_usuario int
 );
 
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('elden ring', 299.99, 'um mundo tomado pelo mal e vc é o unico que pode parar isso Setornando o Elden Ring', 1);
@@ -85,7 +89,7 @@ inner join tb_categoria on tb_jogo.cod_categoria = tb_categoria.cod_categoria
 inner join tb_carrinho on tb_jogo.cod_jogo = tb_carrinho.cod_jogo
 inner join tb_comentario on tb_jogo.cod_jogo = tb_comentario.cod_jogo;
 
-/* este comando não permite que o usuario adicione mais de 1 mesmo produto no carrinho
+/* este comando não permite que o usuario adicione mais de 1 produto no carrinho
 DELETE FROM tb_carrinho
 WHERE cod_carrinho IN (
     SELECT cod_carrinho FROM (
@@ -95,3 +99,13 @@ WHERE cod_carrinho IN (
         HAVING COUNT(*) > 1
     ) AS temp
 );*/
+
+/*exemplo de adicionar um item de outra tabela dentro de outra tabela
+INSERT INTO tb_historico (nome_produto, preco_porduto)
+SELECT nome_jogo, preco
+FROM tb_jogo
+WHERE cod_jogo = 5;
+*/
+
+
+select * from tb_historico;

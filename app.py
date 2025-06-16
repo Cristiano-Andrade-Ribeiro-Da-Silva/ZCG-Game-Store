@@ -205,6 +205,23 @@ def pagina_comprar_produto(codigo):
     mensagens = Mensagem.mostra_mensagens(codigo) or []
     return render_template("Pagina_comprar-produto.html", produto=produto_jogo, mensagens=mensagens)
 
+@app.route("/comprar/individual/<codigo>")
+def comprar_individual(codigo):
+    if "cod_usuario" not in session:
+        flash("Você precisa estar logado para comprar.", "warning")
+        return redirect("/login")
+
+    cod_usuario = session["cod_usuario"]
+
+    try:
+        ct.compra_individual(codigo, cod_usuario)
+        flash("Compra realizada com sucesso!", "success")
+    except Exception as e:
+        print(f"Erro na compra individual: {e}")
+        flash("Erro ao realizar a compra.", "error")
+
+    return redirect("/carrinho")
+
 
 @app.route("/post/comentario", methods=["POST"])
 def postar_comentario():
@@ -249,38 +266,15 @@ def pagina_apresentacao():
 
 @app.route("/perfil-usuario")
 def pagina_perfil_usuario():
-    
-    historico = session.get("historico", [])
+    if "cod_usuario" not in session:
+        flash("Faça login para acessar o perfil.", "warning")
+        return redirect("/login")
+
+    cod_usuario = session["cod_usuario"]
+    historico = ct.resgata_historico(cod_usuario)
+
     return render_template("Pagina_perfil-usuario.html", historico=historico)
 
-#compra individua
-
-@app.route("/comprar/individual/<codigo>")
-def comprar_individual(codigo):
-    produto = ct.compra_individual(codigo)
-
-    if not produto:
-        flash("Produto não encontrado.")
-        return redirect("/")
-
-    # Pega histórico da sessão ou cria novo
-    historico = session.get("historico", [])
-
-    # Adiciona o produto
-    historico.append(produto)
-
-    # Atualiza a sessão
-    session["historico"] = historico
-
-    return redirect("/carrinho")
-
-
-@app.route("/comprar/tudo")
-def comprar_tudo():
-    
-    ct.comprar_tudo()
-
-    return redirect("/carrinho")
 
 
 # === EXECUÇÃO DO APP ===
@@ -288,3 +282,4 @@ def comprar_tudo():
 if __name__ == "__main__":
     app.run(debug=True)
     # app.run(host="0.0.0.0", port=8080)
+    # oloko mano

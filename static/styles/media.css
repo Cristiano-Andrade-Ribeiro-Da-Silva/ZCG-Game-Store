@@ -290,7 +290,15 @@
 
                 gap: 20px;
             }
-   
+
+    /* Pagina do perfil */
+
+        /* Main */
+
+            .main__historico-container-item li
+            {
+                width: 260px;
+            }
 }
 
 

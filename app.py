@@ -79,10 +79,10 @@ def pagina_login_usuario():
 
     if control_usuario.Usuario.controle_login_usuario(email, senha):
         flash('Entrou com êxito', 'success')
-        return redirect("/login")
+        return redirect("/")
     else:
         flash('Email ou senha inválidos', 'error')
-        return redirect("/")
+        return redirect("/login")
 
 
 @app.route("/cadastro")

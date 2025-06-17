@@ -82,7 +82,7 @@ def pagina_login_usuario():
         return redirect("/")
     else:
         flash('Email ou senha inválidos', 'error')
-        return redirect("/")
+        return redirect("/login")
 
 
 @app.route("/cadastro")

@@ -24,15 +24,16 @@
 
 
         <!-- CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_logar.css') }}">
-        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
-        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
-        <link rel="stylesheet" href="{{url_for('static', filename='styles/media.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/Apresentacao.css') }}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/Cores.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/Fonts.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/Media.css')}}">
 
 </head>
 <body>
    
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+
 
     <div class="container-fluid">
 
@@ -57,6 +58,7 @@
             <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
 
+
         <a href="/carrinho"><i class="bi bi-cart-plus"></i></a>
 
 
@@ -76,25 +78,77 @@
 
 <main class="main">
 
-    <section class="main__cadastro-login">
+    <h1>Nossos desenvolvedores:</h1>
+
+    <section class="main__apresentacao">
+
+        <form class="main__apresentacao-devs">
+
+            <div class="main__apresentacao-devs-container">
+
+                <img src="https://cdn.discordapp.com/attachments/887827313750851616/1384308490977149109/image.png?ex=68529dff&is=68514c7f&hm=bcda8df1ef7bf2e6c98fe38f3249d491630caaa931912e6931bcbe58ca1ce383&" alt="">
+
+                <div>
+                    
+                    <span>Adrian</span>
+
+                    <p>O cara das listas...</p>
+
+                </div>
+
+            </div>
+
+            <div class="main__apresentacao-devs-container">
+
+                <img src="https://cdn.discordapp.com/attachments/887827313750851616/1384308598057861220/image.png?ex=68529e18&is=68514c98&hm=023c87ad576eb1dbb151e70d8bbfccd27d5d2f954f5e14d3d80f8c474036678e&" alt="">
+
+                <div>
+                    
+                    <span>Cristiano</span>
+
+                    <p>O cara do HTML e CSS...</p>
+
+                </div>
+
+            </div>
+
+            <div class="main__apresentacao-devs-container">
+
+                <img src="https://cdn.discordapp.com/attachments/1203830954515501107/1384496749023858860/IMG_20250617_083435.jpg?ex=6852a493&is=68515313&hm=92bfc10c9d0593466e6389b85d9d53360d1dfce1ca0de95217af2f928e3d7ee4&" alt="">
+
+                <div>
+                    
+                    <span>Victor</span>
+
+                    <p>O cara do Back-End...</p>
+
+                </div>
+
+            </div>
+
+        </form>
 
 
-        <div class="main__cadastro-login-container">
+        <form class="main__apresentacao-discurso">
 
-            <h1>Seja bem-vindo(a) de volta!</h1>
+            <h2>Quem somos nós ?</h2>
 
-        </div>
+            <div class="main__apresentacao-discurso-container">
 
-        <!-- FORM LOGIN -->
-        <form id="form-login" class="main__form-login" action="/post/login" method="POST" class="form">
+                <p>Nós somos os desenvolvedores deste site de vendas de jogos.
 
-            <input name="email" type="email" placeholder="Email" class="form__input" required>
-            <input name="senha" type="password" placeholder="Senha" class="form__input" required>
+                    Percebemos que os preços dos jogos no mercado estão altos demais, então pensamos: por que não criar nosso próprio site, sempre pensando no bolso do cliente?<br><br>
+                    
+                    Aqui estamos para salvar você!<br><br>
+                    
+                    Você, mero CLT que trabalha 12 horas por dia para ganhar um salário mínimo, mas sonha em lotar sua biblioteca com os jogos da atualidade. <br><br>
+                    
+                    Estamos à sua disposição! <br><br>
+                    
+                    Se tiver qualquer dúvida ou reclamação, entre em contato com nossa equipe pelo e-mail: zcggames@gmail.com</p>
 
-            <button type="submit" class="button-entrar">Entrar</button>
+            </div>
 
-            <a href="/cadastro">Não tem uma conta? Clique aqui!</a>
-            
         </form>
 
     </section>

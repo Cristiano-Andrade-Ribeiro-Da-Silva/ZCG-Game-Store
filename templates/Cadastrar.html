@@ -24,10 +24,10 @@
 
 
         <!-- CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_apresentacao.css') }}">
-        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
-        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
-        <link rel="stylesheet" href="{{url_for('static', filename='styles/media.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/Cadastrar.css') }}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/Cores.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/Fonts.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/Media.css')}}">
 
 </head>
 <body>
@@ -57,8 +57,7 @@
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" />
             <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
-
-
+        
         <a href="/carrinho"><i class="bi bi-cart-plus"></i></a>
 
 
@@ -74,82 +73,40 @@
 
     </div>
 
+
+
+
 </nav>
 
 <main class="main">
 
-    <h1>Nossos desenvolvedores:</h1>
 
-    <section class="main__apresentacao">
+    <section class="main__cadastro-login">
 
-        <form class="main__apresentacao-devs">
 
-            <div class="main__apresentacao-devs-container">
+        <div class="main__cadastro-login-container">
 
-                <img src="https://cdn.discordapp.com/attachments/887827313750851616/1384308490977149109/image.png?ex=68529dff&is=68514c7f&hm=bcda8df1ef7bf2e6c98fe38f3249d491630caaa931912e6931bcbe58ca1ce383&" alt="">
+            <h3>Seja bem-vindo(a) à ZCG game-store!</h3>
 
-                <div>
-                    
-                    <span>Adrian</span>
+        </div>
 
-                    <p>O cara das listas...</p>
 
-                </div>
+        <!-- FORM CADASTRO -->
+        <form id="form-cadastro" class="main__form-cadastro" action="/post/cadastro" method="POST" class="form">
 
-            </div>
 
-            <div class="main__apresentacao-devs-container">
+            <input name="nome" type="text" placeholder="Nome" class="form__input" required>
+            <input name="email" type="email" placeholder="Email" class="form__input" required>
+            <input name="senha" type="password" placeholder="Senha" class="form__input" required>
+            <input name="telefone" type="tel" placeholder="Telefone" class="form__input">
 
-                <img src="https://cdn.discordapp.com/attachments/887827313750851616/1384308598057861220/image.png?ex=68529e18&is=68514c98&hm=023c87ad576eb1dbb151e70d8bbfccd27d5d2f954f5e14d3d80f8c474036678e&" alt="">
 
-                <div>
-                    
-                    <span>Cristiano</span>
+            <button type="submit" class="button-entrar">Cadastrar</button>
 
-                    <p>O cara do HTML e CSS...</p>
-
-                </div>
-
-            </div>
-
-            <div class="main__apresentacao-devs-container">
-
-                <img src="https://cdn.discordapp.com/attachments/1203830954515501107/1384496749023858860/IMG_20250617_083435.jpg?ex=6852a493&is=68515313&hm=92bfc10c9d0593466e6389b85d9d53360d1dfce1ca0de95217af2f928e3d7ee4&" alt="">
-
-                <div>
-                    
-                    <span>Victor</span>
-
-                    <p>O cara do Back-End...</p>
-
-                </div>
-
-            </div>
+            <a href="/login">Já tem uma conta? Clique aqui!</a>
 
         </form>
 
-
-        <form class="main__apresentacao-discurso">
-
-            <h2>Quem somos nós ?</h2>
-
-            <div class="main__apresentacao-discurso-container">
-
-                <p>Nós somos os desenvolvedores deste site de vendas de jogos.
-
-                    Percebemos que os preços dos jogos no mercado estão altos demais, então pensamos: por que não criar nosso próprio site, sempre pensando no bolso do cliente?<br><br>
-                    
-                    Aqui estamos para salvar você!<br><br>
-                    
-                    Você, mero CLT que trabalha 12 horas por dia para ganhar um salário mínimo, mas sonha em lotar sua biblioteca com os jogos da atualidade. <br><br>
-                    
-                    Estamos à sua disposição! <br><br>
-                    
-                    Se tiver qualquer dúvida ou reclamação, entre em contato com nossa equipe pelo e-mail: zcggames@gmail.com</p>
-
-            </div>
-
-        </form>
 
     </section>
    
@@ -173,6 +130,7 @@
 
 
 </footer>
+
 
 </body>
 </html>

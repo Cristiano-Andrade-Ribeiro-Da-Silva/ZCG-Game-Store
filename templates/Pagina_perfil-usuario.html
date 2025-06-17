@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_perfil_usuario.css') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='styles/media.css')}}">
 
 
 </head>
@@ -98,25 +97,19 @@
         </section>
 
         <section class="main__historico">
-
+        
             <span>Histórico de compras</span>
-
+        
             <nav class="main__historico-container">
-                <ul class="row row-cols-1 row-cols-md-3 g-4">
+                <ul class="main__historico-container-item">
                     {% for item in historico %}
                     <li class="col">
-                        <div class="card h-100 text-center">
-                            <img src="{{ url_for('static', filename='img/' + item.caminho_img) }}" class="card-img-top"
-                                alt="{{ item.nome_produto }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ item.nome_produto }}</h5>
-                            </div>
-                        </div>
+                        <p class="card-title">Produto comprado: {{ item.nome_produto }}</p>
                     </li>
                     {% endfor %}
                 </ul>
             </nav>
-
+        
         </section>
 
 

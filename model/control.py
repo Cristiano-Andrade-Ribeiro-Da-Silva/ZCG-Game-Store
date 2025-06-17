@@ -191,7 +191,7 @@ def compra_individual(codigo, cod_usuario):
     cursor = conexao.cursor()
 
     sql = """
-        INSERT INTO tb_historico (nome_produto, preco_porduto, cod_usuario)
+        INSERT INTO tb_historico (nome_produto, preco_produto, cod_usuario)
         SELECT nome_jogo, preco, %s
         FROM tb_jogo
         WHERE cod_jogo = %s;
@@ -225,12 +225,12 @@ def resgata_historico(cod_usuario):
 
     return infos
 
-def comprar_tudo():
+def comprar_tudo(cod_usuario):
 
         conexao = CX.Conexao.conexao()
         cursor = conexao.cursor()
 
-        sql = """INSERT INTO tb_historico (nome_produto, preco_porduto, cod_usuario)
+        sql = """INSERT INTO tb_historico (nome_produto, preco_produto, cod_usuario)
                 SELECT j.nome_jogo, j.preco, c.cod_usuario
                 FROM tb_carrinho c
                 INNER JOIN tb_jogo j ON c.cod_jogo = j.cod_jogo;"""

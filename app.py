@@ -222,6 +222,23 @@ def comprar_individual(codigo):
 
     return redirect("/carrinho")
 
+@app.route("/comprar-tudo", methods=["POST"])
+def comprar_tudo():
+    if "cod_usuario" not in session:
+        flash("Você precisa estar logado para comprar.", "warning")
+        return redirect("/login")
+    
+
+    cod_usuario = session["cod_usuario"]
+
+    try:
+        ct.comprar_tudo(cod_usuario)
+        flash("Compra realizada com sucesso!", "success")
+    except Exception as e:
+        print(f"Erro na compra individual: {e}")
+        flash("Erro ao realizar a compra.", "error")
+
+    return redirect("/carrinho")
 
 @app.route("/post/comentario", methods=["POST"])
 def postar_comentario():

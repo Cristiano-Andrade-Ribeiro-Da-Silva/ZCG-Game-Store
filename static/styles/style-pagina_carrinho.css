@@ -76,7 +76,8 @@ a
 .main
 {
     width: 90%;
-    height: 100vh;
+    height: 100%;
+    min-height: 150vh;
 
     display: flex;
     flex-direction: column;
@@ -132,7 +133,7 @@ a
     border-radius: 10px 0 0 10px;
 }
 
-.main__produtos-container li,
+.main__produtos-nome li,
 .main__produtos-imagem li
 {
     width: 600px;
@@ -148,6 +149,11 @@ a
 
     border: 1px solid var(--branco);
     border-radius: 10px;
+}
+
+.main__produtos-nome li
+{
+    width: 450px;
 }
 
 .main__produtos-nome-button-compraIn,

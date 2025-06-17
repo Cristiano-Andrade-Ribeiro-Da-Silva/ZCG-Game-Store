@@ -9,8 +9,6 @@ CREATE TABLE tb_usuario (
     num_telefone VARCHAR(12)
 );
 
-INSERT INTO tb_usuario(nome, email, senha, num_telefone) VALUES('a', 'oloko', '123', '123456789');
-
 CREATE TABLE tb_categoria (
     cod_categoria INT AUTO_INCREMENT PRIMARY KEY,
     categoria VARCHAR(30)

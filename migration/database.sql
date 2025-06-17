@@ -72,7 +72,7 @@ insert into foto_produtos(url, cod_jogos) values('../static/img/rogue.jpg', 7);
 insert into foto_produtos(url, cod_jogos) values('../static/img/bloodborne.jpg', 8);
 insert into foto_produtos(url, cod_jogos) values('../static/img/forza5.jpg', 9);
 insert into foto_produtos(url, cod_jogos) values('../static/img/need_for_speed.jpg', 10);
-#insert into foto_produtos(url, cod_jogos) values('../static/img/Dragon-Ball-Sparking-Zero.jpg', 11);
+#insert into foto_produtos(url, cod_jogos) values('../static/img/dbz-sparking2.jpg', 11);
 
 insert into tb_categoria(categoria) values('RGP e AÇÃO');
 insert into tb_categoria(categoria) values('FPS');

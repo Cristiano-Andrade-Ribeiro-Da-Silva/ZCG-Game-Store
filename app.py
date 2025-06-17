@@ -194,6 +194,7 @@ def excluir_produto(codigo):
 @app.route("/comprar-produto/<codigo>")
 def pagina_comprar_produto(codigo):
     produto_data = ct.comprar_produto(codigo)
+    pega_video = ct.resgata_veido_produto(codigo)
 
     if not produto_data:
         flash("Produto não encontrado", "error")
@@ -201,7 +202,7 @@ def pagina_comprar_produto(codigo):
 
     produto_jogo = SimpleNamespace(**produto_data)
     mensagens = Mensagem.mostra_mensagens(codigo) or []
-    return render_template("Comprar_produtos.html", produto=produto_jogo, mensagens=mensagens)
+    return render_template("Comprar_produtos.html", produto=produto_jogo, mensagens=mensagens, video = pega_video)
 
 @app.route("/comprar/individual/<codigo>")
 def comprar_individual(codigo):

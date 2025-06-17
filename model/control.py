@@ -243,3 +243,19 @@ def comprar_tudo(cod_usuario):
         conexao.commit()
         cursor.close()
         conexao.close()
+
+def resgata_veido_produto(codigo):
+    conexao = CX.Conexao.conexao()
+    cursor = conexao.cursor(dictionary=True)
+
+    valor = (codigo,)
+
+    sql = "select * from tb_jogo inner join tb_video_produto ON tb_jogo.cod_jogo = tb_video_produto.cod_jogo WHERE tb_jogo.cod_jogo = %s;"
+    cursor.execute(sql, valor)
+
+    infos = cursor.fetchone()
+
+    cursor.close()
+    conexao.close()
+
+    return infos

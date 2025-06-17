@@ -19,7 +19,8 @@ CREATE TABLE tb_jogo (
     nome_jogo VARCHAR(50) NOT NULL,
     preco FLOAT NOT NULL,
     descricao_jogo VARCHAR(255),
-    cod_categoria int
+    cod_categoria int,
+    cod_video int
 );
 
 CREATE TABLE tb_carrinho (
@@ -85,17 +86,17 @@ insert into tb_categoria(categoria) values('FPS');
 insert into tb_categoria(categoria) values('AÇÃO e AVENTURA');
 insert into tb_categoria(categoria) values('CORRIDAS');
 
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=AKXiKBnzpBQ", 1);
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=o1780AqAa20", 2);
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=LNWfMZk71bw", 3);
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=_zDZYrIUgKE", 4);
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=VQRLujxTm3c", 5);
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=mRLjrtX6Jes", 6);
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=xtIEo2CbaI0", 7);
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=fDELdR97OkU", 8);
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=FYH9n37B7Yw", 9);
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=D6ouHWP0KrY", 10);
-insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/watch?v=VEtqxe2ee90", 11);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/AKXiKBnzpBQ", 1);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/o1780AqAa20", 2);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/LNWfMZk71bw", 3);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/_zDZYrIUgKE", 4);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/VQRLujxTm3c", 5);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/mRLjrtX6Jes", 6);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/xtIEo2CbaI0", 7);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/fDELdR97OkU", 8);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/FYH9n37B7Yw", 9);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/D6ouHWP0KrY", 10);
+insert into tb_video_produto(url_video, cod_jogo) values("https://www.youtube.com/embed/VEtqxe2ee90", 11);
 
 select * from tb_jogo inner join foto_produtos ON tb_jogo.cod_jogo = foto_produtos.cod_jogos inner join tb_categoria ON tb_jogo.cod_jogo = tb_categoria.cod_categoria;
 
@@ -130,5 +131,7 @@ WHERE cod_jogo = 5;
 */
 
 select * from tb_jogo inner join tb_video_produto ON tb_jogo.cod_jogo = tb_video_produto.cod_jogo;
+
+SELECT * FROM tb_jogo INNER JOIN tb_video_produto ON tb_jogo.cod_jogo = tb_video_produto.cod_jogo WHERE tb_jogo.cod_jogo = 5;
 
 ALTER TABLE tb_historico ADD COLUMN cod_jogo INT;

@@ -212,7 +212,7 @@ def resgata_historico(cod_usuario):
     cursor = conexao.cursor(dictionary=True)
 
     sql = """
-        SELECT nome_produto, preco_porduto, data_compra
+        SELECT nome_produto, preco_produto, data_compra
         FROM tb_historico
         WHERE cod_usuario = %s
         ORDER BY data_compra DESC;

@@ -47,8 +47,9 @@ CREATE TABLE tb_comentario (
 CREATE TABLE tb_historico(
 	cod_item_historico int auto_increment primary key,
 	nome_produto char(50) not null,
-    preco_porduto float,
-    cod_usuario int
+    preco_produto float,
+    cod_usuario int,
+    data_compra DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Elden Ring', 299.99, 'um mundo tomado pelo mal e vc é o unico que pode parar isso se tornando o Elden Ring', 1);
@@ -104,3 +105,5 @@ SELECT nome_jogo, preco
 FROM tb_jogo
 WHERE cod_jogo = 5;
 */
+
+ALTER TABLE tb_historico ADD COLUMN cod_jogo INT;

@@ -64,12 +64,12 @@ def pagina_inicial():
     produto = ct.pega_jogos()
     jogos_em_destaque = ct.pega_jogos_destaque()
     jogos_em_destaque2 = ct.pega_jogos_destaque2()
-    return render_template("Pagina_inicial.html", produto=produto, jogos_em_destaque=jogos_em_destaque, jogos_em_destaque2=jogos_em_destaque2)
+    return render_template("Inicial.html", produto=produto, jogos_em_destaque=jogos_em_destaque, jogos_em_destaque2=jogos_em_destaque2)
 
 
 @app.route("/login")
 def pagina_login():
-    return render_template("Pagina_logar.html")
+    return render_template("Logar.html")
 
 
 @app.route("/post/login", methods=["POST"])
@@ -87,7 +87,7 @@ def pagina_login_usuario():
 
 @app.route("/cadastro")
 def pagina_cadastro():
-    return render_template("Pagina_cadastrar.html")
+    return render_template("Cadastrar.html")
 
 
 @app.route("/post/cadastro", methods=["POST"])
@@ -120,7 +120,7 @@ def pagina_logout():
 def buscar_jogos():
     termo = request.args.get('q', '')
     resultados = ct.busca_jogos_por_nome(termo)
-    return render_template('Pagina_busca.html', jogos=resultados, termo=termo)
+    return render_template('Busca.html', jogos=resultados, termo=termo)
 
 
 # === CARRINHO ===
@@ -151,7 +151,7 @@ def exibir_carrinho():
         return redirect("/")
 
     total = sum([item['preco'] for item in produtos])
-    return render_template("Pagina_carrinho.html", carrinho=produtos, total=total)
+    return render_template("Carrinho.html", carrinho=produtos, total=total)
 
 
 @app.route("/atualizar_carrinho", methods=["POST"])
@@ -203,7 +203,7 @@ def pagina_comprar_produto(codigo):
 
     produto_jogo = SimpleNamespace(**produto_data)
     mensagens = Mensagem.mostra_mensagens(codigo) or []
-    return render_template("Pagina_comprar-produto.html", produto=produto_jogo, mensagens=mensagens)
+    return render_template("Comprar_produtos.html", produto=produto_jogo, mensagens=mensagens)
 
 @app.route("/comprar/individual/<codigo>")
 def comprar_individual(codigo):
@@ -264,21 +264,21 @@ def postar_comentario():
 @app.route("/categoria-jogos")
 def pagina_categoria():
     categorias = control_categoria_jg.listar_categorias()
-    return render_template("Pagina_categoria-jogos.html", categorias=categorias, jogos=[])
+    return render_template("Categoria_jogos.html", categorias=categorias, jogos=[])
 
 
 @app.route("/categoria/<int:cod_categoria>")
 def jogos_por_categoria(cod_categoria):
     jogos = control_categoria_jg.pega_jogos_por_categoria(cod_categoria)
     categorias = control_categoria_jg.listar_categorias()
-    return render_template("Pagina_categoria-jogos.html", jogos=jogos, categorias=categorias)
+    return render_template("Categoria_jogos.html", jogos=jogos, categorias=categorias)
 
 
 # === OUTRAS PÁGINAS ===
 
 @app.route("/apresentacao")
 def pagina_apresentacao():
-    return render_template("Pagina_apresentacao.html")
+    return render_template("Apresentacao.html")
 
 
 @app.route("/perfil-usuario")
@@ -290,7 +290,7 @@ def pagina_perfil_usuario():
     cod_usuario = session["cod_usuario"]
     historico = ct.resgata_historico(cod_usuario)
 
-    return render_template("Pagina_perfil-usuario.html", historico=historico)
+    return render_template("Perfil_usuario.html", historico=historico)
 
 # === EXECUÇÃO DO APP ===
 

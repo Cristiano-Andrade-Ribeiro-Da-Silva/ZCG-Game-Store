@@ -24,16 +24,15 @@
 
 
         <!-- CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style-pagina_cadastrar.css') }}">
-        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-cores_das_paginas.css')}}">
-        <link rel="stylesheet" href="{{url_for('static', filename='styles/style-fonts_das_paginas.css')}}">
-        <link rel="stylesheet" href="{{url_for('static', filename='styles/media.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/Logar.css') }}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/Cores.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/Fonts.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/Media.css')}}">
 
 </head>
 <body>
    
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-
 
     <div class="container-fluid">
 
@@ -57,7 +56,7 @@
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" />
             <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
-        
+
         <a href="/carrinho"><i class="bi bi-cart-plus"></i></a>
 
 
@@ -73,40 +72,30 @@
 
     </div>
 
-
-
-
 </nav>
 
 <main class="main">
-
 
     <section class="main__cadastro-login">
 
 
         <div class="main__cadastro-login-container">
 
-            <h3>Seja bem-vindo(a) à ZCG game-store!</h3>
+            <h1>Seja bem-vindo(a) de volta!</h1>
 
         </div>
 
+        <!-- FORM LOGIN -->
+        <form id="form-login" class="main__form-login" action="/post/login" method="POST" class="form">
 
-        <!-- FORM CADASTRO -->
-        <form id="form-cadastro" class="main__form-cadastro" action="/post/cadastro" method="POST" class="form">
-
-
-            <input name="nome" type="text" placeholder="Nome" class="form__input" required>
             <input name="email" type="email" placeholder="Email" class="form__input" required>
             <input name="senha" type="password" placeholder="Senha" class="form__input" required>
-            <input name="telefone" type="tel" placeholder="Telefone" class="form__input">
 
+            <button type="submit" class="button-entrar">Entrar</button>
 
-            <button type="submit" class="button-entrar">Cadastrar</button>
-
-            <a href="/login">Já tem uma conta? Clique aqui!</a>
-
+            <a href="/cadastro">Não tem uma conta? Clique aqui!</a>
+            
         </form>
-
 
     </section>
    
@@ -130,7 +119,6 @@
 
 
 </footer>
-
 
 </body>
 </html>

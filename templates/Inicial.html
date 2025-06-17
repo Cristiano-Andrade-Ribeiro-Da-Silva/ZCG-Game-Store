@@ -132,8 +132,6 @@
 
             <div class="main__games-jogos">
 
-                <div class="main__games-jogos-01">
-
                     {% for jogo in produto %}
 
                     <div class="card container-img-jogos" style="width: 18rem;">
@@ -157,96 +155,6 @@
                     </div>
 
                     {% endfor %}
-
-                </div>
-
-                <div class="main__games-jogos-02">
-
-                    {% for jogo in produto %}
-
-                    <div class="card container-img-jogos" style="width: 18rem;">
-
-                        <!-- A img abaixo é para uma foto de jogo -->
-                        <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="">
-
-                        <div class="card-body container-sobre-jogo">
-        
-                            <h2>{{jogo.nome_jogo}}</h2>
-                            <br>
-                            <p>R$: {{jogo.preco}}</p>
-                            <br>
-                            <p>Categoria: {{jogo.categoria}}</p>
-
-                            <!-- Aqui vai o link para ver o produto -->
-                            <a href="/comprar-produto/{{jogo.cod_jogo}}">Ver</a>
-
-                        </div>
-
-                    </div>
-
-                    {% endfor %}
-
-                </div>
-
-            </div>
-
-            <div class="main__games-jogos">
-
-                <div class="main__games-jogos-01">
-
-                    {% for jogo in produto %}
-
-                    <div class="card container-img-jogos" style="width: 18rem;">
-
-                        <!-- A img abaixo é para uma foto de jogo -->
-                        <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="">
-
-                        <div class="card-body container-sobre-jogo">
-        
-                            <h2>{{jogo.nome_jogo}}</h2>
-                            <br>
-                            <p>R$: {{jogo.preco}}</p>
-                            <br>
-                            <p>Categoria: {{jogo.categoria}}</p>
-
-                            <!-- Aqui vai o link para ver o produto -->
-                            <a href="/comprar-produto/{{jogo.cod_jogo}}">Ver</a>
-
-                        </div>
-
-                    </div>
-
-                    {% endfor %}
-
-                </div>
-
-                <div class="main__games-jogos-02">
-
-                    {% for jogo in produto %}
-
-                    <div class="card container-img-jogos" style="width: 18rem;">
-
-                        <!-- A img abaixo é para uma foto de jogo -->
-                        <img src="{{jogo.url}}" class="card-img-top img-jogo" alt="">
-
-                        <div class="card-body container-sobre-jogo">
-        
-                            <h2>{{jogo.nome_jogo}}</h2>
-                            <br>
-                            <p>R$: {{jogo.preco}}</p>
-                            <br>
-                            <p>Categoria: {{jogo.categoria}}</p>
-
-                            <!-- Aqui vai o link para ver o produto -->
-                            <a href="/comprar-produto/{{jogo.cod_jogo}}">Ver</a>
-
-                        </div>
-
-                    </div>
-
-                    {% endfor %}
-
-                </div>
 
             </div>
 

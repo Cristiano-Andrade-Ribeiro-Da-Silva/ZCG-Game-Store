@@ -82,7 +82,7 @@ def pagina_login_usuario():
         return redirect("/login")
     else:
         flash('Email ou senha inválidos', 'error')
-        return redirect("/login")
+        return redirect("/")
 
 
 @app.route("/cadastro")
@@ -101,7 +101,7 @@ def pagina_cadas():
 
     if sucesso:
         session['usuario_email'] = email
-        return redirect("/")
+        return redirect("/login")
     else:
         flash('Algum campo incorreto! Por favor, preencha novamente.', 'error')
         return redirect("/cadastro")

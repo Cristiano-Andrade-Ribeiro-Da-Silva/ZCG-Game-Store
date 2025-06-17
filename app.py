@@ -171,11 +171,9 @@ def atualizar_carrinho():
     return redirect("/carrinho")
 
 
-@app.route("/limpar_carrinho")
-def limpar_carrinho():
-    session.pop('carrinho', None)
-    flash("Carrinho limpo com sucesso!", "success")
-    return redirect("/carrinho")
+@app.route("/cancelar-compra")
+def cancelar_compra():
+    return redirect("/")
 
 
 @app.route("/excluir/<codigo>")

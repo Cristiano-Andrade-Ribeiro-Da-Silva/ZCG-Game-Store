@@ -60,7 +60,7 @@ insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Ass
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Bloodborne', 299.99, 'um caçador chega a Yharnam, enfrenta monstros e deuses para escapar de um pesadelo', 1);
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Forza Horizon 5', 299.99, 'explore um mundo gigante participando de corrigas com super carros tunados até o maximo', 4);
 insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Need for speed', 299.99, 'participe de corridas ilegais nas ruas da cidade sendo seguido pela policia mais treinada do pais', 4);
-#insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Dragon Ball: Sparking! Zero', 299.99, 'Dragon Ball: Sparking! Zero, é o quarto jogo da série Budokai Tenkaichi 4', 3);
+insert into tb_jogo(nome_jogo, preco, descricao_jogo, cod_categoria) values('Dragon Ball: Sparking! Zero', 299.99, 'Dragon Ball: Sparking! Zero, é o quarto jogo da série Budokai Tenkaichi 4', 3);
 
 insert into foto_produtos(url, cod_jogos) values('../static/img/eldenring.png', 1);
 insert into foto_produtos(url, cod_jogos) values('../static/img/dark souls.jpg', 2);
@@ -72,7 +72,7 @@ insert into foto_produtos(url, cod_jogos) values('../static/img/rogue.jpg', 7);
 insert into foto_produtos(url, cod_jogos) values('../static/img/bloodborne.jpg', 8);
 insert into foto_produtos(url, cod_jogos) values('../static/img/forza5.jpg', 9);
 insert into foto_produtos(url, cod_jogos) values('../static/img/need_for_speed.jpg', 10);
-#insert into foto_produtos(url, cod_jogos) values('../static/img/dbz-sparking2.jpg', 11);
+insert into foto_produtos(url, cod_jogos) values('../static/img/dbz-sparking2.jpg', 11);
 
 insert into tb_categoria(categoria) values('RGP e AÇÃO');
 insert into tb_categoria(categoria) values('FPS');

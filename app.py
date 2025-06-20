@@ -8,10 +8,19 @@ from types import SimpleNamespace
 # import qrcode
 from io import BytesIO
 import base64
+import os
+from werkzeug.utils import secure_filename
 
 # === APP SETUP ===
 app = Flask(__name__)
 app.secret_key = "zcgamestore"  # CORRIGIDO: era Flask.secret_key, o correto é app.secret_key
+
+
+# Diretório onde as fotos de perfil serão salvas
+UPLOAD_FOLDER = os.path.join("static", "uploads", "perfis")
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # === ROTAS COMENTADAS (Pagamento) ===
 # stripe.api_key = "sk_test_51RZxmcQVQ7xKDVyzobtUiCoBHsvMOJbxNAJAjhtVd5VzDVPQVZBHAmevSjvlZ7SLoAem43PV2ZR2GOO8UbA5ixKQ00c1x0Y7wS"
@@ -241,13 +250,17 @@ def comprar_tudo():
 
 @app.route("/post/comentario", methods=["POST"])
 def postar_comentario():
-    nome_usuario = session.get("usuario_email", "Anônimo")
-    comentario = request.form.get("mensagem")
     cod_jogo = request.form.get("cod_jogo")
+    comentario = request.form.get("mensagem")
+
+    if "cod_usuario" in session:
+        cod_usuario = session["cod_usuario"]
+    else:
+        cod_usuario = None  # anônimo
 
     if comentario and cod_jogo:
         try:
-            Mensagem.cadastrar_mensagem(nome_usuario, comentario, cod_jogo)
+            Mensagem.cadastrar_mensagem(cod_usuario, comentario, cod_jogo)
             flash("Comentário publicado com sucesso!", "success")
         except Exception as e:
             print(f"[ERRO] Falha ao salvar comentário: {e}")
@@ -256,6 +269,7 @@ def postar_comentario():
         flash("Comentário vazio ou jogo inválido!", "error")
 
     return redirect(f"/comprar-produto/{cod_jogo}")
+
 
 
 # === CATEGORIAS ===
@@ -289,7 +303,47 @@ def pagina_perfil_usuario():
     cod_usuario = session["cod_usuario"]
     historico = ct.resgata_historico(cod_usuario)
 
-    return render_template("Perfil_usuario.html", historico=historico)
+    # Pega os dados completos do usuário
+    usuario = control_usuario.Usuario.busca_usuario_por_id(cod_usuario)
+
+    return render_template("Perfil_usuario.html", historico=historico, usuario=usuario)
+
+
+
+# === USUÁRIO ===
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+@app.route("/upload_foto_perfil", methods=["POST"])
+def upload_foto_perfil():
+    if "cod_usuario" not in session:
+        flash("Você precisa estar logado para mudar a foto de perfil.", "warning")
+        return redirect("/login")
+
+    if 'foto' not in request.files:
+        flash("Nenhuma foto enviada.", "danger")
+        return redirect("/perfil-usuario")
+
+    file = request.files['foto']
+    if file.filename == '':
+        flash("Nenhum arquivo selecionado.", "danger")
+        return redirect("/perfil-usuario")
+
+    if file and allowed_file(file.filename):
+        cod_usuario = session["cod_usuario"]
+        filename = secure_filename(f"user_{cod_usuario}.{file.filename.rsplit('.', 1)[1]}")
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+
+        os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)  # Garante que a pasta exista
+        file.save(filepath)
+
+        # Aqui você pode atualizar no banco de dados o caminho da imagem, se desejar
+        control_usuario.Usuario.atualizar_foto_perfil(cod_usuario, filename)
+
+        flash("Foto de perfil atualizada!", "success")
+        return redirect("/perfil-usuario")
+
+    flash("Arquivo inválido. Envie uma imagem PNG, JPG, JPEG ou GIF.", "danger")
+    return redirect("/perfil-usuario")
 
 # === EXECUÇÃO DO APP ===
 

@@ -68,7 +68,31 @@ class Usuario:
             return True
         else:
             return False
-        
+    
+
+    @staticmethod
+    def busca_usuario_por_id(cod_usuario):
+        conexao = CX.Conexao.conexao()
+        cursor = conexao.cursor(dictionary=True)
+
+        sql = "SELECT cod_usuario, nome, email, foto_perfil FROM tb_usuario WHERE cod_usuario = %s"
+        cursor.execute(sql, (cod_usuario,))
+        usuario = cursor.fetchone()
+
+        cursor.close()
+        conexao.close()
+        return usuario
+
+    @staticmethod
+    def atualizar_foto_perfil(cod_usuario, nome_arquivo):
+        conexao = CX.Conexao.conexao()
+        cursor = conexao.cursor()
+        sql = "UPDATE tb_usuario SET foto_perfil = %s WHERE cod_usuario = %s"
+        cursor.execute(sql, (nome_arquivo, cod_usuario))
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
 
     def logoff():
         session.clear()

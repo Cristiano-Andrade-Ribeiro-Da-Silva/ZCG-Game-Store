@@ -5,51 +5,48 @@ class Mensagem:
 
     @staticmethod
 
-    def cadastrar_mensagem(usuario, comentarios, cod_jogo):
+    def cadastrar_mensagem(cod_usuario, comentario, cod_jogo):
         try:
             conexao = CX.Conexao.conexao()
-
             cursor = conexao.cursor()
-
-            sql = """INSERT INTO tb_comentario (nome, comentario, cod_jogo) VALUES (%s, %s, %s)""" 
-            
-            valores = (usuario, comentarios, cod_jogo)
-            cursor.execute(sql, valores)
-
+            sql = """
+                INSERT INTO tb_comentario (cod_usuario, comentario, cod_jogo)
+                VALUES (%s, %s, %s)
+            """
+            cursor.execute(sql, (cod_usuario, comentario, cod_jogo))
             conexao.commit()
-
         except Exception as e:
-
             print("Erro ao inserir no banco:", e)
-
         finally:
-
             cursor.close()
-
             conexao.close()
+
 
 
 
     @staticmethod
 
     def mostra_mensagens(cod_jogo):
-
         conexao = CX.Conexao.conexao()
-
         cursor = conexao.cursor(dictionary=True)
 
-        
-        sql = """SELECT nome as usuario, comentario FROM tb_comentario WHERE cod_jogo = %s ORDER BY cod_comentario DESC"""
-        
-        cursor.execute(sql, (cod_jogo,))
-        
-        resultado = cursor.fetchall()
-        
-        cursor.close()
-        
-        conexao.close()
+        sql = """
+        SELECT 
+            c.comentario,
+            IFNULL(u.nome, 'Anônimo') AS nome,
+            IFNULL(u.foto_perfil, 'default.png') AS foto_perfil
+        FROM tb_comentario c
+        LEFT JOIN tb_usuario u ON c.cod_usuario = u.cod_usuario
+        WHERE c.cod_jogo = %s
+        ORDER BY c.cod_comentario DESC
+        """
 
+        cursor.execute(sql, (cod_jogo,))
+        resultado = cursor.fetchall()
+        cursor.close()
+        conexao.close()
         return resultado
+
 
 
 

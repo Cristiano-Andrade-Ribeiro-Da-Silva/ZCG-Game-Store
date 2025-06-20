@@ -30,6 +30,8 @@
     <!-- JS -->
     <link rel="stylesheet" href="{{url_for('static', filename='js/Validar_busca.js')}}">
 
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/Validar_busca.js') }}" defer></script>
 
 </head>
 
@@ -53,7 +55,7 @@
 
             <a class="navbar-brand" href="/">ZCG Game Store</a>
             <form class="d-flex" role="search" action="/buscar_jogos" method="GET" id="form-busca"  >
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" />
+                <input id="campo-busca" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" />
                 <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
             </form>
             <p id="mensagem-erro" class="text-danger mt-1" style="display: none;">Digite pelo menos 2 letras para buscar.</p>

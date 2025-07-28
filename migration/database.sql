@@ -135,3 +135,17 @@ select * from tb_jogo inner join tb_video_produto ON tb_jogo.cod_jogo = tb_video
 SELECT * FROM tb_jogo INNER JOIN tb_video_produto ON tb_jogo.cod_jogo = tb_video_produto.cod_jogo WHERE tb_jogo.cod_jogo = 5;
 
 ALTER TABLE tb_historico ADD COLUMN cod_jogo INT;
+
+
+DROP TABLE IF EXISTS tb_comentario;
+
+CREATE TABLE tb_comentario (
+    cod_comentario INT AUTO_INCREMENT PRIMARY KEY,
+    comentario TEXT NOT NULL,
+    cod_jogo INT NOT NULL,
+    cod_usuario INT NOT NULL,
+    data_comentario DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (cod_jogo) REFERENCES tb_jogo(cod_jogo),
+    FOREIGN KEY (cod_usuario) REFERENCES tb_usuario(cod_usuario)
+);

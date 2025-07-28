@@ -256,7 +256,7 @@ def postar_comentario():
     if "cod_usuario" in session:
         cod_usuario = session["cod_usuario"]
     else:
-        cod_usuario = None  # anônimo
+        return redirect("/login")
 
     if comentario and cod_jogo:
         try:
